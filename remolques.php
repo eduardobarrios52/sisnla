@@ -82,15 +82,8 @@ if ($_SESSION['access'] == true) {
         <!-- Wrap all page content here -->
         <div id="wrap">
 
-
-
-
             <!-- Make page fluid -->
             <div class="row">
-
-
-
-
 
                 <!-- Fixed navbar -->
                 <?php
@@ -117,18 +110,87 @@ if ($_SESSION['access'] == true) {
                                     <!-- /tile header -->
                                     <!-- tile body -->
                                     <div class="modal fade" id="agregartalla" tabindex="-1" role="dialog" aria-labelledby="modalConfirmLabel" aria-hidden="true" style="display: none;">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-                                                    <h1><strong>Agregar</strong> Remolque</h1>
+                                        <form id="agregar">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+                                                        <h1><strong>Agregar</strong> Remolque</h1>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Numero Economico</label>
+                                                            <input type="text" class="form-control" id="economico" name="economico">
+                                                        </div>
+                            
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-12 control-label">Tipo de Remolque</label>
+
+                                                            <div class="form-group">
+                                                                <label for="exampleInput"></label>
+                                                                <select id="SubTipoRem" name="SubTipoRem" class="form-control">
+                                                                    <?php
+                                                                        $consultarem = "SELECT * FROM remolqueconf ORDER BY idremolqueconf";
+
+                                                                        $resrem = $mysqli->query($consultarem);
+                                                                        $numrem = $resrem->num_rows;
+                                                                        if ($numrem >= 1) {
+
+                                                                            while ($rs = $resrem->fetch_assoc()) {
+                                                                    ?>
+                                                                    <option value = "<?php echo $rs['clave']?>"><?php echo $rs['descripcion']?></option>
+                                                                    <?php
+                                                                            }
+                                                                        }
+                                                                    ?>
+                                                                </select>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Placa</label>
+                                                            <input type="text" class="form-control" id="placa" name="placa">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Marca</label>
+                                                            <input type="text" class="form-control" id="marca" name="marca">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Modelo</label>
+                                                            <input type="text" class="form-control" id="modelo" name="modelo">
+                                                        </div>
+
+                                                        <div class="modal-footer">
+                                                            <button class="btn btn-red" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+                                                            <button id="btnagregarc" type="button" class="btn btn-greensea">Agregar</button>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="modal-body">
+                                            </div><!-- /.modal-content -->
+                                        </form>
+                                    </div><!-- /.modal-dialog -->
+                                </section>
+                            </div><!-- /.modal --> 
+
+                            <div class="modal fade" id="editartalla" tabindex="-1" role="dialog" aria-labelledby="modalConfirmLabel" aria-hidden="true" style="display: none;">
+                                <form id="editar">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+                                                <h1><strong>Editar</strong> Area</h1>
+                                            </div>
+                                            <div class="modal-body">
                                                     <div class="form-group">
-                                                        <label for="exampleInput">Economico</label>
+                                                        <label for="exampleInput">Numero Economico</label>
                                                         <input type="text" class="form-control" id="economico">
                                                     </div>
-                          
+                            
 
                                                     <div class="form-group">
                                                         <label class="col-sm-12 control-label">Tipo de Remolque</label>
@@ -136,7 +198,16 @@ if ($_SESSION['access'] == true) {
                                                         <div class="form-group">
                                                             <label for="exampleInput"></label>
                                                             <select id="SubTipoRem" class="form-control">
-                                                                <option value = ""></option>
+                                                                <?php
+                                                                    if ($numrem >= 1) {
+
+                                                                        while ($rs = $resrem->fetch_assoc()) {
+                                                                ?>
+                                                                <option value = "<?php echo $rs['clave']?>"><?php echo $rs['descripcion']?></option>
+                                                                <?php
+                                                                        }
+                                                                    }
+                                                                ?>
                                                             </select>
 
                                                         </div>
@@ -158,66 +229,14 @@ if ($_SESSION['access'] == true) {
                                                         <input type="text" class="form-control" id="modelo">
                                                     </div>
 
-                                                    <div class="modal-footer">
-                                                        <button class="btn btn-red" data-dismiss="modal" aria-hidden="true">Cancelar</button>
-                                                        <button id="btnagregarc" type="button" class="btn btn-greensea">Agregar</button>
-                                                    </div>
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-red" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+                                                    <button id="btneditartalla" type="button" class="btn btn-greensea">Agregar</button>
                                                 </div>
                                             </div>
                                         </div><!-- /.modal-content -->
                                     </div><!-- /.modal-dialog -->
-                                </section>
-                            </div><!-- /.modal --> 
-
-                            <div class="modal fade" id="editartalla" tabindex="-1" role="dialog" aria-labelledby="modalConfirmLabel" aria-hidden="true" style="display: none;">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-                                            <h1><strong>Editar</strong> Area</h1>
-                                        </div>
-                                        <div class="modal-body">
-                                                <div class="form-group">
-                                                    <label for="exampleInput">Economico</label>
-                                                    <input type="text" class="form-control" id="economico">
-                                                </div>
-                        
-
-                                                <div class="form-group">
-                                                    <label class="col-sm-12 control-label">Tipo de Remolque</label>
-
-                                                    <div class="form-group">
-                                                        <label for="exampleInput"></label>
-                                                        <select id="SubTipoRem" class="form-control">
-                                                            <option value = ""></option>
-                                                        </select>
-
-                                                    </div>
-
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="exampleInput">Placa</label>
-                                                    <input type="text" class="form-control" id="placa">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="exampleInput">Marca</label>
-                                                    <input type="text" class="form-control" id="marca">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="exampleInput">Modelo</label>
-                                                    <input type="text" class="form-control" id="modelo">
-                                                </div>
-
-                                            <div class="modal-footer">
-                                                <button class="btn btn-red" data-dismiss="modal" aria-hidden="true">Cancelar</button>
-                                                <button id="btneditartalla" type="button" class="btn btn-greensea">Agregar</button>
-                                            </div>
-                                        </div>
-                                    </div><!-- /.modal-content -->
-                                </div><!-- /.modal-dialog -->
+                                </form>
                             </div><!-- /.modal --> 
 
 
@@ -276,7 +295,7 @@ if ($_SESSION['access'] == true) {
                                             <thead>
                                                 <tr >
                                                    
-                                                    <th>Econiomico</th>
+                                                    <th>Numéro Económico</th>
                                                     <th>Tipo de Remolque</th>
                                                     <th>Tipo de Placa</th>
                                                     <th>Tipo de Marca</th>
@@ -288,9 +307,9 @@ if ($_SESSION['access'] == true) {
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                include 'conexion.php';
+                                                
 
-                                                $consulta = "SELECT * FROM area ORDER BY ACTIVO desc, nombre";
+                                                $consulta = "SELECT * FROM remolques ORDER BY idremolques";
 
                                                 //$resultadocolp = $mysqli->query($consulta3);
                                                 $res = $mysqli->query($consulta);
@@ -303,24 +322,24 @@ if ($_SESSION['access'] == true) {
                                                         <tr class="odd gradeX">
                                                             
                                                              
-                                                            <td id="tdnom<?php echo utf8_encode($rs['idarea']); ?>"><?php echo $rs['nombre']; ?></td>
-                                                            <td id="DESCRIPCIOEMP<?php echo utf8_encode($rs['idarea']); ?>"><?php echo $rs['descripcion']; ?></td>
-                                                            <td><button dataidc="<?php echo utf8_encode($rs['idarea']); ?>" type="button" class="btn edittitle btn-warning margin-bottom-20">Editar Area</button></td>
-                                                           <?php if ($rs['activo'] == 1) {
+                                                            <td id="tdnom<?php echo utf8_encode($rs['idremolques']); ?>"><?php echo $rs['economico']; ?></td>
+                                                            <td id="TIPO<?php echo utf8_encode($rs['idremolques']); ?>"><?php echo $rs['SubTipoRem']; ?></td>
+                                                            <td id="PLACA<?php echo utf8_encode($rs['idremolques']); ?>"><?php echo $rs['Placa']; ?></td>
+                                                            <td id="MARCA<?php echo utf8_encode($rs['idremolques']); ?>"><?php echo $rs['marca']; ?></td>
+                                                            <td id="MONDELO<?php echo utf8_encode($rs['idremolques']); ?>"><?php echo $rs['modelo']; ?></td>
+                                                            <td><button dataidc="<?php echo utf8_encode($rs['idremolques']); ?>" type="button" class="btn edittitle btn-warning margin-bottom-20">Editar Area</button></td>
+                                                           <?php if (!is_null($rs['fecbaja'])) {
                                                                 ?>
-                                                               <td><button dataidc="<?php echo utf8_encode($rs['idarea']); ?>" type="button" class="btn elimmarca btn-danger margin-bottom-20">Desactivar Area</button></td>
+                                                               <td><button dataidc="<?php echo utf8_encode($rs['idremolques']); ?>" type="button" class="btn elimmarca btn-danger margin-bottom-20">Desactivar Area</button></td>
                                                               
                                                             <?php 
                                                            }else{
                                                                 ?>
-                                                               <td><button dataidc="<?php echo utf8_encode($rs['idarea']); ?>" type="button" class="btn acivarmarca btn-green margin-bottom-20">Activar   Area</button></td>
+                                                               <td><button dataidc="<?php echo utf8_encode($rs['idremolques']); ?>" type="button" class="btn acivarmarca btn-green margin-bottom-20">Activar Area</button></td>
                                                               
                                                             <?php
                                                            }
                                                              ?>
-                                                            
-                                                            
-                                                            
 
                                                         </tr> 
                                                         <?php
@@ -350,43 +369,16 @@ if ($_SESSION['access'] == true) {
 
                     </div>
                     <!-- /row -->
-
-
-
                 </div>
                 <!-- /content container -->
-
-
-
-
-
-
             </div>
             <!-- Page content end -->
-
-
-
-
-
-
-
-
-
-
         </div>
         <!-- Make page fluid-->
-
-
-
-
     </div>
     <!-- Wrap all page content end -->
 
-
-
     <section class="videocontent" id="video"></section>
-
-
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="assets/js/jquery.js"></script>
@@ -415,7 +407,7 @@ if ($_SESSION['access'] == true) {
 
     <script src="assets/js/minimal.min.js"></script>
 
-    <script src="jsarea.js"></script>
+    <script src="jsremolques.js"></script>
 </body>
 </html>
  <?php
