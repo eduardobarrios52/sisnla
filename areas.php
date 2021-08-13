@@ -1,6 +1,6 @@
 <?php
 @session_start();
-if ($_SESSION[access] == true) {
+if ($_SESSION['access'] == true) {
     $idatn = $_SESSION["id"];
 
     set_time_limit(0);
