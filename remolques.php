@@ -328,7 +328,7 @@ if ($_SESSION['access'] == true) {
                                                             <td id="MARCA<?php echo utf8_encode($rs['idremolques']); ?>"><?php echo $rs['marca']; ?></td>
                                                             <td id="MONDELO<?php echo utf8_encode($rs['idremolques']); ?>"><?php echo $rs['modelo']; ?></td>
                                                             <td><button dataidc="<?php echo utf8_encode($rs['idremolques']); ?>" type="button" class="btn edittitle btn-warning margin-bottom-20">Editar Area</button></td>
-                                                           <?php if (!is_null($rs['fecbaja'])) {
+                                                           <?php if ($rs['fecbaja'] == '0000-00-00 00:00:00') {
                                                                 ?>
                                                                <td><button dataidc="<?php echo utf8_encode($rs['idremolques']); ?>" type="button" class="btn elimmarca btn-danger margin-bottom-20">Desactivar Area</button></td>
                                                               

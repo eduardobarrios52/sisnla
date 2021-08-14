@@ -154,7 +154,7 @@
                     "idremolque": remoledit
 
                 };
-                $.ajax({url: "activarremolque.php",
+                $.ajax({url: "activaremolque.php",
                     type: 'GET',
                     data: parametros,
                     success: function (result) {
@@ -178,7 +178,7 @@
                 var parametros = {
                     "idremolque": remolelim
                 };
-                $.ajax({url: "eliminarremolque.php",
+                $.ajax({url: "eliminaremolque.php",
                     type: 'GET',
                     data: parametros,
                     success: function (result) {
@@ -191,7 +191,6 @@
                 });
                 $('#elimcolor').modal('toggle');
             });
-
 
 
             $("#basicDataTable").on('click', '.editimage', function () {

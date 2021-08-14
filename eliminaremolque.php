@@ -1,10 +1,9 @@
 <?php
-
-$idremolque = $_POST['idremolque'];
 include 'conexion.php';
 
-$consultanot = 'update  remolque set fecbaja= CURDATE() where idremolques=\'' . $idremolque . '\'';
-//echo $consultanot;
+$idremolque = $_GET['idremolque'];
+$consultanot = 'update remolques set fecbaja= NOW() where idremolques=\'' . $idremolque . '\'';
+
 if ($mysqli->query($consultanot)) {
     echo 'ok';
 }
