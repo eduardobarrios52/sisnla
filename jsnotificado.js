@@ -1,6 +1,89 @@
 
      
              $(function () {
+                $('#CodigoPostal').focusout(function() {
+                    if($(this).val() ){
+                        $.ajax({
+                            url: 'codigopostal.php',
+                            type: 'GET',
+                            data: {	'CodigoPostal' : $(this).val(),
+                                    },
+                            success: function (result) {
+                                if(result){
+                                    $.each(result.edo, function(index, element){
+                                        $('#Estado').append($('<option>', {
+                                            value: index,
+                                            text: element
+                                        }));
+                                    })
+
+                                    $.each(result.mun, function(index, element){
+                                        $('#Municipio').append($('<option>', {
+                                            value: index,
+                                            text: element
+                                        }));
+                                    })
+
+                                    $.each(result.cod, function(index, element){
+                                        $('#Colonia').append($('<option>', {
+                                            value: index,
+                                            text: element
+                                        }));
+                                    })
+
+                                    $.each(result.loc, function(index, element){
+                                        $('#Localidad').append($('<option>', {
+                                            value: index,
+                                            text: element
+                                        }));
+                                    })
+                                }
+                            }
+                        })
+                    }
+                })
+
+                $('#CodigoPostale').focusout(function() {
+                    if($(this).val() ){
+                        $.ajax({
+                            url: 'codigopostal.php',
+                            type: 'GET',
+                            data: {	'CodigoPostal' : $(this).val(),
+                                    },
+                            success: function (result) {
+                                if(result){
+                                    $.each(result.edo, function(index, element){
+                                        $('#Estadoe').append($('<option>', {
+                                            value: index,
+                                            text: element
+                                        }));
+                                    })
+
+                                    $.each(result.mun, function(index, element){
+                                        $('#Municipioe').append($('<option>', {
+                                            value: index,
+                                            text: element
+                                        }));
+                                    })
+
+                                    $.each(result.cod, function(index, element){
+                                        $('#Coloniae').append($('<option>', {
+                                            value: index,
+                                            text: element
+                                        }));
+                                    })
+
+                                    $.each(result.loc, function(index, element){
+                                        $('#Localidade').append($('<option>', {
+                                            value: index,
+                                            text: element
+                                        }));
+                                    })
+                                }
+                            }
+                        })
+                    }
+                })
            
                 $('#fileuploader').hide();
                 var idnotificadoedit = 0;

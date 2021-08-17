@@ -51,7 +51,7 @@ $res = array();
                 $numc = $resc->num_rows;
                 if ($numc>= 1) {
                     while ($rsc = $resc->fetch_assoc()) {
-                        $res['cod'][$rsc['c_Colonia']] = ['nombre'];
+                        $res['cod'][$rsc['c_Colonia']] = $rsc['nombre'];
                     }
                 }else{
                     $res['cod'][0] = '';

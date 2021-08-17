@@ -125,18 +125,31 @@ if ($_SESSION['access'] == true) {
 
                                                         <div class="form-group">
                                                             <label for="exampleInput">Permiso de SCT</label>
-                                                            <input type="text" class="form-control" id="economico" name="economico">
+                                                            <input type="text" class="form-control" id="PermSCT" name="PermSCT">
                                                         </div>
-                            
 
                                                         <div class="form-group">
-                                                            <label class="col-sm-12 control-label">Tipo de Remolque</label>
+                                                            <label for="exampleInput">Numero de Permiso de SCT</label>
+                                                            <input type="text" class="form-control" id="NumPermisoSCT" name="NumPermisoSCT">
+                                                        </div>
 
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Nombre de Aseguradora</label>
+                                                            <input type="text" class="form-control" id="NombreAseg" name="NombreAseg">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Numero de Poliza de Seguro</label>
+                                                            <input type="text" class="form-control" id="NumPolizaSeguro" name="NumPolizaSeguro">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-12 control-label">Configuracion de Autotransporte</label>
                                                             <div class="form-group">
                                                                 <label for="exampleInput"></label>
-                                                                <select id="SubTipoRem" name="SubTipoRem" class="form-control">
+                                                                <select id="configVehicular" name="configVehicular" class="form-control">
                                                                     <?php
-                                                                        $consultarem = "SELECT * FROM remolqueconf ORDER BY idremolqueconf";
+                                                                        $consultarem = "SELECT * FROM configaf ORDER BY idconfigaf";
 
                                                                         $resrem = $mysqli->query($consultarem);
                                                                         $numrem = $resrem->num_rows;
@@ -150,24 +163,96 @@ if ($_SESSION['access'] == true) {
                                                                         }
                                                                     ?>
                                                                 </select>
-
                                                             </div>
-
                                                         </div>
 
                                                         <div class="form-group">
                                                             <label for="exampleInput">Placa</label>
-                                                            <input type="text" class="form-control" id="placa" name="placa">
+                                                            <input type="text" class="form-control" id="PlacaVM" name="PlacaVM">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Año/Modelo</label>
+                                                            <input type="text" class="form-control" id="AnioModeloVM" name="AnioModeloVM">
                                                         </div>
 
                                                         <div class="form-group">
                                                             <label for="exampleInput">Marca</label>
-                                                            <input type="text" class="form-control" id="marca" name="marca">
+                                                            <input type="text" class="form-control" id="modelo" name="modelo">
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label for="exampleInput">Modelo</label>
-                                                            <input type="text" class="form-control" id="modelo" name="modelo">
+                                                            <label for="exampleInput">Tipo</label>
+                                                            <input type="text" class="form-control" id="tipo" name="tipo">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-12 control-label">Propietario</label>
+                                                            <div class="form-group">
+                                                                <label for="exampleInput"></label>
+                                                                <select id="propietario" name="propietario" class="form-control">
+                                                                    <?php
+                                                                        $consultarem = "SELECT * FROM propietario ORDER BY idpropietario";
+
+                                                                        $resrem = $mysqli->query($consultarem);
+                                                                        $numrem = $resrem->num_rows;
+                                                                        if ($numrem >= 1) {
+
+                                                                            while ($rs = $resrem->fetch_assoc()) {
+                                                                    ?>
+                                                                    <option value = "<?php echo $rs['idpropietario']?>"><?php echo $rs['NombrePropietario']?></option>
+                                                                    <?php
+                                                                            }
+                                                                        }
+                                                                    ?>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-12 control-label">Arrendatario</label>
+                                                            <div class="form-group">
+                                                                <label for="exampleInput"></label>
+                                                                <select id="arrendatario" name="arrendatario" class="form-control">
+                                                                    <?php
+                                                                        $consultarem = "SELECT * FROM arrendatario ORDER BY idarrendatario";
+
+                                                                        $resrem = $mysqli->query($consultarem);
+                                                                        $numrem = $resrem->num_rows;
+                                                                        if ($numrem >= 1) {
+
+                                                                            while ($rs = $resrem->fetch_assoc()) {
+                                                                    ?>
+                                                                    <option value = "<?php echo $rs['idarrendatario']?>"><?php echo $rs['NombreArrendatario']?></option>
+                                                                    <?php
+                                                                            }
+                                                                        }
+                                                                    ?>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-12 control-label">Notificado</label>
+                                                            <div class="form-group">
+                                                                <label for="exampleInput"></label>
+                                                                <select id="notificado" name="notificado" class="form-control">
+                                                                    <?php
+                                                                        $consultarem = "SELECT * FROM notificado ORDER BY idnotificado";
+
+                                                                        $resrem = $mysqli->query($consultarem);
+                                                                        $numrem = $resrem->num_rows;
+                                                                        if ($numrem >= 1) {
+
+                                                                            while ($rs = $resrem->fetch_assoc()) {
+                                                                    ?>
+                                                                    <option value = "<?php echo $rs['idnotificado']?>"><?php echo $rs['NombreNotificado']?></option>
+                                                                    <?php
+                                                                            }
+                                                                        }
+                                                                    ?>
+                                                                </select>
+                                                            </div>
                                                         </div>
 
                                                         <div class="modal-footer">
@@ -193,46 +278,140 @@ if ($_SESSION['access'] == true) {
                                             <div class="modal-body">
                                                     <div class="form-group">
                                                         <label for="exampleInput">Numero Economico</label>
-                                                        <input type="text" class="form-control" id="economico">
+                                                        <input type="text" class="form-control" id="economicoe">
                                                     </div>
                             
-
                                                     <div class="form-group">
-                                                        <label class="col-sm-12 control-label">Tipo de Remolque</label>
-
-                                                        <div class="form-group">
-                                                            <label for="exampleInput"></label>
-                                                            <select id="SubTipoRem" class="form-control">
-                                                                <?php
-                                                                    if ($numrem >= 1) {
-
-                                                                        while ($rs = $resrem->fetch_assoc()) {
-                                                                ?>
-                                                                <option value = "<?php echo $rs['clave']?>"><?php echo $rs['descripcion']?></option>
-                                                                <?php
-                                                                        }
-                                                                    }
-                                                                ?>
-                                                            </select>
-
+                                                            <label for="exampleInput">Permiso de SCT</label>
+                                                            <input type="text" class="form-control" id="PermSCTe" name="PermSCT">
                                                         </div>
 
-                                                    </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Numero de Permiso de SCT</label>
+                                                            <input type="text" class="form-control" id="NumPermisoSCTe" name="NumPermisoSCT">
+                                                        </div>
 
-                                                    <div class="form-group">
-                                                        <label for="exampleInput">Placa</label>
-                                                        <input type="text" class="form-control" id="placa">
-                                                    </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Nombre de Aseguradora</label>
+                                                            <input type="text" class="form-control" id="NombreAsege" name="NombreAseg">
+                                                        </div>
 
-                                                    <div class="form-group">
-                                                        <label for="exampleInput">Marca</label>
-                                                        <input type="text" class="form-control" id="marca">
-                                                    </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Numero de Poliza de Seguro</label>
+                                                            <input type="text" class="form-control" id="NumPolizaSeguroe" name="NumPolizaSeguro">
+                                                        </div>
 
-                                                    <div class="form-group">
-                                                        <label for="exampleInput">Modelo</label>
-                                                        <input type="text" class="form-control" id="modelo">
-                                                    </div>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-12 control-label">Configuracion de Autotransporte</label>
+                                                            <div class="form-group">
+                                                                <label for="exampleInput"></label>
+                                                                <select id="configVehiculare" name="configVehicular" class="form-control">
+                                                                    <?php
+                                                                        $consultarem = "SELECT * FROM configaf ORDER BY idconfigaf";
+
+                                                                        $resrem = $mysqli->query($consultarem);
+                                                                        $numrem = $resrem->num_rows;
+                                                                        if ($numrem >= 1) {
+
+                                                                            while ($rs = $resrem->fetch_assoc()) {
+                                                                    ?>
+                                                                    <option value = "<?php echo $rs['clave']?>"><?php echo $rs['descripcion']?></option>
+                                                                    <?php
+                                                                            }
+                                                                        }
+                                                                    ?>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Placa</label>
+                                                            <input type="text" class="form-control" id="PlacaVMe" name="PlacaVM">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Año/Modelo</label>
+                                                            <input type="text" class="form-control" id="AnioModeloVMe" name="AnioModeloVM">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Marca</label>
+                                                            <input type="text" class="form-control" id="modeloe" name="modelo">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Tipo</label>
+                                                            <input type="text" class="form-control" id="tipoe" name="tipo">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-12 control-label">Propietario</label>
+                                                            <div class="form-group">
+                                                                <label for="exampleInput"></label>
+                                                                <select id="propietarioe" name="propietario" class="form-control">
+                                                                    <?php
+                                                                        $consultarem = "SELECT * FROM propietario ORDER BY idpropietario";
+
+                                                                        $resrem = $mysqli->query($consultarem);
+                                                                        $numrem = $resrem->num_rows;
+                                                                        if ($numrem >= 1) {
+
+                                                                            while ($rs = $resrem->fetch_assoc()) {
+                                                                    ?>
+                                                                    <option value = "<?php echo $rs['idpropietario']?>"><?php echo $rs['NombrePropietario']?></option>
+                                                                    <?php
+                                                                            }
+                                                                        }
+                                                                    ?>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-12 control-label">Arrendatario</label>
+                                                            <div class="form-group">
+                                                                <label for="exampleInput"></label>
+                                                                <select id="arrendatarioe" name="arrendatario" class="form-control">
+                                                                    <?php
+                                                                        $consultarem = "SELECT * FROM arrendatario ORDER BY idarrendatario";
+
+                                                                        $resrem = $mysqli->query($consultarem);
+                                                                        $numrem = $resrem->num_rows;
+                                                                        if ($numrem >= 1) {
+
+                                                                            while ($rs = $resrem->fetch_assoc()) {
+                                                                    ?>
+                                                                    <option value = "<?php echo $rs['idarrendatario']?>"><?php echo $rs['NombreArrendatario']?></option>
+                                                                    <?php
+                                                                            }
+                                                                        }
+                                                                    ?>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-12 control-label">Notificado</label>
+                                                            <div class="form-group">
+                                                                <label for="exampleInput"></label>
+                                                                <select id="notificadoe" name="notificado" class="form-control">
+                                                                    <?php
+                                                                        $consultarem = "SELECT * FROM notificado ORDER BY idnotificado";
+
+                                                                        $resrem = $mysqli->query($consultarem);
+                                                                        $numrem = $resrem->num_rows;
+                                                                        if ($numrem >= 1) {
+
+                                                                            while ($rs = $resrem->fetch_assoc()) {
+                                                                    ?>
+                                                                    <option value = "<?php echo $rs['idnotificado']?>"><?php echo $rs['NombreNotificado']?></option>
+                                                                    <?php
+                                                                            }
+                                                                        }
+                                                                    ?>
+                                                                </select>
+                                                            </div>
+                                                        </div>
 
                                                 <div class="modal-footer">
                                                     <button class="btn btn-red" data-dismiss="modal" aria-hidden="true">Cancelar</button>
@@ -250,7 +429,7 @@ if ($_SESSION['access'] == true) {
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-                                            <h3 class="modal-title" id="modalConfirmLabel"><strong>Activar</strong> Area</h3>
+                                            <h3 class="modal-title" id="modalConfirmLabel"><strong>Activar</strong> Carro</h3>
                                         </div>
                                         <div class="modal-body">
                                             <section class="tile transparent">
@@ -272,7 +451,7 @@ if ($_SESSION['access'] == true) {
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-                                            <h3 class="modal-title" id="modalConfirmLabel"><strong>Desactivar</strong> Area</h3>
+                                            <h3 class="modal-title" id="modalConfirmLabel"><strong>Desactivar</strong> Carro</h3>
                                         </div>
                                         <div class="modal-body">
                                             <section class="tile transparent">
@@ -326,21 +505,28 @@ if ($_SESSION['access'] == true) {
                                                 
                                                         <tr class="odd gradeX">
                                                             
-                                                             
-                                                            <td id="tdnom<?php echo utf8_encode($rs['idremolques']); ?>"><?php echo $rs['economico']; ?></td>
-                                                            <td id="TIPO<?php echo utf8_encode($rs['idremolques']); ?>"><?php echo $rs['SubTipoRem']; ?></td>
-                                                            <td id="PLACA<?php echo utf8_encode($rs['idremolques']); ?>"><?php echo $rs['Placa']; ?></td>
-                                                            <td id="MARCA<?php echo utf8_encode($rs['idremolques']); ?>"><?php echo $rs['marca']; ?></td>
-                                                            <td id="MONDELO<?php echo utf8_encode($rs['idremolques']); ?>"><?php echo $rs['modelo']; ?></td>
-                                                            <td><button dataidc="<?php echo utf8_encode($rs['idremolques']); ?>" type="button" class="btn edittitle btn-warning margin-bottom-20">Editar Area</button></td>
+                                                            <td id="tdnom<?php echo utf8_encode($rs['idcarro']); ?>"><?php echo $rs['Economico']; ?></td>
+                                                            <td id="TIPO<?php echo utf8_encode($rs['idcarro']); ?>"><?php echo $rs['PermSCT']; ?></td>
+                                                            <td id="PLACA<?php echo utf8_encode($rs['idcarro']); ?>"><?php echo $rs['NumPermisoSCT']; ?></td>
+                                                            <td id="MARCA<?php echo utf8_encode($rs['idcarro']); ?>"><?php echo $rs['NombreAseg']; ?></td>
+                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarro']); ?>"><?php echo $rs['NumPolizaSeguro']; ?></td>
+                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarro']); ?>"><?php echo $rs['configVehicular']; ?></td>
+                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarro']); ?>"><?php echo $rs['PlacaVM']; ?></td>
+                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarro']); ?>"><?php echo $rs['AnioModeloVM']; ?></td>
+                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarro']); ?>"><?php echo $rs['modelo']; ?></td>
+                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarro']); ?>"><?php echo $rs['tipo']; ?></td>
+                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarro']); ?>"><?php echo $rs['propietario']; ?></td>
+                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarro']); ?>"><?php echo $rs['arrendatario']; ?></td>
+                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarro']); ?>"><?php echo $rs['Notificado']; ?></td>
+                                                            <td><button dataidc="<?php echo utf8_encode($rs['idcarro']); ?>" type="button" class="btn edittitle btn-warning margin-bottom-20">Editar Carro</button></td>
                                                            <?php if ($rs['fecbaja'] == '0000-00-00 00:00:00') {
                                                                 ?>
-                                                               <td><button dataidc="<?php echo utf8_encode($rs['idremolques']); ?>" type="button" class="btn elimmarca btn-danger margin-bottom-20">Desactivar Area</button></td>
+                                                               <td><button dataidc="<?php echo utf8_encode($rs['idcarro']); ?>" type="button" class="btn elimmarca btn-danger margin-bottom-20">Desactivar Carro</button></td>
                                                               
                                                             <?php 
                                                            }else{
                                                                 ?>
-                                                               <td><button dataidc="<?php echo utf8_encode($rs['idremolques']); ?>" type="button" class="btn acivarmarca btn-green margin-bottom-20">Activar Area</button></td>
+                                                               <td><button dataidc="<?php echo utf8_encode($rs['idcarro']); ?>" type="button" class="btn acivarmarca btn-green margin-bottom-20">Activar Carro</button></td>
                                                               
                                                             <?php
                                                            }
@@ -412,7 +598,7 @@ if ($_SESSION['access'] == true) {
 
     <script src="assets/js/minimal.min.js"></script>
 
-    <script src="jsremolques.js"></script>
+    <script src="carros.js"></script>
 </body>
 </html>
  <?php

@@ -3,13 +3,13 @@ include 'conexion.php';
 
 $NombreArrendatario = $_GET['NombreArrendatario'];
 $NumRegIdTribArrendatario = $_GET['NumRegIdTribArrendatario'];
-$ResidenciaFiscalArrendatario = $_GET['ResidenciaFiscalArrendatario'];
+$ResidenciaFiscalArrendatario = $_GET['ResidenciaFiscal'];
 $Calle = $_GET['Calle'];
 $NumeroExterior = $_GET['NumeroExterior'];
-$NumeroInterior = $_GET['NumeroInterior'];
+$NumeroInterior = isset($_GET['NumeroInterior']) ? $_GET['NumeroInterior'] : null ;;
 $Colonia = $_GET['Colonia'];
-$Localidad = $_GET['Localidad'];
-$Referencia = $_GET['Referencia'];
+$Localidad = isset($_GET['Localidad']) ? $_GET['Localidad'] : null ;;
+$Referencia = isset($_GET['Referencia']) ? $_GET['Referencia'] : null ;;
 $Municipio = $_GET['Municipio'];
 $Estado = $_GET['Estado'];
 $Pais = $_GET['Pais'];

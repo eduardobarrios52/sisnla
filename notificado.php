@@ -127,13 +127,13 @@ if ($_SESSION['access'] == true) {
                                                             <label class="col-sm-12 control-label">Registro Tributario</label>
 
                                                             <div class="form-group">
-                                                                <label for="exampleInput"></label>
-                                                                <select id="NumRegIdTribArrendatario" name="NumRegIdTribArrendatario" class="form-control">
+                                                                <label for="NumRegIdTribNotificado"></label>
+                                                                <select id="NumRegIdTribNotificado"  class="form-control" name="NumRegIdTribNotificado">
                                                                     <?php
                                                                         $consultareg = "SELECT * FROM regimenfiscal ORDER BY idregimenfiscal";
 
                                                                         $resreg = $mysqli->query($consultareg);
-                                                                        $numrem = $resrem->num_rows;
+                                                                        $numrem = $resreg->num_rows;
                                                                         if ($numrem >= 1) {
 
                                                                             while ($rs = $resreg->fetch_assoc()) {
@@ -150,21 +150,21 @@ if ($_SESSION['access'] == true) {
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label class="col-sm-12 control-label">País</label>
+                                                            <label class="col-sm-12 control-label">Residencia Fiscal</label>
 
                                                             <div class="form-group">
                                                                 <label for="exampleInput"></label>
-                                                                <select id="ResidenciaFiscal" name="ResidenciaFiscal"> class="form-control">
+                                                                <select id="ResidenciaFiscal" name="ResidenciaFiscal" class="form-control">
                                                                     <?php
                                                                         $consultareg = "SELECT * FROM pais ORDER BY idpais";
 
                                                                         $resreg = $mysqli->query($consultareg);
-                                                                        $numrem = $resrem->num_rows;
+                                                                        $numrem = $resreg->num_rows;
                                                                         if ($numrem >= 1) {
 
                                                                             while ($rs = $resreg->fetch_assoc()) {
                                                                     ?>
-                                                                    <option <?php if($rs['clave'] == 'MEX') echo '"selected"'?> value = "<?php echo $rs['clave']?>"><?php echo $rs['descripcion']?></option>
+                                                                    <option <?php if($rs['clave'] == 'MEX') echo 'selected'?> value = "<?php echo $rs['clave']?>"><?php echo $rs['descripcion']?></option>
                                                                     <?php
                                                                             }
                                                                         }
@@ -191,13 +191,28 @@ if ($_SESSION['access'] == true) {
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label for="exampleInput">Colonia</label>
-                                                            <input type="text" class="form-control" id="Colonia" name="Colonia">
+                                                            <label for="exampleInput">Codigo Postal</label>
+                                                            <input type="text" class="form-control codigopostal" id="CodigoPostal" name="CodigoPostal">
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label for="exampleInput">Localidad</label>
-                                                            <input type="text" class="form-control" id="Localidad" name="Localidad">
+                                                            <label class="col-sm-12 control-label">Colonia</label>
+
+                                                            <div class="form-group">
+                                                                <label for="exampleInput"></label>
+                                                                <select id="Colonia" name="Colonia" class="form-control">
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-12 control-label">Localidad</label>
+
+                                                            <div class="form-group">
+                                                                <label for="exampleInput"></label>
+                                                                <select id="Localidad" name="Localidad" class="form-control">
+                                                                </select>
+                                                            </div>
                                                         </div>
 
                                                         <div class="form-group">
@@ -206,13 +221,23 @@ if ($_SESSION['access'] == true) {
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label for="exampleInput">Municipio</label>
-                                                            <input type="text" class="form-control" id="Municipio" name="Municipio">
+                                                            <label class="col-sm-12 control-label">Municipio</label>
+
+                                                            <div class="form-group">
+                                                                <label for="exampleInput"></label>
+                                                                <select id="Municipio" name="Municipio" class="form-control">
+                                                                </select>
+                                                            </div>
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label for="exampleInput">Estado</label>
-                                                            <input type="text" class="form-control" id="Estado" name="Estado">
+                                                            <label class="col-sm-12 control-label">Estado</label>
+
+                                                            <div class="form-group">
+                                                                <label for="exampleInput"></label>
+                                                                <select id="Estado" name="Estado" class="form-control">
+                                                                </select>
+                                                            </div>
                                                         </div>
 
                                                         <div class="form-group">
@@ -225,12 +250,12 @@ if ($_SESSION['access'] == true) {
                                                                         $consultareg = "SELECT * FROM pais ORDER BY idpais";
 
                                                                         $resreg = $mysqli->query($consultareg);
-                                                                        $numrem = $resrem->num_rows;
+                                                                        $numrem = $resreg->num_rows;
                                                                         if ($numrem >= 1) {
 
                                                                             while ($rs = $resreg->fetch_assoc()) {
                                                                     ?>
-                                                                    <option <?php if($rs['clave'] == 'MEX') echo '"selected"'?> value = "<?php echo $rs['clave']?>"><?php echo $rs['descripcion']?></option>
+                                                                    <option <?php if($rs['clave'] == 'MEX') echo 'selected'?> value = "<?php echo $rs['clave']?>"><?php echo $rs['descripcion']?></option>
                                                                     <?php
                                                                             }
                                                                         }
@@ -239,11 +264,6 @@ if ($_SESSION['access'] == true) {
 
                                                             </div>
 
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label for="exampleInput">Codigo Postal</label>
-                                                            <input type="text" class="form-control" id="CodigoPostal" name="CodigoPostal">
                                                         </div>
 
                                                         <div class="modal-footer">
@@ -276,13 +296,13 @@ if ($_SESSION['access'] == true) {
                                                             <label class="col-sm-12 control-label">Registro Tributario</label>
 
                                                             <div class="form-group">
-                                                                <label for="exampleInput"></label>
-                                                                <select id="NumRegIdTribArrendatario" name="NumRegIdTribArrendatario" class="form-control">
+                                                                <label for="NumRegIdTribArrendatario"></label>
+                                                                <select id="NumRegIdTribArrendatarioe" class="form-control" name="NumRegIdTribArrendatario">
                                                                     <?php
                                                                         $consultareg = "SELECT * FROM regimenfiscal ORDER BY idregimenfiscal";
 
                                                                         $resreg = $mysqli->query($consultareg);
-                                                                        $numrem = $resrem->num_rows;
+                                                                        $numrem = $resreg->num_rows;
                                                                         if ($numrem >= 1) {
 
                                                                             while ($rs = $resreg->fetch_assoc()) {
@@ -299,21 +319,21 @@ if ($_SESSION['access'] == true) {
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label class="col-sm-12 control-label">País</label>
+                                                            <label class="col-sm-12 control-label">Residencia Fiscal</label>
 
                                                             <div class="form-group">
                                                                 <label for="exampleInput"></label>
-                                                                <select id="ResidenciaFiscal" name="ResidenciaFiscal"> class="form-control">
+                                                                <select id="ResidenciaFiscale" name="ResidenciaFiscal" class="form-control">
                                                                     <?php
                                                                         $consultareg = "SELECT * FROM pais ORDER BY idpais";
 
                                                                         $resreg = $mysqli->query($consultareg);
-                                                                        $numrem = $resrem->num_rows;
+                                                                        $numrem = $resreg->num_rows;
                                                                         if ($numrem >= 1) {
 
                                                                             while ($rs = $resreg->fetch_assoc()) {
                                                                     ?>
-                                                                    <option <?php if($rs['clave'] == 'MEX') echo '"selected"'?> value = "<?php echo $rs['clave']?>"><?php echo $rs['descripcion']?></option>
+                                                                    <option <?php if($rs['clave'] == 'MEX') echo 'selected'?> value = "<?php echo $rs['clave']?>"><?php echo $rs['descripcion']?></option>
                                                                     <?php
                                                                             }
                                                                         }
@@ -326,42 +346,67 @@ if ($_SESSION['access'] == true) {
                             
                                                         <div class="form-group">
                                                             <label for="exampleInput">Calle</label>
-                                                            <input type="text" class="form-control" id="Calle" name="Calle">
+                                                            <input type="text" class="form-control" id="Callee" name="Calle">
                                                         </div>
 
                                                         <div class="form-group">
                                                             <label for="exampleInput">Numero Exterior</label>
-                                                            <input type="text" class="form-control" id="NumeroExterior" name="NumeroExterior">
+                                                            <input type="text" class="form-control" id="NumeroExteriore" name="NumeroExterior">
                                                         </div>
 
                                                         <div class="form-group">
                                                             <label for="exampleInput">Numero Interior</label>
-                                                            <input type="text" class="form-control" id="NumeroInterior" name="NumeroInterior">
+                                                            <input type="text" class="form-control" id="NumeroInteriore" name="NumeroInterior">
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label for="exampleInput">Colonia</label>
-                                                            <input type="text" class="form-control" id="Colonia" name="Colonia">
+                                                            <label for="exampleInput">Codigo Postal</label>
+                                                            <input type="text" class="form-control codigopostal" id="CodigoPostale" name="CodigoPostal">
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label for="exampleInput">Localidad</label>
-                                                            <input type="text" class="form-control" id="Localidad" name="Localidad">
+                                                            <label class="col-sm-12 control-label">Colonia</label>
+
+                                                            <div class="form-group">
+                                                                <label for="exampleInput"></label>
+                                                                <select id="Coloniae" name="Colonia" class="form-control">
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-12 control-label">Localidad</label>
+
+                                                            <div class="form-group">
+                                                                <label for="exampleInput"></label>
+                                                                <select id="Localidad" name="Localidade" class="form-control">
+                                                                </select>
+                                                            </div>
                                                         </div>
 
                                                         <div class="form-group">
                                                             <label for="exampleInput">Referencia</label>
-                                                            <input type="text" class="form-control" id="Referencia" name="Referencia">
+                                                            <input type="text" class="form-control" id="Referenciae" name="Referencia">
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label for="exampleInput">Municipio</label>
-                                                            <input type="text" class="form-control" id="Municipio" name="Municipio">
+                                                            <label class="col-sm-12 control-label">Municipio</label>
+
+                                                            <div class="form-group">
+                                                                <label for="exampleInput"></label>
+                                                                <select id="Municipioe" name="Municipio" class="form-control">
+                                                                </select>
+                                                            </div>
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label for="exampleInput">Estado</label>
-                                                            <input type="text" class="form-control" id="Estado" name="Estado">
+                                                            <label class="col-sm-12 control-label">Estado</label>
+
+                                                            <div class="form-group">
+                                                                <label for="exampleInput"></label>
+                                                                <select id="Estadoe" name="Estado" class="form-control">
+                                                                </select>
+                                                            </div>
                                                         </div>
 
                                                         <div class="form-group">
@@ -369,17 +414,17 @@ if ($_SESSION['access'] == true) {
 
                                                             <div class="form-group">
                                                                 <label for="exampleInput"></label>
-                                                                <select id="Pais" name="Pais" class="form-control">
+                                                                <select id="Paise" name="Pais" class="form-control">
                                                                     <?php
                                                                         $consultareg = "SELECT * FROM pais ORDER BY idpais";
 
                                                                         $resreg = $mysqli->query($consultareg);
-                                                                        $numrem = $resrem->num_rows;
+                                                                        $numrem = $resreg->num_rows;
                                                                         if ($numrem >= 1) {
 
                                                                             while ($rs = $resreg->fetch_assoc()) {
                                                                     ?>
-                                                                    <option value = "<?php echo $rs['clave']?>"><?php echo $rs['descripcion']?></option>
+                                                                    <option <?php if($rs['clave'] == 'MEX') echo 'selected'?> value = "<?php echo $rs['clave']?>"><?php echo $rs['descripcion']?></option>
                                                                     <?php
                                                                             }
                                                                         }
@@ -388,12 +433,6 @@ if ($_SESSION['access'] == true) {
 
                                                             </div>
 
-                                                        </div>
-
-
-                                                        <div class="form-group">
-                                                            <label for="exampleInput">Codigo Postal</label>
-                                                            <input type="text" class="form-control" id="CodigoPostal" name="CodigoPostal">
                                                         </div>
                                                 <div class="modal-footer">
                                                     <button class="btn btn-red" data-dismiss="modal" aria-hidden="true">Cancelar</button>
@@ -497,8 +536,8 @@ if ($_SESSION['access'] == true) {
                                                             
                                                              
                                                             <td id="tdnom<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['NombreNotificado']; ?></td>
-                                                            <td id="TIPO<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['NumRegIdTribArrendatario']; ?></td>
-                                                            <td id="PLACA<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['ResidenciaFiscalArrendatario']; ?></td>
+                                                            <td id="TIPO<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['NumRegIdTribNotificado']; ?></td>
+                                                            <td id="PLACA<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['ResidenciaFiscalNotificado']; ?></td>
                                                             <td id="MARCA<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['Calle']; ?></td>
                                                             <td id="MONDELO<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['NumeroExterior']; ?></td>
                                                             <td id="MONDELO<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['NumeroInterior']; ?></td>
@@ -509,15 +548,15 @@ if ($_SESSION['access'] == true) {
                                                             <td id="MONDELO<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['Estado']; ?></td>
                                                             <td id="MONDELO<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['Pais']; ?></td>
                                                             <td id="MONDELO<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['CodigoPostal']; ?></td>
-                                                            <td><button dataidc="<?php echo utf8_encode($rs['idnotificado']); ?>" type="button" class="btn edittitle btn-warning margin-bottom-20">Editar Area</button></td>
+                                                            <td><button dataidc="<?php echo utf8_encode($rs['idnotificado']); ?>" type="button" class="btn edittitle btn-warning margin-bottom-20">Editar Notificado</button></td>
                                                            <?php if ($rs['fecbaja'] == '0000-00-00 00:00:00') {
                                                                 ?>
-                                                               <td><button dataidc="<?php echo utf8_encode($rs['idnotificado']); ?>" type="button" class="btn elimmarca btn-danger margin-bottom-20">Desactivar Area</button></td>
+                                                               <td><button dataidc="<?php echo utf8_encode($rs['idnotificado']); ?>" type="button" class="btn elimmarca btn-danger margin-bottom-20">Desactivar Notificado</button></td>
                                                               
                                                             <?php 
                                                            }else{
                                                                 ?>
-                                                               <td><button dataidc="<?php echo utf8_encode($rs['idnotificado']); ?>" type="button" class="btn acivarmarca btn-green margin-bottom-20">Activar Area</button></td>
+                                                               <td><button dataidc="<?php echo utf8_encode($rs['idnotificado']); ?>" type="button" class="btn acivarmarca btn-green margin-bottom-20">Activar Notificado</button></td>
                                                               
                                                             <?php
                                                            }

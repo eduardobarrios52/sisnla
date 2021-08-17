@@ -2,99 +2,17 @@
      
              $(function () {
 
-                $('#CodigoPostal').focusout(function() {
-                    if($(this).val() ){
-                        $.ajax({
-                            url: 'codigopostal.php',
-                            type: 'GET',
-                            data: {	'CodigoPostal' : $(this).val(),
-                                    },
-                            success: function (result) {
-                                if(result){
-                                    $.each(result.edo, function(index, element){
-                                        $('#Estado').append($('<option>', {
-                                            value: index,
-                                            text: element
-                                        }));
-                                    })
-
-                                    $.each(result.mun, function(index, element){
-                                        $('#Municipio').append($('<option>', {
-                                            value: index,
-                                            text: element
-                                        }));
-                                    })
-
-                                    $.each(result.cod, function(index, element){
-                                        $('#Colonia').append($('<option>', {
-                                            value: index,
-                                            text: element
-                                        }));
-                                    })
-
-                                    $.each(result.loc, function(index, element){
-                                        $('#Localidad').append($('<option>', {
-                                            value: index,
-                                            text: element
-                                        }));
-                                    })
-                                }
-                            }
-                        })
-                    }
-                })
-
-                $('#CodigoPostale').focusout(function() {
-                    if($(this).val() ){
-                        $.ajax({
-                            url: 'codigopostal.php',
-                            type: 'GET',
-                            data: {	'CodigoPostal' : $(this).val(),
-                                    },
-                            success: function (result) {
-                                if(result){
-                                    $.each(result.edo, function(index, element){
-                                        $('#Estadoe').append($('<option>', {
-                                            value: index,
-                                            text: element
-                                        }));
-                                    })
-
-                                    $.each(result.mun, function(index, element){
-                                        $('#Municipioe').append($('<option>', {
-                                            value: index,
-                                            text: element
-                                        }));
-                                    })
-
-                                    $.each(result.cod, function(index, element){
-                                        $('#Coloniae').append($('<option>', {
-                                            value: index,
-                                            text: element
-                                        }));
-                                    })
-
-                                    $.each(result.loc, function(index, element){
-                                        $('#Localidade').append($('<option>', {
-                                            value: index,
-                                            text: element
-                                        }));
-                                    })
-                                }
-                            }
-                        })
-                    }
-                })
+               
            
                 $('#fileuploader').hide();
-                var idpropietarioedit = 0;
-                var idpropietarioelim = 0;
+                var idcarroedit = 0;
+                var idcarroelim = 0;
                 var imgmarcaed = 0;
                 $("#btnagregarc").on('click', function () {
-                    if ($("#NombrePropietario").val().trim().length >= 1 ) {
+                    if ($("#Economico").val().trim().length >= 1 ) {
                         form = $('#agregar');
                         
-                        $.ajax({url: "agregarpropietario.php",
+                        $.ajax({url: "agregarcarro.php",
                             type: 'GET',
                             data: form.serialize(),
                             success: function (result) {
@@ -204,10 +122,10 @@
     
                 $("#btneditartalla").click(function () {
     
-                    if ($("#NombrePropietario").val().trim().length >= 1 ) {
+                    if ($("#Economico").val().trim().length >= 1 ) {
                         form = $('#agregar');
     
-                        $.ajax({url: "editarpropietario.php",
+                        $.ajax({url: "editarcarro.php",
                             type: 'GET',
                             data: form.serialize(),
                             success: function (result) {
@@ -228,17 +146,17 @@
     
                 
                 $(".acivarmarca").click(function () {
-                    idpropietarioedit = $(this).attr("dataidc");
+                    idcarroedit = $(this).attr("dataidc");
                     $('#modalactivar').modal('show');
                 });
     
                     $("#btnactivar").click(function () {
     
                     var parametros = {
-                        "idpropietario": idpropietarioedit
+                        "idcarro": idcarroedit
     
                     };
-                    $.ajax({url: "activarpropietario.php",
+                    $.ajax({url: "activarcarro.php",
                         type: 'GET',
                         data: parametros,
                         success: function (result) {
@@ -254,15 +172,15 @@
                 
                 
                 $(".elimmarca").click(function () {
-                    idpropietarioelim = $(this).attr("dataidc");
+                    idcarroelim = $(this).attr("dataidc");
                     $('#modaleliminar').modal('show');
                 });
     
                 $("#btnmelimtalla").click(function () {
                     var parametros = {
-                        "idpropietario": idpropietarioelim
+                        "idcarro": idcarroelim
                     };
-                    $.ajax({url: "eliminarpropietario.php",
+                    $.ajax({url: "eliminarcarro.php",
                         type: 'GET',
                         data: parametros,
                         success: function (result) {
