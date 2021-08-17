@@ -95,7 +95,7 @@ if ($_SESSION['access'] == true) {
                 <div id="content" class="col-md-12">
                     <!-- page header -->
                     <div class="pageheader">
-                        <h2><i class="fa fa-users" style="line-height: 48px;padding-left: 0;"></i> CARROS </h2>
+                        <h2><i class="fa fa-users" style="line-height: 48px;padding-left: 0;"></i> ARRENDATARIO </h2>
                     </div>
                     <!-- /page header -->
                     <!-- content main container -->
@@ -115,36 +115,30 @@ if ($_SESSION['access'] == true) {
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-                                                        <h1><strong>Agregar</strong> Carro</h1>
+                                                        <h1><strong>Agregar</strong> Arrendatario</h1>
                                                     </div>
                                                     <div class="modal-body">
                                                         <div class="form-group">
-                                                            <label for="exampleInput">Numero Economico</label>
-                                                            <input type="text" class="form-control" id="economico" name="economico">
+                                                            <label for="exampleInput">Nombre Arrendatario</label>
+                                                            <input type="text" class="form-control" id="NombreArrendatario" name="NombreArrendatario">
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label for="exampleInput">Permiso de SCT</label>
-                                                            <input type="text" class="form-control" id="economico" name="economico">
-                                                        </div>
-                            
-
-                                                        <div class="form-group">
-                                                            <label class="col-sm-12 control-label">Tipo de Remolque</label>
+                                                            <label class="col-sm-12 control-label">Registro Tributario</label>
 
                                                             <div class="form-group">
                                                                 <label for="exampleInput"></label>
-                                                                <select id="SubTipoRem" name="SubTipoRem" class="form-control">
+                                                                <select id="NumRegIdTribArrendatario" name="NumRegIdTribArrendatario" class="form-control">
                                                                     <?php
-                                                                        $consultarem = "SELECT * FROM remolqueconf ORDER BY idremolqueconf";
+                                                                        $consultareg = "SELECT * FROM regimenfiscal ORDER BY idregimenfiscal";
 
-                                                                        $resrem = $mysqli->query($consultarem);
+                                                                        $resreg = $mysqli->query($consultareg);
                                                                         $numrem = $resrem->num_rows;
                                                                         if ($numrem >= 1) {
 
-                                                                            while ($rs = $resrem->fetch_assoc()) {
+                                                                            while ($rs = $resreg->fetch_assoc()) {
                                                                     ?>
-                                                                    <option value = "<?php echo $rs['clave']?>"><?php echo $rs['descripcion']?></option>
+                                                                    <option value = "<?php echo $rs['c_RegimenFiscal']?>"><?php echo $rs['descripcion']?></option>
                                                                     <?php
                                                                             }
                                                                         }
@@ -156,18 +150,58 @@ if ($_SESSION['access'] == true) {
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label for="exampleInput">Placa</label>
-                                                            <input type="text" class="form-control" id="placa" name="placa">
+                                                            <label for="exampleInput">Residencia Fiscal</label>
+                                                            <input type="text" class="form-control" id="ResidenciaFiscal" name="ResidenciaFiscal">
+                                                        </div>
+                            
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Calle</label>
+                                                            <input type="text" class="form-control" id="Calle" name="Calle">
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label for="exampleInput">Marca</label>
-                                                            <input type="text" class="form-control" id="marca" name="marca">
+                                                            <label for="exampleInput">Numero Exterior</label>
+                                                            <input type="text" class="form-control" id="NumeroExterior" name="NumeroExterior">
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label for="exampleInput">Modelo</label>
-                                                            <input type="text" class="form-control" id="modelo" name="modelo">
+                                                            <label for="exampleInput">Numero Interior</label>
+                                                            <input type="text" class="form-control" id="NumeroInterior" name="NumeroInterior">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Colonia</label>
+                                                            <input type="text" class="form-control" id="Colonia" name="Colonia">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Localidad</label>
+                                                            <input type="text" class="form-control" id="Localidad" name="Localidad">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Referencia</label>
+                                                            <input type="text" class="form-control" id="Referencia" name="Referencia">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Municipio</label>
+                                                            <input type="text" class="form-control" id="Municipio" name="Municipio">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Estado</label>
+                                                            <input type="text" class="form-control" id="Estado" name="Estado">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Pais</label>
+                                                            <input type="text" class="form-control" id="Pais" name="Pais">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Codigo Postal</label>
+                                                            <input type="text" class="form-control" id="CodigoPostal" name="CodigoPostal">
                                                         </div>
 
                                                         <div class="modal-footer">
@@ -188,52 +222,94 @@ if ($_SESSION['access'] == true) {
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-                                                <h1><strong>Editar</strong> Area</h1>
+                                                <h1><strong>Editar</strong> Arrendatario</h1>
                                             </div>
                                             <div class="modal-body">
-                                                    <div class="form-group">
-                                                        <label for="exampleInput">Numero Economico</label>
-                                                        <input type="text" class="form-control" id="economico">
-                                                    </div>
-                            
-
-                                                    <div class="form-group">
-                                                        <label class="col-sm-12 control-label">Tipo de Remolque</label>
+                                            <div class="form-group">
+                                                            <label for="exampleInput">Nombre Arrendatario</label>
+                                                            <input type="text" class="form-control" id="NombreArrendatario" name="NombreArrendatario">
+                                                        </div>
 
                                                         <div class="form-group">
-                                                            <label for="exampleInput"></label>
-                                                            <select id="SubTipoRem" class="form-control">
-                                                                <?php
-                                                                    if ($numrem >= 1) {
+                                                            <label class="col-sm-12 control-label">Registro Tributario</label>
 
-                                                                        while ($rs = $resrem->fetch_assoc()) {
-                                                                ?>
-                                                                <option value = "<?php echo $rs['clave']?>"><?php echo $rs['descripcion']?></option>
-                                                                <?php
+                                                            <div class="form-group">
+                                                                <label for="exampleInput"></label>
+                                                                <select id="NumRegIdTribArrendatario" name="NumRegIdTribArrendatario" class="form-control">
+                                                                    <?php
+                                                                        $consultareg = "SELECT * FROM regimenfiscal ORDER BY idregimenfiscal";
+
+                                                                        $resreg = $mysqli->query($consultareg);
+                                                                        $numrem = $resrem->num_rows;
+                                                                        if ($numrem >= 1) {
+
+                                                                            while ($rs = $resreg->fetch_assoc()) {
+                                                                    ?>
+                                                                    <option value = "<?php echo $rs['c_RegimenFiscal']?>"><?php echo $rs['descripcion']?></option>
+                                                                    <?php
+                                                                            }
                                                                         }
-                                                                    }
-                                                                ?>
-                                                            </select>
+                                                                    ?>
+                                                                </select>
+
+                                                            </div>
 
                                                         </div>
 
-                                                    </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Residencia Fiscal</label>
+                                                            <input type="text" class="form-control" id="ResidenciaFiscal" name="ResidenciaFiscal">
+                                                        </div>
+                            
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Calle</label>
+                                                            <input type="text" class="form-control" id="Calle" name="Calle">
+                                                        </div>
 
-                                                    <div class="form-group">
-                                                        <label for="exampleInput">Placa</label>
-                                                        <input type="text" class="form-control" id="placa">
-                                                    </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Numero Exterior</label>
+                                                            <input type="text" class="form-control" id="NumeroExterior" name="NumeroExterior">
+                                                        </div>
 
-                                                    <div class="form-group">
-                                                        <label for="exampleInput">Marca</label>
-                                                        <input type="text" class="form-control" id="marca">
-                                                    </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Numero Interior</label>
+                                                            <input type="text" class="form-control" id="NumeroInterior" name="NumeroInterior">
+                                                        </div>
 
-                                                    <div class="form-group">
-                                                        <label for="exampleInput">Modelo</label>
-                                                        <input type="text" class="form-control" id="modelo">
-                                                    </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Colonia</label>
+                                                            <input type="text" class="form-control" id="Colonia" name="Colonia">
+                                                        </div>
 
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Localidad</label>
+                                                            <input type="text" class="form-control" id="Localidad" name="Localidad">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Referencia</label>
+                                                            <input type="text" class="form-control" id="Referencia" name="Referencia">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Municipio</label>
+                                                            <input type="text" class="form-control" id="Municipio" name="Municipio">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Estado</label>
+                                                            <input type="text" class="form-control" id="Estado" name="Estado">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Pais</label>
+                                                            <input type="text" class="form-control" id="Pais" name="Pais">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Codigo Postal</label>
+                                                            <input type="text" class="form-control" id="CodigoPostal" name="CodigoPostal">
+                                                        </div>
                                                 <div class="modal-footer">
                                                     <button class="btn btn-red" data-dismiss="modal" aria-hidden="true">Cancelar</button>
                                                     <button id="btneditartalla" type="button" class="btn btn-greensea">Agregar</button>
@@ -250,7 +326,7 @@ if ($_SESSION['access'] == true) {
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-                                            <h3 class="modal-title" id="modalConfirmLabel"><strong>Activar</strong> Area</h3>
+                                            <h3 class="modal-title" id="modalConfirmLabel"><strong>Activar</strong> Arrendatario</h3>
                                         </div>
                                         <div class="modal-body">
                                             <section class="tile transparent">
@@ -272,7 +348,7 @@ if ($_SESSION['access'] == true) {
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-                                            <h3 class="modal-title" id="modalConfirmLabel"><strong>Desactivar</strong> Area</h3>
+                                            <h3 class="modal-title" id="modalConfirmLabel"><strong>Desactivar</strong> Arrendatario</h3>
                                         </div>
                                         <div class="modal-body">
                                             <section class="tile transparent">
@@ -300,11 +376,19 @@ if ($_SESSION['access'] == true) {
                                             <thead>
                                                 <tr >
                                                    
-                                                    <th>Numéro Económico</th>
-                                                    <th>Tipo de Remolque</th>
-                                                    <th>Tipo de Placa</th>
-                                                    <th>Tipo de Marca</th>
-                                                    <th>Tipo de Modelo</th>
+                                                    <th>Nombre</th>
+                                                    <th>Registro Tributario</th>
+                                                    <th>Residencia Fiscal</th>
+                                                    <th>Calle</th>
+                                                    <th>Numero Exterior</th>
+                                                    <th>Numero Interior</th>
+                                                    <th>Colonia</th>
+                                                    <th>Localidad</th>
+                                                    <th>Referencia</th>
+                                                    <th>Municipio</th>
+                                                    <th>Estado</th>
+                                                    <th>Pais</th>
+                                                    <th>Codigo Postal</th>
                                                     <th>EDITAR</th>
                                                     <th>ACTIVAR</th>
                                                     
@@ -314,7 +398,7 @@ if ($_SESSION['access'] == true) {
                                                 <?php
                                                 
 
-                                                $consulta = "SELECT * FROM remolques ORDER BY idremolques";
+                                                $consulta = "SELECT * FROM arrendatario ORDER BY idarrendatario";
 
                                                 //$resultadocolp = $mysqli->query($consulta3);
                                                 $res = $mysqli->query($consulta);
@@ -327,20 +411,28 @@ if ($_SESSION['access'] == true) {
                                                         <tr class="odd gradeX">
                                                             
                                                              
-                                                            <td id="tdnom<?php echo utf8_encode($rs['idremolques']); ?>"><?php echo $rs['economico']; ?></td>
-                                                            <td id="TIPO<?php echo utf8_encode($rs['idremolques']); ?>"><?php echo $rs['SubTipoRem']; ?></td>
-                                                            <td id="PLACA<?php echo utf8_encode($rs['idremolques']); ?>"><?php echo $rs['Placa']; ?></td>
-                                                            <td id="MARCA<?php echo utf8_encode($rs['idremolques']); ?>"><?php echo $rs['marca']; ?></td>
-                                                            <td id="MONDELO<?php echo utf8_encode($rs['idremolques']); ?>"><?php echo $rs['modelo']; ?></td>
-                                                            <td><button dataidc="<?php echo utf8_encode($rs['idremolques']); ?>" type="button" class="btn edittitle btn-warning margin-bottom-20">Editar Area</button></td>
+                                                            <td id="tdnom<?php echo utf8_encode($rs['idarrendatario']); ?>"><?php echo $rs['NombreArrendatario']; ?></td>
+                                                            <td id="TIPO<?php echo utf8_encode($rs['idarrendatario']); ?>"><?php echo $rs['NumRegIdTribArrendatario']; ?></td>
+                                                            <td id="PLACA<?php echo utf8_encode($rs['idarrendatario']); ?>"><?php echo $rs['ResidenciaFiscalArrendatario']; ?></td>
+                                                            <td id="MARCA<?php echo utf8_encode($rs['idarrendatario']); ?>"><?php echo $rs['Calle']; ?></td>
+                                                            <td id="MONDELO<?php echo utf8_encode($rs['idarrendatario']); ?>"><?php echo $rs['NumeroExterior']; ?></td>
+                                                            <td id="MONDELO<?php echo utf8_encode($rs['idarrendatario']); ?>"><?php echo $rs['NumeroInterior']; ?></td>
+                                                            <td id="MONDELO<?php echo utf8_encode($rs['idarrendatario']); ?>"><?php echo $rs['Colonia']; ?></td>
+                                                            <td id="MONDELO<?php echo utf8_encode($rs['idarrendatario']); ?>"><?php echo $rs['Localidad']; ?></td>
+                                                            <td id="MONDELO<?php echo utf8_encode($rs['idarrendatario']); ?>"><?php echo $rs['Referencia']; ?></td>
+                                                            <td id="MONDELO<?php echo utf8_encode($rs['idarrendatario']); ?>"><?php echo $rs['Municipio']; ?></td>
+                                                            <td id="MONDELO<?php echo utf8_encode($rs['idarrendatario']); ?>"><?php echo $rs['Estado']; ?></td>
+                                                            <td id="MONDELO<?php echo utf8_encode($rs['idarrendatario']); ?>"><?php echo $rs['Pais']; ?></td>
+                                                            <td id="MONDELO<?php echo utf8_encode($rs['idarrendatario']); ?>"><?php echo $rs['CodigoPostal']; ?></td>
+                                                            <td><button dataidc="<?php echo utf8_encode($rs['idarrendatario']); ?>" type="button" class="btn edittitle btn-warning margin-bottom-20">Editar Area</button></td>
                                                            <?php if ($rs['fecbaja'] == '0000-00-00 00:00:00') {
                                                                 ?>
-                                                               <td><button dataidc="<?php echo utf8_encode($rs['idremolques']); ?>" type="button" class="btn elimmarca btn-danger margin-bottom-20">Desactivar Area</button></td>
+                                                               <td><button dataidc="<?php echo utf8_encode($rs['idarrendatario']); ?>" type="button" class="btn elimmarca btn-danger margin-bottom-20">Desactivar Area</button></td>
                                                               
                                                             <?php 
                                                            }else{
                                                                 ?>
-                                                               <td><button dataidc="<?php echo utf8_encode($rs['idremolques']); ?>" type="button" class="btn acivarmarca btn-green margin-bottom-20">Activar Area</button></td>
+                                                               <td><button dataidc="<?php echo utf8_encode($rs['idarrendatario']); ?>" type="button" class="btn acivarmarca btn-green margin-bottom-20">Activar Area</button></td>
                                                               
                                                             <?php
                                                            }
@@ -412,7 +504,7 @@ if ($_SESSION['access'] == true) {
 
     <script src="assets/js/minimal.min.js"></script>
 
-    <script src="jsremolques.js"></script>
+    <script src="jsarrendatario.js"></script>
 </body>
 </html>
  <?php
