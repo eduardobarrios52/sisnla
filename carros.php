@@ -480,10 +480,17 @@ if ($_SESSION['access'] == true) {
                                                 <tr >
                                                    
                                                     <th>Numéro Económico</th>
-                                                    <th>Tipo de Remolque</th>
-                                                    <th>Tipo de Placa</th>
-                                                    <th>Tipo de Marca</th>
-                                                    <th>Tipo de Modelo</th>
+                                                    <th>Tipo Permiso SCT</th>
+                                                    <th>Numero de permiso SCT</th>
+                                                    <th>Aseguradora</th>
+                                                    <th>Numero de Poliza</th>
+                                                    <th>Configuracion Vehicular</th>
+                                                    <th>Placa</th>
+                                                    <th>Año/Modelo</th>
+                                                    <th>Tipo</th>
+                                                    <th>Propietario</th>
+                                                    <th>Arrendatario</th>
+                                                    <th>Notificado</th>
                                                     <th>EDITAR</th>
                                                     <th>ACTIVAR</th>
                                                     
@@ -493,7 +500,7 @@ if ($_SESSION['access'] == true) {
                                                 <?php
                                                 
 
-                                                $consulta = "SELECT * FROM remolques ORDER BY idremolques";
+                                                $consulta = "SELECT * FROM carros ORDER BY idcarros";
 
                                                 //$resultadocolp = $mysqli->query($consulta3);
                                                 $res = $mysqli->query($consulta);
@@ -505,28 +512,28 @@ if ($_SESSION['access'] == true) {
                                                 
                                                         <tr class="odd gradeX">
                                                             
-                                                            <td id="tdnom<?php echo utf8_encode($rs['idcarro']); ?>"><?php echo $rs['Economico']; ?></td>
-                                                            <td id="TIPO<?php echo utf8_encode($rs['idcarro']); ?>"><?php echo $rs['PermSCT']; ?></td>
-                                                            <td id="PLACA<?php echo utf8_encode($rs['idcarro']); ?>"><?php echo $rs['NumPermisoSCT']; ?></td>
-                                                            <td id="MARCA<?php echo utf8_encode($rs['idcarro']); ?>"><?php echo $rs['NombreAseg']; ?></td>
-                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarro']); ?>"><?php echo $rs['NumPolizaSeguro']; ?></td>
-                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarro']); ?>"><?php echo $rs['configVehicular']; ?></td>
-                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarro']); ?>"><?php echo $rs['PlacaVM']; ?></td>
-                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarro']); ?>"><?php echo $rs['AnioModeloVM']; ?></td>
-                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarro']); ?>"><?php echo $rs['modelo']; ?></td>
-                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarro']); ?>"><?php echo $rs['tipo']; ?></td>
-                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarro']); ?>"><?php echo $rs['propietario']; ?></td>
-                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarro']); ?>"><?php echo $rs['arrendatario']; ?></td>
-                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarro']); ?>"><?php echo $rs['Notificado']; ?></td>
-                                                            <td><button dataidc="<?php echo utf8_encode($rs['idcarro']); ?>" type="button" class="btn edittitle btn-warning margin-bottom-20">Editar Carro</button></td>
+                                                            <td id="tdnom<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['Economico']; ?></td>
+                                                            <td id="TIPO<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['PermSCT']; ?></td>
+                                                            <td id="PLACA<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['NumPermisoSCT']; ?></td>
+                                                            <td id="MARCA<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['NombreAseg']; ?></td>
+                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['NumPolizaSeguro']; ?></td>
+                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['configVehicular']; ?></td>
+                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['PlacaVM']; ?></td>
+                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['AnioModeloVM']; ?></td>
+                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['modelo']; ?></td>
+                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['tipo']; ?></td>
+                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['propietario']; ?></td>
+                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['arrendatario']; ?></td>
+                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['Notificado']; ?></td>
+                                                            <td><button dataidc="<?php echo utf8_encode($rs['idcarros']); ?>" type="button" class="btn edittitle btn-warning margin-bottom-20">Editar Carro</button></td>
                                                            <?php if ($rs['fecbaja'] == '0000-00-00 00:00:00') {
                                                                 ?>
-                                                               <td><button dataidc="<?php echo utf8_encode($rs['idcarro']); ?>" type="button" class="btn elimmarca btn-danger margin-bottom-20">Desactivar Carro</button></td>
+                                                               <td><button dataidc="<?php echo utf8_encode($rs['idcarros']); ?>" type="button" class="btn elimmarca btn-danger margin-bottom-20">Desactivar Carro</button></td>
                                                               
                                                             <?php 
                                                            }else{
                                                                 ?>
-                                                               <td><button dataidc="<?php echo utf8_encode($rs['idcarro']); ?>" type="button" class="btn acivarmarca btn-green margin-bottom-20">Activar Carro</button></td>
+                                                               <td><button dataidc="<?php echo utf8_encode($rs['idcarros']); ?>" type="button" class="btn acivarmarca btn-green margin-bottom-20">Activar Carro</button></td>
                                                               
                                                             <?php
                                                            }
@@ -598,7 +605,7 @@ if ($_SESSION['access'] == true) {
 
     <script src="assets/js/minimal.min.js"></script>
 
-    <script src="carros.js"></script>
+    <script src="jscarros.js"></script>
 </body>
 </html>
  <?php

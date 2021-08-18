@@ -175,7 +175,36 @@ $tipo = $_SESSION["tipo"];
                                     <i class="fa fa-caret-right"></i> Administracion de Areas
                                 </a>
                             </li>
-                           
+                            <li>
+                                <a href="carros.php">
+                                    <i class="fa fa-caret-right"></i> Administracion de Carros
+                                </a>
+                            </li>
+                            <li>
+                                <a href="remolques.php">
+                                    <i class="fa fa-caret-right"></i> Administracion de Remolques
+                                </a>
+                            </li>
+                            <li>
+                                <a href="propietario.php">
+                                    <i class="fa fa-caret-right"></i> Administracion de Propietarios
+                                </a>
+                            </li>
+                            <li>
+                                <a href="arrendatario.php">
+                                    <i class="fa fa-caret-right"></i> Administracion de Arrendatarios
+                                </a>
+                            </li>
+                            <li>
+                                <a href="notificado.php">
+                                    <i class="fa fa-caret-right"></i> Administracion de Notificados
+                                </a>
+                            </li>
+                            <li>
+                                <a href="operadores.php">
+                                    <i class="fa fa-caret-right"></i> Administracion de Operadores
+                                </a>
+                            </li>
 
                         </ul>
                     </li>

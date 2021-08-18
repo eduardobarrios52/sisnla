@@ -16,7 +16,7 @@ $propietario = $_GET['propietario'];
 $arrendatario = $_GET['arrendatario'];
 $Notificado = $_GET['Notificado'];
 
-$consultanot='update carros set Economico=\'' . $Economico . '\', PermSCT=\'' . $PermSCT . '\', NumPermisoSCT=\'' . $NumPermisoSCT . '\', NombreAseg=\'' . $NombreAseg . '\', NumPolizaSeguro=\'' . $NumPolizaSeguro . '\', configVehicular=\'' . $configVehicular . '\', PlacaVM=\'' . $PlacaVM . '\', AnioModeloVM=\'' . $AnioModeloVM . '\', modelo=\'' . $modelo . '\', tipo=\'' . $tipo . '\', propietario=\'' . $propietario . '\', Notificado=\'' . $Notificado . '\', arrendatario=\'' . $arrendatario . '\' where idcarro=\'' . $idcarro. '\' ';
+$consultanot='update carros set Economico=\'' . $Economico . '\', PermSCT=\'' . $PermSCT . '\', NumPermisoSCT=\'' . $NumPermisoSCT . '\', NombreAseg=\'' . $NombreAseg . '\', NumPolizaSeguro=\'' . $NumPolizaSeguro . '\', configVehicular=\'' . $configVehicular . '\', PlacaVM=\'' . $PlacaVM . '\', AnioModeloVM=\'' . $AnioModeloVM . '\', modelo=\'' . $modelo . '\', tipo=\'' . $tipo . '\', propietario=\'' . $propietario . '\', Notificado=\'' . $Notificado . '\', arrendatario=\'' . $arrendatario . '\' where idcarros=\'' . $idcarro. '\' ';
 if($mysqli->query($consultanot)){
     echo 'ok';
 }
