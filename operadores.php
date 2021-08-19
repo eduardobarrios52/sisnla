@@ -160,12 +160,10 @@ if ($_SESSION['access'] == true) {
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleInput">RFC</label>
-
                                                         <input type="text" class="form-control" id="rfc">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleInput">Numero de Licencia</label>
-
                                                         <input type="text" class="form-control" id="rfc">
                                                     </div>
                                                     <div class="form-group">
@@ -242,7 +240,7 @@ if ($_SESSION['access'] == true) {
                                                             </div>
 
                                                         </div>
-                                                                                                        <div class="modal-footer">
+                                                    <div class="modal-footer">
                                                         <button class="btn btn-red" data-dismiss="modal" aria-hidden="true">Cancelar</button>
                                                         <button id="btnagregarc" type="button" class="btn btn-greensea">Agregar</button>
                                                     </div>
