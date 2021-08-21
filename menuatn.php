@@ -205,6 +205,16 @@ $tipo = $_SESSION["tipo"];
                                     <i class="fa fa-caret-right"></i> Administracion de Operadores
                                 </a>
                             </li>
+                            <li>
+                                <a href="sucursal.php">
+                                    <i class="fa fa-caret-right"></i> Administracion de Sucursales
+                                </a>
+                            </li>
+                            <li>
+                                <a href="empresa.php">
+                                    <i class="fa fa-caret-right"></i> Administracion de Empresa
+                                </a>
+                            </li>
 
                         </ul>
                     </li>

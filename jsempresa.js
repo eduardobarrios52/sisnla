@@ -7,7 +7,7 @@ var idempresaedit = 0;
 var idempresaelim = 0;
 var imgmarcaed = 0;
 $("#btnagregarc").on('click', function () {
-    if ($("#Economico").val().trim().length >= 1 ) {
+    if ($("#Nombre").val().trim().length >= 1 ) {
         form = $('#agregar');
         
         $.ajax({url: "agregarempresa.php",
@@ -33,25 +33,26 @@ $(".edittitle").click(function () {
         data: {'id': marcaeditnom,
                 'tipo': 'empresa'},
         success: function (result) {
-            $("#Nombree").val(result['nombre']);
-            $("#RFCe").val(result['rfc']);
-            $("#nocertificadoe").val(result['nocertificado']);
-            $("#certificadoe").val(result['certificado']);
-            $("#regimenfiscale").val(result['regimenfiscal']);
-            $("#nombrepace").val(result['nombrepac']);
-            $("#usuariopace").val(result['usuariopac']);
-            $("#contrapace").val(result['contrapac']);
+                $("#idempresa").val(marcaeditnom);
+                $("#Nombree").val(result.nombre);
+                $("#RFCe").val(result['rfc']);
+                $("#nocertificadoe").val(result['nocertificado']);
+                $("#certificadoe").val(result['certificado']);
+                $("#regimenfiscale").val(result['regimenfiscal']);
+                $("#nombrepace").val(result['nombrepac']);
+                $("#usuariopace").val(result['usuariopac']);
+                $("#contrapace").val(result['contrapac']);
+            
         }
     });
-
 
     $('#editartalla').modal('show');
 });
 
 $("#btneditartalla").click(function () {
 
-    if ($("#Economico").val().trim().length >= 1 ) {
-        form = $('#agregar');
+    if ($("#Nombree").val().trim().length >= 1 ) {
+        form = $('#editar');
 
         $.ajax({url: "editarempresa.php",
             type: 'GET',

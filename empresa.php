@@ -176,7 +176,7 @@ if ($_SESSION['access'] == true) {
 
                                                         <div class="form-group">
                                                             <label for="exampleInput">Contraseña PAC</label>
-                                                            <input type="text" class="form-control" id="contrapac" name="Folio">
+                                                            <input type="text" class="form-control" id="contrapac" name="contrapac">
                                                         </div>
 
                                                         <div class="modal-footer">
@@ -200,6 +200,7 @@ if ($_SESSION['access'] == true) {
                                                 <h1><strong>Editar</strong> Area</h1>
                                             </div>
                                             <div class="modal-body">
+                                                <input type="hidden" class="form-control" id="idempresa" name="idempresa">
                                                 <div class="form-group">
                                                     <label for="exampleInput">Nombre</label>
                                                     <input type="text" class="form-control" id="Nombree" name="Nombre">
@@ -225,7 +226,7 @@ if ($_SESSION['access'] == true) {
 
                                                     <div class="form-group">
                                                         <label for="NumRegIdTribNotificado"></label>
-                                                        <select id="regimenfiscale"  class="form-control" name="regimenfiscal">
+                                                        <select id="regimenfiscale"  class="form-control" name="NumRegIdTribNotificado">
                                                             <?php
                                                                 $consultareg = "SELECT * FROM regimenfiscal ORDER BY idregimenfiscal";
 
@@ -258,7 +259,7 @@ if ($_SESSION['access'] == true) {
 
                                                 <div class="form-group">
                                                     <label for="exampleInput">Contraseña PAC</label>
-                                                    <input type="text" class="form-control" id="contrapace" name="Folio">
+                                                    <input type="text" class="form-control" id="contrapace" name="contrapac">
                                                 </div>
 
                                                 <div class="modal-footer">

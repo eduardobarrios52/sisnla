@@ -1,11 +1,11 @@
 <?php
 include 'conexion.php';
 
-$nombre= $_GET['nombre'];
-$rfc = $_GET['rfc'];
+$nombre= $_GET['Nombre'];
+$rfc = $_GET['RFC'];
 $nocertificado = $_GET['nocertificado'];
 $certificado = $_GET['certificado'];
-$regimenfiscal = $_GET['regimenfiscal'];
+$regimenfiscal = $_GET['NumRegIdTribNotificado'];
 $usuariopac = $_GET['usuariopac'];
 $contrapac = $_GET['contrapac'];
 $nombrepac = $_GET['nombrepac'];

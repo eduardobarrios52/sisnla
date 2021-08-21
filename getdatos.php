@@ -1,5 +1,6 @@
 <?php
 include 'conexion.php';
+header('Content-Type: application/json');
 $tipo = $_GET['tipo'];
 $id = $_GET['id'];
 $resp = array();
@@ -9,14 +10,14 @@ if($tipo == 'empresa'){
     $num = $res->num_rows;
     if ($num >= 1) {
         while ($rs = $res->fetch_assoc()) {
-            $resp['nombre'] =$res['nombre'];
-            $resp['rfc'] = $res['rfc'];
-            $resp['nocertificado'] = $res['nocertificado'];
-            $resp['certificado'] = $res['certificado'];
-            $resp['regimenfiscal'] = $res['regimenfiscal'];
-            $resp['usuariopac'] = $res['usuariopac'];
-            $resp['contrapac'] = $res['contrapac'];
-            $resp['nombrepac'] = $res['nombrepac'];
+            $resp['nombre'] =$rs['nombre'];
+            $resp['rfc'] = $rs['rfc'];
+            $resp['nocertificado'] = $rs['nocertificado'];
+            $resp['certificado'] = $rs['certificado'];
+            $resp['regimenfiscal'] = $rs['regimenfiscal'];
+            $resp['usuariopac'] = $rs['usuariopac'];
+            $resp['contrapac'] = $rs['contrapac'];
+            $resp['nombrepac'] = $rs['nombrepac'];
         }
     }
 }else if($tipo == 'sucursal'){
@@ -153,4 +154,6 @@ if($tipo == 'empresa'){
         }
     }
 }
+
+echo json_encode($resp);
 ?>
