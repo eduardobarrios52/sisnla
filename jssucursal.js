@@ -24,97 +24,25 @@ $(function () {
     $("#btnmagr").on('click', function () {
         $('#agregartalla').modal('show');
     });
+
     $(".edittitle").click(function () {
         marcaeditnom = $(this).attr("dataidc");
 
-        if ($("#IMMEX" + marcaeditnom).html() == '<span class="badge badge-greensea">OK</span>') {
-            $('#eopt1').prop('checked', true);
-        } else {
-            $('#eopt1').prop('checked', false);
-        }
-        if ($("#PROSEC" + marcaeditnom).html() == '<span class="badge badge-greensea">OK</span>') {
-            $('#eopt2').prop('checked', true);
-        } else {
-            $('#eopt2').prop('checked', false);
-        }
-        if ($("#DRAWBACK" + marcaeditnom).html() == '<span class="badge badge-greensea">OK</span>') {
-            $('#eopt3').prop('checked', true);
-        } else {
-            $('#eopt3').prop('checked', false);
-        }
-        if ($("#REGLAOCTAVA" + marcaeditnom).html() == '<span class="badge badge-greensea">OK</span>') {
-            $('#eopt4').prop('checked', true);
-        } else {
-            $('#eopt4').prop('checked', false);
-        }
-        if ($("#A" + marcaeditnom).html() == '<span class="badge badge-greensea">OK</span>') {
-            $('#eopt5').prop('checked', true);
-        } else {
-            $('#eopt5').prop('checked', false);
-        }
-        if ($("#AA" + marcaeditnom).html() == '<span class="badge badge-greensea">OK</span>') {
-            $('#eopt6').prop('checked', true);
-        } else {
-            $('#eopt6').prop('checked', false);
-        }
-        if ($("#AAA" + marcaeditnom).html() == '<span class="badge badge-greensea">OK</span>') {
-            $('#eopt7').prop('checked', true);
-        } else {
-            $('#eopt7').prop('checked', false);
-        }
-        if ($("#PADGENIMP" + marcaeditnom).html() == '<span class="badge badge-greensea">OK</span>') {
-            $('#eopt8').prop('checked', true);
-        } else {
-            $('#eopt8').prop('checked', false);
-        }
-        if ($("#PADSECIMP" + marcaeditnom).html() == '<span class="badge badge-greensea">OK</span>') {
-            $('#eopt9').prop('checked', true);
-        } else {
-            $('#eopt9').prop('checked', false);
-        }
-        if ($("#PADSEC3" + marcaeditnom).html() == '<span class="badge badge-greensea">OK</span>') {
-            $('#eopt10').prop('checked', true);
-        } else {
-            $('#eopt10').prop('checked', false);
-        }
-        if ($("#OEA" + marcaeditnom).html() == '<span class="badge badge-greensea">OK</span>') {
-            $('#eopt11').prop('checked', true);
-        } else {
-            $('#eopt11').prop('checked', false);
-        }
-        if ($("#CTPAT" + marcaeditnom).html() == '<span class="badge badge-greensea">OK</span>') {
-            $('#eopt12').prop('checked', true);
-        } else {
-            $('#eopt12').prop('checked', false);
-        }
-
-
-
-        $("#enombre").val($("#tdnom" + marcaeditnom).html());
-        $("#erfc").val($("#tdrfc" + marcaeditnom).html());
-        $("#enome").val($("#tdnome" + marcaeditnom).html());
-        $("#edescripcion").val($("#tddesc" + marcaeditnom).html());
-        $("#econtra").val($("#tdcontra" + marcaeditnom).html());
-        //btneditarmarca
-        //$("#").val($("#td" + marcaeditnom).html());
-        //$("#").val($("#" + marcaeditnom).html());
-        //$("#").val($("#" + marcaeditnom).html());
-        $("#eC1NOM").val($("#C1NOM" + marcaeditnom).html());
-        $("#eC1PUESTO").val($("#C1PUESTO" + marcaeditnom).html());
-        $("#eC1MAIL").val($("#C1MAIL" + marcaeditnom).html());
-        $("#eC2NOM").val($("#C2NOM" + marcaeditnom).html());
-        $("#eC2PUESTO").val($("#C2PUESTO" + marcaeditnom).html());
-        $("#eC2MAIL").val($("#C2MAIL" + marcaeditnom).html());
-        $("#eC3NOM").val($("#C3NOM" + marcaeditnom).html());
-        $("#eC3PUESTO").val($("#C3PUESTO" + marcaeditnom).html());
-        $("#eC3MAIL").val($("#C3MAIL" + marcaeditnom).html());
-        $("#eciudad").val($("#CIUDAD" + marcaeditnom).html());
-        $("#eestado").val($("#ESTADO" + marcaeditnom).html());
-        $("#edireccion").val($("#DIRECCiON" + marcaeditnom).html());
-        $("#ecp").val($("#CP" + marcaeditnom).html());
-        $("#edescripcioemp").val($("#DESCRIPCIOEMP" + marcaeditnom).html());
-
-
+        $.ajax({url: "getdatos.php",
+        type: 'GET',
+        data: {'id': marcaeditnom,
+                'tipo': 'sucursal'},
+            success: function (result) {
+                    $("#idempresa").val(marcaeditnom);
+                    $("#nombree").val(result.nombre);
+                    $("#Empresae").val(result['idempresa']);
+                    $("#Seriee").val(result['serie']);
+                    $("#Folioe").val(result['folio']);
+                    $("#CodigoPostale").val(result['cp']);
+                
+            }
+        });
+        
         $('#editartalla').modal('show');
     });
 

@@ -289,7 +289,7 @@ if ($_SESSION['access'] == true) {
                                             <div class="modal-body">
                                             <div class="form-group">
                                                             <label for="exampleInput">Nombre de Notificado</label>
-                                                            <input type="text" class="form-control" id="NombreNotificado" name="NombreNotificado">
+                                                            <input type="text" class="form-control" id="NombreNotificadoe" name="NombreNotificado">
                                                         </div>
 
                                                         <div class="form-group">
@@ -379,7 +379,7 @@ if ($_SESSION['access'] == true) {
 
                                                             <div class="form-group">
                                                                 <label for="exampleInput"></label>
-                                                                <select id="Localidad" name="Localidade" class="form-control">
+                                                                <select id="Localidade" name="Localidad" class="form-control">
                                                                 </select>
                                                             </div>
                                                         </div>

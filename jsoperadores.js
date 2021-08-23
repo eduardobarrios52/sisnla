@@ -316,42 +316,28 @@ $(function () {
 
 
         marcaeditnom = $(this).attr("dataidc");
-        $("#enombre").val($("#tdnom" + marcaeditnom).html());
-        $("#eapaterno").val($("#tdapat" + marcaeditnom).html());
-        $("#eamaterno").val($("#tdamat" + marcaeditnom).html());
-        $("#enome").val($("#tdnome" + marcaeditnom).html());
-
-        $("#etelcasa").val($("#tdtelcasa" + marcaeditnom).html());
-        $("#ecelular").val($("#tdcelular" + marcaeditnom).html());
-        $("#ealergia").val($("#tdalergia" + marcaeditnom).html());
-
-
-        $("#edescripcion").val($("#tddesc" + marcaeditnom).html());
-        $("#econtra").val($("#tdcontra" + marcaeditnom).html());
-        $("#ecurp").val($("#tdcurp" + marcaeditnom).html());
-        $("#erfc").val($("#tdrfc" + marcaeditnom).html());
-        if ($("#tdtipo" + marcaeditnom).html() == 'ADMINISTRADOR') {
-            $("#enuser").val("1");
-        } else if ($("#tdtipo" + marcaeditnom).html() == 'JEFE DE AREA') {
-            $("#enuser").val("2");
-        } else if ($("#tdtipo" + marcaeditnom).html() == 'SUBORDINADO') {
-            $("#enuser").val("3");
-        }
-        areaedit = $("#tdarea" + marcaeditnom).attr("data-id");
-        //console.log(areaedit);
-
-        $("#ecategoria").val(areaedit);
-
-        //$("#ecategoria").val()
-        //$("#nuser").val($("#td" + marcaeditnom).html());
-        $("#efecing").val($("#tdfecing" + marcaeditnom).html());
-        $("#edomi").val($("#tddomi" + marcaeditnom).html());
-        $("#efecnac").val($("#tdfecnac" + marcaeditnom).html());
-
-
-
-        //btneditarmarca
-
+        $.ajax({url: "getdatos.php",
+        type: 'GET',
+        data: {'id': marcaeditnom,
+                'tipo': 'operadores'},
+            success: function (result) {
+                    $("#idempresa").val(marcaeditnom);
+                    $("#nombree").val(result.NombrePropietario);
+                    $("#rfce").val(result['NumRegIdTribArrendatario']);
+                    $("#NumLicenciae").val(result['ResidenciaFiscal']);
+                    $("#Callee").val(result['Calle']);
+                    $("#NumeroExteriore").val(result['NumeroExterior']);
+                    $("#NumeroInteriore").val(result['NumeroInterior']);
+                    $("#CodigoPostale").val(result['CodigoPostal']);
+                    $("#Coloniae").val(result['Colonia']);
+                    $("#Localidade").val(result['Localidad']);
+                    $("#Referenciae").val(result['Referencia']);
+                    $("#Municipioe").val(result['Municipio']);
+                    $("#Estadoe").val(result['Estado']);
+                    $("#Paise").val(result['Pais']);
+                    
+            }
+        });
         $('#editartalla').modal('show');
     });
     $("#btneditartalla").click(function () {

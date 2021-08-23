@@ -301,17 +301,17 @@ if ($_SESSION['access'] == true) {
                                                 <div class="modal-body">
                                                     <div class="form-group">
                                                         <label for="exampleInput">Nombre</label>
-                                                        <input type="text" class="form-control" id="nombree">
+                                                        <input type="text" class="form-control" id="nombree" name="nombre">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleInput">RFC</label>
 
-                                                        <input type="text" class="form-control" id="rfc">
+                                                        <input type="text" class="form-control" id="rfce" name="rfc">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleInput">Numero de Licencia</label>
 
-                                                        <input type="text" class="form-control" id="rfce">
+                                                        <input type="text" class="form-control" id="NumLicenciae" name="NumLicencia">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="domi">Codigo Postal</label>

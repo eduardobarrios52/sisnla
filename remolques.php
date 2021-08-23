@@ -188,7 +188,7 @@ if ($_SESSION['access'] == true) {
                                             <div class="modal-body">
                                                     <div class="form-group">
                                                         <label for="exampleInput">Numero Economico</label>
-                                                        <input type="text" class="form-control" id="economico">
+                                                        <input type="text" class="form-control" id="economicoe">
                                                     </div>
                             
 
@@ -197,7 +197,7 @@ if ($_SESSION['access'] == true) {
 
                                                         <div class="form-group">
                                                             <label for="exampleInput"></label>
-                                                            <select id="SubTipoRem" class="form-control">
+                                                            <select id="SubTipoReme" id="SubTipoRem" class="form-control">
                                                                 <?php
                                                                     if ($numrem >= 1) {
 
@@ -216,17 +216,17 @@ if ($_SESSION['access'] == true) {
 
                                                     <div class="form-group">
                                                         <label for="exampleInput">Placa</label>
-                                                        <input type="text" class="form-control" id="placa">
+                                                        <input type="text" class="form-control" id="placae" name="placa">
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label for="exampleInput">Marca</label>
-                                                        <input type="text" class="form-control" id="marca">
+                                                        <input type="text" class="form-control" id="marcae" name="marca">
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label for="exampleInput">Modelo</label>
-                                                        <input type="text" class="form-control" id="modelo">
+                                                        <input type="text" class="form-control" id="modeloe" name="modelo">
                                                     </div>
 
                                                 <div class="modal-footer">
