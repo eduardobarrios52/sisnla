@@ -7,7 +7,9 @@ $serie = $_GET['Serie'];
 $folio = $_GET['Folio'];
 $cp = $_GET['CodigoPostal'];;
 
-$consultanot='insert into carros(nombre,empresa,serie,folio,cp)'.
+$consultanot='insert into sucursal(nombre,idempresa,serie,folio,cp)'.
 'values(\'' . $nombre . '\',\'' . $empresa . '\',\'' . $serie . '\',\'' . $folio . '\',\'' . $cp . '\')';
                                 
-$mysqli->query($consultanot);
+$resul = $mysqli->query($consultanot);
+
+$resul;

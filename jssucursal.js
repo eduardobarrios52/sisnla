@@ -7,7 +7,7 @@ $(function () {
     var idsucursalelim = 0;
     var imgmarcaed = 0;
     $("#btnagregarc").on('click', function () {
-        if ($("#Economico").val().trim().length >= 1 ) {
+        if ($("#Nombre").val().trim().length >= 1 ) {
             form = $('#agregar');
             
             $.ajax({url: "agregarsucursal.php",
@@ -34,7 +34,7 @@ $(function () {
                 'tipo': 'sucursal'},
             success: function (result) {
                     $("#idempresa").val(marcaeditnom);
-                    $("#nombree").val(result.nombre);
+                    $("#Nombree").val(result.nombre);
                     $("#Empresae").val(result['idempresa']);
                     $("#Seriee").val(result['serie']);
                     $("#Folioe").val(result['folio']);
@@ -48,7 +48,7 @@ $(function () {
 
     $("#btneditartalla").click(function () {
 
-        if ($("#Economico").val().trim().length >= 1 ) {
+        if ($("#Nombre").val().trim().length >= 1 ) {
             form = $('#agregar');
 
             $.ajax({url: "editarsucursal.php",

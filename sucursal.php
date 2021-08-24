@@ -120,7 +120,7 @@ if ($_SESSION['access'] == true) {
                                                     <div class="modal-body">
                                                         <div class="form-group">
                                                             <label for="exampleInput">Nombre</label>
-                                                            <input type="text" class="form-control" id="economico" name="economico">
+                                                            <input type="text" class="form-control" id="Nombre" name="Nombre">
                                                         </div>
                             
 
@@ -139,7 +139,7 @@ if ($_SESSION['access'] == true) {
 
                                                                             while ($rs = $resrem->fetch_assoc()) {
                                                                     ?>
-                                                                    <option value = "<?php echo $rs['clave']?>"><?php echo $rs['descripcion']?></option>
+                                                                    <option value = "<?php echo $rs['idempresa']?>"><?php echo $rs['nombre']?></option>
                                                                     <?php
                                                                             }
                                                                         }
@@ -188,7 +188,7 @@ if ($_SESSION['access'] == true) {
                                             <div class="modal-body">
                                                 <div class="form-group">
                                                     <label for="exampleInput">Nombre</label>
-                                                    <input type="text" class="form-control" id="nombree" name="Nombre">
+                                                    <input type="text" class="form-control" id="Nombree" name="Nombre">
                                                 </div>
                     
 
@@ -207,7 +207,7 @@ if ($_SESSION['access'] == true) {
 
                                                                     while ($rs = $resrem->fetch_assoc()) {
                                                             ?>
-                                                            <option value = "<?php echo $rs['clave']?>"><?php echo $rs['descripcion']?></option>
+                                                            <option value = "<?php echo $rs['idempresa']?>"><?php echo $rs['nombre']?></option>
                                                             <?php
                                                                     }
                                                                 }

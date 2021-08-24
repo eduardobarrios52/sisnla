@@ -524,7 +524,7 @@ if ($_SESSION['access'] == true) {
                                                 <?php
                                                 
 
-                                                $consulta = "SELECT * FROM propietario ORDER BY idpropietario";
+                                                $consulta = "SELECT p.* , r.descripcion as Regimen, pa.descripcion as residencia, pai.descripcion as paiss, e.nombre as Esta, m.descripcion as Mun, c.nombre as col FROM propietario p inner join regimenfiscal r on p.NumRegIdTribPropietario = r.c_REgimenFiscal inner join pais pa on p.ResidenciaFiscalPropietario = pa.clave inner join pais pai on p.Pais = pai.clave inner join estados e on e.c_Estado = p.Estado inner join municipios m on m.c_municipio = p.Municipio and m.c_Estado = p.Estado inner join colonias c on c.c_Colonia = p.Colonia and c.c_CodigoPostal = p.CodigoPostal ORDER BY idpropietario";
 
                                                 //$resultadocolp = $mysqli->query($consulta3);
                                                 $res = $mysqli->query($consulta);
@@ -535,20 +535,18 @@ if ($_SESSION['access'] == true) {
                                                         ?>
                                                 
                                                         <tr class="odd gradeX">
-                                                            
-                                                             
                                                             <td id="tdnom<?php echo utf8_encode($rs['idpropietario']); ?>"><?php echo $rs['NombrePropietario']; ?></td>
-                                                            <td id="TIPO<?php echo utf8_encode($rs['idpropietario']); ?>"><?php echo $rs['NumRegIdTribPropietario']; ?></td>
-                                                            <td id="PLACA<?php echo utf8_encode($rs['idpropietario']); ?>"><?php echo $rs['ResidenciaFiscalPropietario']; ?></td>
+                                                            <td id="TIPO<?php echo utf8_encode($rs['idpropietario']); ?>"><?php echo $rs['Regimen']; ?></td>
+                                                            <td id="PLACA<?php echo utf8_encode($rs['idpropietario']); ?>"><?php echo $rs['residencia']; ?></td>
                                                             <td id="MARCA<?php echo utf8_encode($rs['idpropietario']); ?>"><?php echo $rs['Calle']; ?></td>
                                                             <td id="MONDELO<?php echo utf8_encode($rs['idpropietario']); ?>"><?php echo $rs['NumeroExterior']; ?></td>
                                                             <td id="MONDELO<?php echo utf8_encode($rs['idpropietario']); ?>"><?php echo $rs['NumeroInterior']; ?></td>
-                                                            <td id="MONDELO<?php echo utf8_encode($rs['idpropietario']); ?>"><?php echo $rs['Colonia']; ?></td>
+                                                            <td id="MONDELO<?php echo utf8_encode($rs['idpropietario']); ?>"><?php echo $rs['col']; ?></td>
                                                             <td id="MONDELO<?php echo utf8_encode($rs['idpropietario']); ?>"><?php echo $rs['Localidad']; ?></td>
                                                             <td id="MONDELO<?php echo utf8_encode($rs['idpropietario']); ?>"><?php echo $rs['Referencia']; ?></td>
-                                                            <td id="MONDELO<?php echo utf8_encode($rs['idpropietario']); ?>"><?php echo $rs['Municipio']; ?></td>
-                                                            <td id="MONDELO<?php echo utf8_encode($rs['idpropietario']); ?>"><?php echo $rs['Estado']; ?></td>
-                                                            <td id="MONDELO<?php echo utf8_encode($rs['idpropietario']); ?>"><?php echo $rs['Pais']; ?></td>
+                                                            <td id="MONDELO<?php echo utf8_encode($rs['idpropietario']); ?>"><?php echo $rs['Mun']; ?></td>
+                                                            <td id="MONDELO<?php echo utf8_encode($rs['idpropietario']); ?>"><?php echo $rs['Esta']; ?></td>
+                                                            <td id="MONDELO<?php echo utf8_encode($rs['idpropietario']); ?>"><?php echo $rs['paiss']; ?></td>
                                                             <td id="MONDELO<?php echo utf8_encode($rs['idpropietario']); ?>"><?php echo $rs['CodigoPostal']; ?></td>
                                                             <td><button dataidc="<?php echo utf8_encode($rs['idpropietario']); ?>" type="button" class="btn edittitle btn-warning margin-bottom-20">Editar propietario</button></td>
                                                            <?php if ($rs['fecbaja'] == '0000-00-00 00:00:00') {

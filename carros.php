@@ -124,8 +124,26 @@ if ($_SESSION['access'] == true) {
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label for="exampleInput">Permiso de SCT</label>
-                                                            <input type="text" class="form-control" id="PermSCT" name="PermSCT">
+                                                            <label class="col-sm-12 control-label">Permiso de SCT</label>
+                                                            <div class="form-group">
+                                                                <label for="exampleInput"></label>
+                                                                <select id="PermSCT" name="PermSCT" class="form-control">
+                                                                    <?php
+                                                                        $consultarem = "SELECT * FROM permisosct ORDER BY idpermisosct";
+
+                                                                        $resrem = $mysqli->query($consultarem);
+                                                                        $numrem = $resrem->num_rows;
+                                                                        if ($numrem >= 1) {
+
+                                                                            while ($rs = $resrem->fetch_assoc()) {
+                                                                    ?>
+                                                                    <option value = "<?php echo $rs['clave']?>"><?php echo $rs['descripcion']?></option>
+                                                                    <?php
+                                                                            }
+                                                                        }
+                                                                    ?>
+                                                                </select>
+                                                            </div>
                                                         </div>
 
                                                         <div class="form-group">
@@ -282,8 +300,26 @@ if ($_SESSION['access'] == true) {
                                                     </div>
                             
                                                     <div class="form-group">
-                                                            <label for="exampleInput">Permiso de SCT</label>
-                                                            <input type="text" class="form-control" id="PermSCTe" name="PermSCT">
+                                                            <label class="col-sm-12 control-label">Permiso de SCT</label>
+                                                            <div class="form-group">
+                                                                <label for="exampleInput"></label>
+                                                                <select id="PermSCT" name="PermSCTe" class="form-control">
+                                                                    <?php
+                                                                        $consultarem = "SELECT * FROM permisosct ORDER BY idpermisosct";
+
+                                                                        $resrem = $mysqli->query($consultarem);
+                                                                        $numrem = $resrem->num_rows;
+                                                                        if ($numrem >= 1) {
+
+                                                                            while ($rs = $resrem->fetch_assoc()) {
+                                                                    ?>
+                                                                    <option value = "<?php echo $rs['clave']?>"><?php echo $rs['descripcion']?></option>
+                                                                    <?php
+                                                                            }
+                                                                        }
+                                                                    ?>
+                                                                </select>
+                                                            </div>
                                                         </div>
 
                                                         <div class="form-group">

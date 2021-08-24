@@ -26,11 +26,11 @@ if($tipo == 'empresa'){
     $num = $res->num_rows;
     if ($num >= 1) {
         while ($rs = $res->fetch_assoc()) {
-            $resp['nombre'] =$res['nombre'];
-            $resp['rfc'] = $res['empresa'];
-            $resp['serie'] = $res['serie'];
-            $resp['folio'] = $res['folio'];
-            $resp['cp'] = $res['cp'];
+            $resp['nombre'] =$rs['nombre'];
+            $resp['rfc'] = $rs['idempresa'];
+            $resp['serie'] = $rs['serie'];
+            $resp['folio'] = $rs['folio'];
+            $resp['cp'] = $rs['cp'];
         }
     }
 }else if($tipo == 'operadores'){
@@ -39,19 +39,19 @@ if($tipo == 'empresa'){
     $num = $res->num_rows;
     if ($num >= 1) {
         while ($rs = $res->fetch_assoc()) {
-            $resp['NombreOperador'] =$res['NombreOperador'];
-            $resp['RFCOperador'] = $res['RFCOperador'];
-            $resp['NumLicencia'] = $res['NumLicencia'];
-            $resp['Calle'] = $res['Calle'];
-            $resp['NumeroExterior'] = $res['NumeroExterior'];
-            $resp['NumeroInterior'] = $res['NumeroInterior'];
-            $resp['Colonia'] = $res['Colonia'];
-            $resp['Localidad'] = $res['Localidad'];
-            $resp['Referencia'] = $res['Referencia'];
-            $resp['Municipio'] = $res['Municipio'];
-            $resp['Estado'] = $res['Estado'];
-            $resp['Pais'] = $res['Pais'];
-            $resp['CodigoPostal'] = $res['CodigoPostal'];
+            $resp['NombreOperador'] =$rs['NombreOperador'];
+            $resp['RFCOperador'] = $rs['RFCOperador'];
+            $resp['NumLicencia'] = $rs['NumLicencia'];
+            $resp['Calle'] = $rs['Calle'];
+            $resp['NumeroExterior'] = $rs['NumeroExterior'];
+            $resp['NumeroInterior'] = $rs['NumeroInterior'];
+            $resp['Colonia'] = $rs['Colonia'];
+            $resp['Localidad'] = $rs['Localidad'];
+            $resp['Referencia'] = $rs['Referencia'];
+            $resp['Municipio'] = $rs['Municipio'];
+            $resp['Estado'] = $rs['Estado'];
+            $resp['Pais'] = $rs['Pais'];
+            $resp['CodigoPostal'] = $rs['CodigoPostal'];
         }
     }
 }else if($tipo == 'notificado'){
@@ -60,97 +60,97 @@ if($tipo == 'empresa'){
     $num = $res->num_rows;
     if ($num >= 1) {
         while ($rs = $res->fetch_assoc()) {
-            $resp['NombreNotificado'] =$res['NombreNotificado'];
-            $resp['NumRegIdTribNotificado'] = $res['NumRegIdTribNotificado'];
-            $resp['ResidenciaFiscalNotificado'] = $res['ResidenciaFiscalNotificado'];
-            $resp['Calle'] = $res['Calle'];
-            $resp['NumeroExterior'] = $res['NumeroExterior'];
-            $resp['NumeroInterior'] = $res['NumeroInterior'];
-            $resp['Colonia'] = $res['Colonia'];
-            $resp['Localidad'] = $res['Localidad'];
-            $resp['Referencia'] = $res['Referencia'];
-            $resp['Municipio'] = $res['Municipio'];
-            $resp['Estado'] = $res['Estado'];
-            $resp['Pais'] = $res['Pais'];
-            $resp['CodigoPostal'] = $res['CodigoPostal'];
+            $resp['NombreNotificado'] =$rs['NombreNotificado'];
+            $resp['NumRegIdTribNotificado'] = $rs['NumRegIdTribNotificado'];
+            $resp['ResidenciaFiscalNotificado'] = $rs['ResidenciaFiscalNotificado'];
+            $resp['Calle'] = $rs['Calle'];
+            $resp['NumeroExterior'] = $rs['NumeroExterior'];
+            $resp['NumeroInterior'] = $rs['NumeroInterior'];
+            $resp['Colonia'] = $rs['Colonia'];
+            $resp['Localidad'] = $rs['Localidad'];
+            $resp['Referencia'] = $rs['Referencia'];
+            $resp['Municipio'] = $rs['Municipio'];
+            $resp['Estado'] = $rs['Estado'];
+            $resp['Pais'] = $rs['Pais'];
+            $resp['CodigoPostal'] = $rs['CodigoPostal'];
         }
     }
-}else if($tipo = 'arrendatario'){
+}else if($tipo == 'arrendatario'){
     $consulta = "SELECT * FROM arrendatario where idarrendatario = ".$id;
     $res = $mysqli->query($consulta);
     $num = $res->num_rows;
     if ($num >= 1) {
         while ($rs = $res->fetch_assoc()) {
-            $resp['NombreArrendatario'] =$res['NombreArrendatario'];
-            $resp['NumRegIdTribArrendatario'] = $res['NumRegIdTribArrendatario'];
-            $resp['ResidenciaFiscalArrendatario'] = $res['ResidenciaFiscalArrendatario'];
-            $resp['Calle'] = $res['Calle'];
-            $resp['NumeroExterior'] = $res['NumeroExterior'];
-            $resp['NumeroInterior'] = $res['NumeroInterior'];
-            $resp['Colonia'] = $res['Colonia'];
-            $resp['Localidad'] = $res['Localidad'];
-            $resp['Referencia'] = $res['Referencia'];
-            $resp['Municipio'] = $res['Municipio'];
-            $resp['Estado'] = $res['Estado'];
-            $resp['Pais'] = $res['Pais'];
-            $resp['CodigoPostal'] = $res['CodigoPostal'];
+            $resp['NombreArrendatario'] =$rs['NombreArrendatario'];
+            $resp['NumRegIdTribArrendatario'] = $rs['NumRegIdTribArrendatario'];
+            $resp['ResidenciaFiscalArrendatario'] = $rs['ResidenciaFiscalArrendatario'];
+            $resp['Calle'] = $rs['Calle'];
+            $resp['NumeroExterior'] = $rs['NumeroExterior'];
+            $resp['NumeroInterior'] = $rs['NumeroInterior'];
+            $resp['Colonia'] = $rs['Colonia'];
+            $resp['Localidad'] = $rs['Localidad'];
+            $resp['Referencia'] = $rs['Referencia'];
+            $resp['Municipio'] = $rs['Municipio'];
+            $resp['Estado'] = $rs['Estado'];
+            $resp['Pais'] = $rs['Pais'];
+            $resp['CodigoPostal'] = $rs['CodigoPostal'];
         }
     }
-}else if($tipo = 'propietario'){
+}else if($tipo == 'propietario'){
     $consulta = "SELECT * FROM propietario where idpropietario = ".$id;
     $res = $mysqli->query($consulta);
     $num = $res->num_rows;
     if ($num >= 1) {
         while ($rs = $res->fetch_assoc()) {
-            $resp['NombrePropietario'] =$res['NombrePropietario'];
-            $resp['NumRegIdTribPropietario'] = $res['NumRegIdTribPropietario'];
-            $resp['ResidenciaFiscalPropietario'] = $res['ResidenciaFiscalPropietario'];
-            $resp['Calle'] = $res['Calle'];
-            $resp['NumeroExterior'] = $res['NumeroExterior'];
-            $resp['NumeroInterior'] = $res['NumeroInterior'];
-            $resp['Colonia'] = $res['Colonia'];
-            $resp['Localidad'] = $res['Localidad'];
-            $resp['Referencia'] = $res['Referencia'];
-            $resp['Municipio'] = $res['Municipio'];
-            $resp['Estado'] = $res['Estado'];
-            $resp['Pais'] = $res['Pais'];
-            $resp['CodigoPostal'] = $res['CodigoPostal'];
+            $resp['NombrePropietario'] =$rs['NombrePropietario'];
+            $resp['NumRegIdTribPropietario'] = $rs['NumRegIdTribPropietario'];
+            $resp['ResidenciaFiscalPropietario'] = $rs['ResidenciaFiscalPropietario'];
+            $resp['Calle'] = $rs['Calle'];
+            $resp['NumeroExterior'] = $rs['NumeroExterior'];
+            $resp['NumeroInterior'] = $rs['NumeroInterior'];
+            $resp['Colonia'] = $rs['Colonia'];
+            $resp['Localidad'] = $rs['Localidad'];
+            $resp['Referencia'] = $rs['Referencia'];
+            $resp['Municipio'] = $rs['Municipio'];
+            $resp['Estado'] = $rs['Estado'];
+            $resp['Pais'] = $rs['Pais'];
+            $resp['CodigoPostal'] = $rs['CodigoPostal'];
         }
     }
-}else if($tipo = 'carro'){
+}else if($tipo == 'carro'){
     $consulta = "SELECT * FROM carros where idcarros = ".$id;
     $res = $mysqli->query($consulta);
     $num = $res->num_rows;
     if ($num >= 1) {
         while ($rs = $res->fetch_assoc()) {
-            $resp['Economico'] =$res['Economico'];
-            $resp['PermSCT'] = $res['PermSCT'];
-            $resp['NumPermisoSCT'] = $res['NumPermisoSCT'];
-            $resp['NombreAseg'] = $res['NombreAseg'];
-            $resp['NumPolizaSeguro'] = $res['NumPolizaSeguro'];
-            $resp['configVehicular'] = $res['configVehicular'];
-            $resp['PlacaVM'] = $res['PlacaVM'];
-            $resp['AnioModeloVM'] = $res['AnioModeloVM'];
-            $resp['modelo'] = $res['modelo'];
-            $resp['tipo'] = $res['tipo'];
-            $resp['propietario'] = $res['propietario'];
-            $resp['arrendatario'] = $res['arrendatario'];
-            $resp['Notificado'] = $res['Notificado'];
-            $resp['fecreg'] = $res['fecreg'];
+            $resp['Economico'] =$rs['Economico'];
+            $resp['PermSCT'] = $rs['PermSCT'];
+            $resp['NumPermisoSCT'] = $rs['NumPermisoSCT'];
+            $resp['NombreAseg'] = $rs['NombreAseg'];
+            $resp['NumPolizaSeguro'] = $rs['NumPolizaSeguro'];
+            $resp['configVehicular'] = $rs['configVehicular'];
+            $resp['PlacaVM'] = $rs['PlacaVM'];
+            $resp['AnioModeloVM'] = $rs['AnioModeloVM'];
+            $resp['modelo'] = $rs['modelo'];
+            $resp['tipo'] = $rs['tipo'];
+            $resp['propietario'] = $rs['propietario'];
+            $resp['arrendatario'] = $rs['arrendatario'];
+            $resp['Notificado'] = $rs['Notificado'];
+            $resp['fecreg'] = $rs['fecreg'];
         }
     }
-}else if($tipo = 'remolque'){
+}else if($tipo == 'remolque'){
     $consulta = "SELECT * FROM remolques where idremolques = ".$id;
     $res = $mysqli->query($consulta);
     $num = $res->num_rows;
     if ($num >= 1) {
         while ($rs = $res->fetch_assoc()) {
-            $resp['economico'] =$res['economico'];
-            $resp['SubTipoRem'] = $res['SubTipoRem'];
-            $resp['Placa'] = $res['Placa'];
-            $resp['marca'] = $res['marca'];
-            $resp['modelo'] = $res['modelo'];
-            $resp['fecbaja'] = $res['fecbaja'];
+            $resp['economico'] =$rs['economico'];
+            $resp['SubTipoRem'] = $rs['SubTipoRem'];
+            $resp['Placa'] = $rs['Placa'];
+            $resp['marca'] = $rs['marca'];
+            $resp['modelo'] = $rs['modelo'];
+            $resp['fecbaja'] = $rs['fecbaja'];
         }
     }
 }

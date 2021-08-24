@@ -521,8 +521,7 @@ if ($_SESSION['access'] == true) {
                                             <tbody>
                                                 <?php
                                                 
-
-                                                $consulta = "SELECT * FROM notificado ORDER BY idnotificado";
+                                                $consulta = "SELECT p.* , r.descripcion as Regimen, pa.descripcion as residencia, pai.descripcion as paiss, e.nombre as Esta, m.descripcion as Mun, c.nombre as col FROM notificado p inner join regimenfiscal r on p.NumRegIdTribNotificado = r.c_REgimenFiscal inner join pais pa on p.ResidenciaFiscalNotificado = pa.clave inner join pais pai on p.Pais = pai.clave inner join estados e on e.c_Estado = p.Estado inner join municipios m on m.c_municipio = p.Municipio and m.c_Estado = p.Estado inner join colonias c on c.c_Colonia = p.Colonia and c.c_CodigoPostal = p.CodigoPostal ORDER BY idnotificado";
 
                                                 //$resultadocolp = $mysqli->query($consulta3);
                                                 $res = $mysqli->query($consulta);
@@ -536,17 +535,17 @@ if ($_SESSION['access'] == true) {
                                                             
                                                              
                                                             <td id="tdnom<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['NombreNotificado']; ?></td>
-                                                            <td id="TIPO<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['NumRegIdTribNotificado']; ?></td>
-                                                            <td id="PLACA<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['ResidenciaFiscalNotificado']; ?></td>
+                                                            <td id="TIPO<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['Regimen']; ?></td>
+                                                            <td id="PLACA<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['residencia']; ?></td>
                                                             <td id="MARCA<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['Calle']; ?></td>
                                                             <td id="MONDELO<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['NumeroExterior']; ?></td>
                                                             <td id="MONDELO<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['NumeroInterior']; ?></td>
-                                                            <td id="MONDELO<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['Colonia']; ?></td>
+                                                            <td id="MONDELO<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['col']; ?></td>
                                                             <td id="MONDELO<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['Localidad']; ?></td>
                                                             <td id="MONDELO<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['Referencia']; ?></td>
-                                                            <td id="MONDELO<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['Municipio']; ?></td>
-                                                            <td id="MONDELO<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['Estado']; ?></td>
-                                                            <td id="MONDELO<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['Pais']; ?></td>
+                                                            <td id="MONDELO<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['Mun']; ?></td>
+                                                            <td id="MONDELO<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['Esta']; ?></td>
+                                                            <td id="MONDELO<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['paiss']; ?></td>
                                                             <td id="MONDELO<?php echo utf8_encode($rs['idnotificado']); ?>"><?php echo $rs['CodigoPostal']; ?></td>
                                                             <td><button dataidc="<?php echo utf8_encode($rs['idnotificado']); ?>" type="button" class="btn edittitle btn-warning margin-bottom-20">Editar Notificado</button></td>
                                                            <?php if ($rs['fecbaja'] == '0000-00-00 00:00:00') {

@@ -147,6 +147,7 @@ if ($_SESSION['access'] == true) {
                                     
                                     <!-- tile body -->
                                     <div class="modal fade" id="agregartalla" tabindex="-1" role="dialog" aria-labelledby="modalConfirmLabel" aria-hidden="true" style="display: none;">
+                                    <form id="agregar">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -156,20 +157,33 @@ if ($_SESSION['access'] == true) {
                                                 <div class="modal-body">
                                                     <div class="form-group">
                                                         <label for="exampleInput">Nombre</label>
-                                                        <input type="text" class="form-control" id="anombre">
+                                                        <input type="text" class="form-control" id="Nombre" name="Nombre">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleInput">RFC</label>
-                                                        <input type="text" class="form-control" id="rfc">
+                                                        <input type="text" class="form-control" id="rfc" name="rfc">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleInput">Numero de Licencia</label>
-                                                        <input type="text" class="form-control" id="rfc">
+                                                        <input type="text" class="form-control" id="NumLicencia" name="NumLicencia">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="domi">Codigo Postal</label>
                                                         <input type="text" class="form-control" id="CodigoPostal" name="CodigoPostal">
                                                     </div>
+                                                    <div class="form-group">
+                                                        <label for="domi">Calle</label>
+                                                        <input type="text" class="form-control" id="Calle" name="Calle">
+                                                    </div>
+                                                    <div class="form-group">
+                                                            <label for="exampleInput">Numero Exterior</label>
+                                                            <input type="text" class="form-control" id="NumeroExterior" name="NumeroExterior">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Numero Interior</label>
+                                                            <input type="text" class="form-control" id="NumeroInterior" name="NumeroInterior">
+                                                        </div>
                                                     <div class="form-group">
                                                             <label class="col-sm-12 control-label">Colonia</label>
 
@@ -247,6 +261,7 @@ if ($_SESSION['access'] == true) {
                                                 </div>
                                             </div>
                                         </div><!-- /.modal-content -->
+                                    </form>
                                     </div><!-- /.modal-dialog -->
                                     
                                     
@@ -292,6 +307,7 @@ if ($_SESSION['access'] == true) {
                             </div><!-- /.modal --> 
 
                             <div class="modal fade" id="editartalla" tabindex="-1" role="dialog" aria-labelledby="modalConfirmLabel" aria-hidden="true" style="display: none;">
+                            <form id="editar">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                                 <div class="modal-header">
@@ -301,7 +317,7 @@ if ($_SESSION['access'] == true) {
                                                 <div class="modal-body">
                                                     <div class="form-group">
                                                         <label for="exampleInput">Nombre</label>
-                                                        <input type="text" class="form-control" id="nombree" name="nombre">
+                                                        <input type="text" class="form-control" id="Nombree" name="Nombre">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleInput">RFC</label>
@@ -317,6 +333,19 @@ if ($_SESSION['access'] == true) {
                                                         <label for="domi">Codigo Postal</label>
                                                         <input type="text" class="form-control" id="CodigoPostale" name="CodigoPostal">
                                                     </div>
+                                                    <div class="form-group">
+                                                        <label for="domi">Calle</label>
+                                                        <input type="text" class="form-control" id="Callee" name="Calle">
+                                                    </div>
+                                                    <div class="form-group">
+                                                            <label for="exampleInput">Numero Exterior</label>
+                                                            <input type="text" class="form-control" id="NumeroExteriore" name="NumeroExterior">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Numero Interior</label>
+                                                            <input type="text" class="form-control" id="NumeroInteriore" name="NumeroInterior">
+                                                        </div>
                                                     <div class="form-group">
                                                         <label class="col-sm-12 control-label">Colonia</label>
 
@@ -395,6 +424,7 @@ if ($_SESSION['access'] == true) {
                                                 </div>
                                             </div><!-- /.modal-content -->
                                 </div><!-- /.modal-dialog -->
+                            </form>
                             </div><!-- /.modal --> 
 
 
@@ -464,7 +494,7 @@ if ($_SESSION['access'] == true) {
                                                 <?php
                                                 include 'conexion.php';
 
-                                                $consulta = "SELECT * FROM operadores  ORDER BY idoperadores";
+                                                $consulta = "SELECT p.* , pai.descripcion as paiss, e.nombre as Esta, m.descripcion as Mun, c.nombre as col FROM operadores p inner join pais pai on p.Pais = pai.clave inner join estados e on e.c_Estado = p.Estado inner join municipios m on m.c_municipio = p.Municipio and m.c_Estado = p.Estado inner join colonias c on c.c_Colonia = p.Colonia and c.c_CodigoPostal = p.CodigoPostal ORDER BY idoperadores";
 
                                                 //$resultadocolp = $mysqli->query($consulta3);
                                                 $res = $mysqli->query($consulta);
@@ -474,22 +504,23 @@ if ($_SESSION['access'] == true) {
                                                     while ($rs = $res->fetch_assoc()) {
                                                         ?>
                                                         <tr class="odd gradeX">
-                                                            <td id="tdnom<?php echo utf8_encode($rs['idusuarios']); ?>"><?php echo $rs['NombreOperador']; ?></td>
-                                                            <td id="tdamat<?php echo utf8_encode($rs['idusuarios']); ?>"><?php echo $rs['RFCOperador']; ?></td>
-                                                            <td id="tdnome<?php echo utf8_encode($rs['idusuarios']); ?>"><?php echo $rs['NumLicencia']; ?></td>
-                                                            <td id="tddesc<?php echo utf8_encode($rs['idusuarios']); ?>"><?php echo $rs['Calle']; ?></td>
-                                                            <td id="tdcontra<?php echo utf8_encode($rs['idusuarios']); ?>"><?php echo $rs['NumeroExterior']; ?></td>
+                                                            <td id="tdnom<?php echo utf8_encode($rs['idoperadores']); ?>"><?php echo $rs['NombreOperador']; ?></td>
+                                                            <td id="tdamat<?php echo utf8_encode($rs['idoperadores']); ?>"><?php echo $rs['RFCOperador']; ?></td>
+                                                            <td id="tdnome<?php echo utf8_encode($rs['idoperadores']); ?>"><?php echo $rs['NumLicencia']; ?></td>
+                                                            <td id="tddesc<?php echo utf8_encode($rs['idoperadores']); ?>"><?php echo $rs['Calle']; ?></td>
+                                                            <td id="tdcontra<?php echo utf8_encode($rs['idoperadores']); ?>"><?php echo $rs['NumeroExterior']; ?></td>
                                                             
-                                                            <td id="tdtelcasa<?php echo utf8_encode($rs['idusuarios']); ?>"><?php echo $rs['NumeroInterior']; ?></td>
-                                                            <td id="tdcelular<?php echo utf8_encode($rs['idusuarios']); ?>"><?php echo $rs['Colonia']; ?></td>
-                                                            <td id="tdalergia<?php echo utf8_encode($rs['idusuarios']); ?>"><?php echo $rs['Localidad']; ?></td>
+                                                            <td id="tdtelcasa<?php echo utf8_encode($rs['idoperadores']); ?>"><?php echo $rs['NumeroInterior']; ?></td>
+                                                            <td id="tdcelular<?php echo utf8_encode($rs['idoperadores']); ?>"><?php echo $rs['col']; ?></td>
+                                                            <td id="tdalergia<?php echo utf8_encode($rs['idoperadores']); ?>"><?php echo $rs['Localidad']; ?></td>
                                                             
-                                                            <td id="tdfecing<?php echo utf8_encode($rs['idusuarios']); ?>"><?php echo $rs['Referencia']; ?></td>
-                                                            <td id="tdfecnac<?php echo utf8_encode($rs['idusuarios']); ?>"><?php echo $rs['Municipio']; ?></td>
-                                                            <td id="tdcurp<?php echo utf8_encode($rs['idusuarios']); ?>"><?php echo $rs['Estado']; ?></td>
-                                                            <td id="tdrfc<?php echo utf8_encode($rs['idusuarios']); ?>"><?php echo $rs['Pais']; ?></td>
+                                                            <td id="tdfecing<?php echo utf8_encode($rs['idoperadores']); ?>"><?php echo $rs['Referencia']; ?></td>
+                                                            <td id="tdfecnac<?php echo utf8_encode($rs['idoperadores']); ?>"><?php echo $rs['Mun']; ?></td>
+                                                            <td id="tdcurp<?php echo utf8_encode($rs['idoperadores']); ?>"><?php echo $rs['Esta']; ?></td>
+                                                            <td id="tdrfc<?php echo utf8_encode($rs['idoperadores']); ?>"><?php echo $rs['paiss']; ?></td>
                                                             
-                                                            <td id="tddomi<?php echo utf8_encode($rs['idusuarios']); ?>"><?php echo $rs['CodigoPostal']; ?></td>
+                                                            <td id="tddomi<?php echo utf8_encode($rs['idoperadores']); ?>"><?php echo $rs['CodigoPostal']; ?></td>
+                                                            <td><button dataidc="<?php echo utf8_encode($rs['idoperadores']); ?>" type="button" class="btn edittitle btn-warning margin-bottom-20">Editar Operador</button></td>
                                                             
                                                         </tr> 
                                                         <?php

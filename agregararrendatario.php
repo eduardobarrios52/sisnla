@@ -15,10 +15,12 @@ $Estado = $_GET['Estado'];
 $Pais = $_GET['Pais'];
 $CodigoPostal = $_GET['CodigoPostal'];
 
-$consultanot='insert into remolques(NombreArrendatario,NumRegIdTribArrendatario,ResidenciaFiscalArrendatario,Calle,NumeroExterior,NumeroInterior,Colonia,Localidad,Referencia,Municipio,Estado,Pais,CodigoPostal,fecreg)'.
+$consultanot='insert into arrendatario(NombreArrendatario,NumRegIdTribArrendatario,ResidenciaFiscalArrendatario,Calle,NumeroExterior,NumeroInterior,Colonia,Localidad,Referencia,Municipio,Estado,Pais,CodigoPostal,fecreg)'.
 'values(\'' . $NombreArrendatario . '\',\'' . $NumRegIdTribArrendatario . '\',\'' . $ResidenciaFiscalArrendatario . '\',\'' . $Calle . '\',\'' . $NumeroExterior . '\',\'' . $NumeroInterior . '\',\'' . $Colonia . '\',\'' . $Localidad . '\',\'' . $Referencia . '\',\'' . $Municipio . '\',\'' . $Estado . '\',\'' . $Pais . '\',\'' . $CodigoPostal . '\', CURDATE())';
                                 
-$mysqli->query($consultanot);
+$resul = $mysqli->query($consultanot);
+
+$result;
                         
 
 

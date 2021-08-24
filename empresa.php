@@ -344,7 +344,7 @@ if ($_SESSION['access'] == true) {
                                                 <?php
                                                 
 
-                                                $consulta = "SELECT * FROM empresa ORDER BY idempresa";
+                                                $consulta = "SELECT *, r.descripcion as regimen FROM empresa e inner join regimenfiscal r on e.regimenfiscal = r.c_REgimenFiscal ORDER BY idempresa";
 
                                                 //$resultadocolp = $mysqli->query($consulta3);
                                                 $res = $mysqli->query($consulta);
@@ -360,7 +360,7 @@ if ($_SESSION['access'] == true) {
                                                             <td id="TIPO<?php echo utf8_encode($rs['idempresa']); ?>"><?php echo $rs['rfc']; ?></td>
                                                             <td id="PLACA<?php echo utf8_encode($rs['idempresa']); ?>"><?php echo $rs['nocertificado']; ?></td>
                                                             <td id="MARCA<?php echo utf8_encode($rs['idempresa']); ?>"><?php echo $rs['certificado']; ?></td>
-                                                            <td id="MARCA<?php echo utf8_encode($rs['idempresa']); ?>"><?php echo $rs['regimenfiscal']; ?></td>
+                                                            <td id="MARCA<?php echo utf8_encode($rs['idempresa']); ?>"><?php echo $rs['regimen']; ?></td>
                                                             <td id="MONDELO<?php echo utf8_encode($rs['idempresa']); ?>"><?php echo $rs['nombrepac']; ?></td>
                                                             <td id="MONDELO<?php echo utf8_encode($rs['idempresa']); ?>"><?php echo $rs['usuariopac']; ?></td>
                                                             <td id="MONDELO<?php echo utf8_encode($rs['idempresa']); ?>"><?php echo $rs['contrapac']; ?></td>

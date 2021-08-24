@@ -11,6 +11,10 @@
                                     },
                             success: function (result) {
                                 if(result){
+                                    $('#Estado').html('');
+                                    $('#Municipio').html('');
+                                    $('#Colonia').html('');
+                                    $('#Localidad').html('');
                                     $.each(result.edo, function(index, element){
                                         $('#Estado').append($('<option>', {
                                             value: index,
@@ -53,6 +57,10 @@
                                     },
                             success: function (result) {
                                 if(result){
+                                    $('#Estadoe').html('');
+                                    $('#Municipioe').html('');
+                                    $('#Coloniae').html('');
+                                    $('#Localidade').html('');
                                     $.each(result.edo, function(index, element){
                                         $('#Estadoe').append($('<option>', {
                                             value: index,
@@ -116,20 +124,63 @@
                     data: {'id': marcaeditnom,
                             'tipo': 'propietario'},
                         success: function (result) {
-                                $("#idempresa").val(marcaeditnom);
-                                $("#NombrePropietarioe").val(result.NombrePropietario);
-                                $("#NumRegIdTribArrendatarioe").val(result['NumRegIdTribArrendatario']);
-                                $("#ResidenciaFiscale").val(result['ResidenciaFiscal']);
-                                $("#Callee").val(result['Calle']);
-                                $("#NumeroExteriore").val(result['NumeroExterior']);
-                                $("#NumeroInteriore").val(result['NumeroInterior']);
-                                $("#CodigoPostale").val(result['CodigoPostal']);
-                                $("#Coloniae").val(result['Colonia']);
-                                $("#Localidade").val(result['Localidad']);
-                                $("#Referenciae").val(result['Referencia']);
-                                $("#Municipioe").val(result['Municipio']);
-                                $("#Estadoe").val(result['Estado']);
-                                $("#Paise").val(result['Pais']);
+                            $.ajax({
+                                url: 'codigopostal.php',
+                                type: 'GET',
+                                data: {	'CodigoPostal' : result['CodigoPostal'],
+                                        },
+                                success: function (result2) {
+                                    if(result2){
+                                        $('#Estadoe').html('');
+                                        $('#Municipioe').html('');
+                                        $('#Coloniae').html('');
+                                        $('#Localidade').html('');
+                                        $.each(result2.edo, function(index, element){
+                                            $('#Estadoe').append($('<option>', {
+                                                value: index,
+                                                text: element
+                                            }));
+                                        })
+        
+                                        $.each(result2.mun, function(index, element){
+                                            $('#Municipioe').append($('<option>', {
+                                                value: index,
+                                                text: element
+                                            }));
+                                        })
+        
+                                        $.each(result2.cod, function(index, element){
+                                            $('#Coloniae').append($('<option>', {
+                                                value: index,
+                                                text: element
+                                            }));
+                                        })
+        
+                                        $.each(result2.loc, function(index, element){
+                                            $('#Localidade').append($('<option>', {
+                                                value: index,
+                                                text: element
+                                            }));
+                                        })
+                                        
+                                        $("#idempresa").val(marcaeditnom);
+                                        $("#NombrePropietarioe").val(result.NombrePropietario);
+                                        $("#NumRegIdTribArrendatarioe").val(result['NumRegIdTribPropietario']).change();
+                                        $("#ResidenciaFiscale").val(result['ResidenciaFiscalPropietario']).change();
+                                        $("#Callee").val(result['Calle']);
+                                        $("#NumeroExteriore").val(result['NumeroExterior']);
+                                        $("#NumeroInteriore").val(result['NumeroInterior']);
+                                        $("#CodigoPostale").val(result['CodigoPostal']);
+                                        $("#Coloniae").val(result['Colonia']);
+                                        $("#Localidade").val(result['Localidad']);
+                                        $("#Referenciae").val(result['Referencia']);
+                                        $("#Municipioe").val(result['Municipio']).change();
+                                        $("#Estadoe").val(result['Estado']);
+                                        $("#Paise").val(result['Pais']);
+                                    }
+                                }
+                            })
+                                
                                 
                         }
                     });
