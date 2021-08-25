@@ -33,7 +33,7 @@ $(function () {
         data: {'id': marcaeditnom,
                 'tipo': 'sucursal'},
             success: function (result) {
-                    $("#idempresa").val(marcaeditnom);
+                    $("#idsucursal").val(marcaeditnom);
                     $("#Nombree").val(result.nombre);
                     $("#Empresae").val(result['idempresa']);
                     $("#Seriee").val(result['serie']);
@@ -48,8 +48,8 @@ $(function () {
 
     $("#btneditartalla").click(function () {
 
-        if ($("#Nombre").val().trim().length >= 1 ) {
-            form = $('#agregar');
+        if ($("#Nombree").val().trim().length >= 1 ) {
+            form = $('#editar');
 
             $.ajax({url: "editarsucursal.php",
                 type: 'GET',

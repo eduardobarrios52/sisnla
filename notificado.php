@@ -287,7 +287,8 @@ if ($_SESSION['access'] == true) {
                                                 <h1><strong>Editar</strong> Notificado</h1>
                                             </div>
                                             <div class="modal-body">
-                                            <div class="form-group">
+                                                        <input type="hidden" id="idnotificado" name="idnotificado">
+                                                        <div class="form-group">
                                                             <label for="exampleInput">Nombre de Notificado</label>
                                                             <input type="text" class="form-control" id="NombreNotificadoe" name="NombreNotificado">
                                                         </div>

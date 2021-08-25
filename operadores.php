@@ -315,6 +315,7 @@ if ($_SESSION['access'] == true) {
                                                     <h1><strong>Editar</strong> Operador</h1>
                                                 </div>
                                                 <div class="modal-body">
+                                                    <input type="hidden" id="idoperadores" name="idoperadores">
                                                     <div class="form-group">
                                                         <label for="exampleInput">Nombre</label>
                                                         <input type="text" class="form-control" id="Nombree" name="Nombre">

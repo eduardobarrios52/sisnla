@@ -183,9 +183,10 @@ if ($_SESSION['access'] == true) {
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-                                                <h1><strong>Editar</strong> Area</h1>
+                                                <h1><strong>Editar</strong> Sucursal</h1>
                                             </div>
                                             <div class="modal-body">
+                                            <input type="hidden" id="idsucursal" name="idsucursal">
                                                 <div class="form-group">
                                                     <label for="exampleInput">Nombre</label>
                                                     <input type="text" class="form-control" id="Nombree" name="Nombre">

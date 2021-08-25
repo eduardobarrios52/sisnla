@@ -164,7 +164,7 @@
                                             }));
                                         })
                                         
-                                        $("#idempresa").val(marcaeditnom);
+                                        $("#idoperadores").val(marcaeditnom);
                                         $("#Nombree").val(result.NombreOperador);
                                         $("#rfce").val(result['RFCOperador']);
                                         $("#NumLicenciae").val(result['NumLicencia']);
@@ -191,8 +191,8 @@
     
                 $("#btneditartalla").click(function () {
     
-                    if ($("#Nombreoperador").val().trim().length >= 1 ) {
-                        form = $('#agregar');
+                    if ($("#Nombree").val().trim().length >= 1 ) {
+                        form = $('#editar');
     
                         $.ajax({url: "editaroperador.php",
                             type: 'GET',

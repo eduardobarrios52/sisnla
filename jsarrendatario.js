@@ -155,7 +155,7 @@
                                             }));
                                         })
                                         
-                                        $("#idempresa").val(marcaeditnom);
+                                        $("#idarrendatario").val(marcaeditnom);
                                         $("#NombreArrendatarioe").val(result.NombreArrendatario);
                                         $("#NumRegIdTribArrendatarioe").val(result['NumRegIdTribArrendatario']).change();
                                         $("#ResidenciaFiscale").val(result['ResidenciaFiscalArrendatario']).change();
@@ -182,8 +182,8 @@
     
                 $("#btneditartalla").click(function () {
     
-                    if ($("#NombreArrendatario").val().trim().length >= 1 ) {
-                        form = $('#agregar');
+                    if ($("#NombreArrendatarioe").val().trim().length >= 1 ) {
+                        form = $('#editar');
     
                         $.ajax({url: "editararrendatario.php",
                             type: 'GET',

@@ -9,7 +9,8 @@ $folio = $_GET['Folio'];
 $cp = $_GET['CodigoPostal'];;
 
 
-$consultanot='update sucursal set nombre=\'' . $nombre . '\', empresa=\'' . $empresa . '\', serie=\'' . $serie . '\', folio=\'' . $folio . '\' where idsucursal=\'' . $idsucursal . '\' ';
+$consultanot='update sucursal set nombre=\'' . $nombre . '\', idempresa=\'' . $empresa . '\', serie=\'' . $serie . '\', folio=\'' . $folio . '\' where idsucursal=\'' . $idsucursal . '\' ';
 if($mysqli->query($consultanot)){
     echo 'ok';
 }
+?>

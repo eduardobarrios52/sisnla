@@ -2,21 +2,21 @@
 include 'conexion.php';
 
 $idoperadores = $_GET['idoperadores'];
-$NombreNotificado = $_GET['NombreNotificado'];
-$NumRegIdTribArrendatario = $_GET['NumRegIdTribArrendatario'];
-$ResidenciaFiscalArrendatario = $_GET['ResidenciaFiscalArrendatario'];
+$NombreOpe = $_GET['Nombre'];
+$RFCOperador = $_GET['rfc'];
+$NumLicencia = $_GET['NumLicencia'];
 $Calle = $_GET['Calle'];
 $NumeroExterior = $_GET['NumeroExterior'];
-$NumeroInterior = $_GET['NumeroInterior'];
+$NumeroInterior = isset($_GET['NumeroInterior']) ? $_GET['NumeroInterior'] : null ;
 $Colonia = $_GET['Colonia'];
-$Localidad = $_GET['Localidad'];
-$Referencia = $_GET['Referencia'];
+$Localidad = isset($_GET['Localidad']) ? $_GET['Localidad'] : null ;
+$Referencia = isset($_GET['Referencia']) ? $_GET['Referencia'] : null ;
 $Municipio = $_GET['Municipio'];
 $Estado = $_GET['Estado'];
 $Pais = $_GET['Pais'];
 $CodigoPostal = $_GET['CodigoPostal'];
 
-$consultanot='update notificado set NombreNotificado=\'' . $NombreNotificado . '\', NumRegIdTribArrendatario=\'' . $NumRegIdTribArrendatario . '\', ResidenciaFiscalArrendatario=\'' . $ResidenciaFiscalArrendatario . '\', Calle=\'' . $Calle . '\', NumeroExterior=\'' . $NumeroExterior . '\', NumeroInterior=\'' . $NumeroInterior . '\', Colonia=\'' . $Colonia . '\', Localidad=\'' . $Localidad . '\', Referencia=\'' . $Referencia . '\', Municipio=\'' . $Municipio . '\', Estado=\'' . $Estado . '\', Pais=\'' . $Pais . '\', CodigoPostal=\'' . $CodigoPostal . '\' where idoperadores=\'' . $idoperadores . '\' ';
+$consultanot='update operadores set NombreOperador=\'' . $NombreOpe . '\', RFCOperador=\'' . $RFCOperador . '\', NumLicencia=\'' . $NumLicencia . '\', Calle=\'' . $Calle . '\', NumeroExterior=\'' . $NumeroExterior . '\', NumeroInterior=\'' . $NumeroInterior . '\', Colonia=\'' . $Colonia . '\', Localidad=\'' . $Localidad . '\', Referencia=\'' . $Referencia . '\', Municipio=\'' . $Municipio . '\', Estado=\'' . $Estado . '\', Pais=\'' . $Pais . '\', CodigoPostal=\'' . $CodigoPostal . '\' where idoperadores=\'' . $idoperadores . '\' ';
 if($mysqli->query($consultanot)){
     echo 'ok';
 }

@@ -156,7 +156,7 @@
                                             }));
                                         })
                                         
-                                        $("#idempresa").val(marcaeditnom);
+                                        $("#idnotificado").val(marcaeditnom);
                                         $("#NombreNotificadoe").val(result.NombreNotificado);
                                         $("#NumRegIdTribArrendatarioe").val(result['NumRegIdTribNotificado']);
                                         $("#ResidenciaFiscale").val(result['ResidenciaFiscalNotificado']);
@@ -183,8 +183,8 @@
     
                 $("#btneditartalla").click(function () {
     
-                    if ($("#NombreNotificado").val().trim().length >= 1 ) {
-                        form = $('#agregar');
+                    if ($("#NombreNotificadoe").val().trim().length >= 1 ) {
+                        form = $('#editar');
     
                         $.ajax({url: "editarnotificado.php",
                             type: 'GET',

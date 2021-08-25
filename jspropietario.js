@@ -180,8 +180,6 @@
                                     }
                                 }
                             })
-                                
-                                
                         }
                     });
     
@@ -190,8 +188,8 @@
     
                 $("#btneditartalla").click(function () {
     
-                    if ($("#NombrePropietario").val().trim().length >= 1 ) {
-                        form = $('#agregar');
+                    if ($("#NombrePropietarioe").val().trim().length >= 1 ) {
+                        form = $('#editar');
     
                         $.ajax({url: "editarpropietario.php",
                             type: 'GET',
