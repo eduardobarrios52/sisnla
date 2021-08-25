@@ -33,11 +33,12 @@
                 data: {'id': marcaeditnom,
                         'tipo': 'remolque'},
                     success: function (result) {
-                            $("#idempresa").val(marcaeditnom);
+                            $("#idremolque").val(marcaeditnom);
                             $("#economicoe").val(result.economico);
                             $("#SubTipoReme").val(result['SubTipoRem']);
                             $("#marcae").val(result['marca']);
                             $("#modeloe").val(result['modelo']);
+                            $("#placae").val(result['Placa'])
                         
                     }
                 });
@@ -47,8 +48,8 @@
 
             $("#btneditartalla").click(function () {
 
-                if ($("#economico").val().trim().length >= 1 ) {
-                    form = $('#agregar');
+                if ($("#economicoe").val().trim().length >= 1 ) {
+                    form = $('#editar');
 
                     $.ajax({url: "editarremolque.php",
                         type: 'GET',

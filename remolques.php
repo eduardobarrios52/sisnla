@@ -186,9 +186,10 @@ if ($_SESSION['access'] == true) {
                                                 <h1><strong>Editar</strong> Area</h1>
                                             </div>
                                             <div class="modal-body">
+                                                    <input type="hidden" id="idremolque" name="idremolque">
                                                     <div class="form-group">
                                                         <label for="exampleInput">Numero Economico</label>
-                                                        <input type="text" class="form-control" id="economicoe">
+                                                        <input type="text" class="form-control" id="economicoe" name="economico">
                                                     </div>
                             
 
@@ -197,8 +198,12 @@ if ($_SESSION['access'] == true) {
 
                                                         <div class="form-group">
                                                             <label for="exampleInput"></label>
-                                                            <select id="SubTipoReme" id="SubTipoRem" class="form-control">
+                                                            <select id="SubTipoReme" name="SubTipoRem" class="form-control">
                                                                 <?php
+                                                                $consultarem = "SELECT * FROM remolqueconf ORDER BY idremolqueconf";
+
+                                                                $resrem = $mysqli->query($consultarem);
+                                                                $numrem = $resrem->num_rows;
                                                                     if ($numrem >= 1) {
 
                                                                         while ($rs = $resrem->fetch_assoc()) {

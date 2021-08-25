@@ -1,7 +1,7 @@
 <?php
 include 'conexion.php';
 
-$idcarro = $_GET['$idcarro'];
+$idcarro = $_GET['idcarro'];
 $Economico= $_GET['Economico'];
 $PermSCT = $_GET['PermSCT'];
 $NumPermisoSCT = $_GET['NumPermisoSCT'];
@@ -10,13 +10,13 @@ $NumPolizaSeguro = $_GET['NumPolizaSeguro'];
 $configVehicular = $_GET['configVehicular'];
 $PlacaVM = $_GET['PlacaVM'];
 $AnioModeloVM = $_GET['AnioModeloVM'];
-$modelo = $_GET['modelo'];
+$marca = $_GET['marca'];
 $tipo = $_GET['tipo'];
 $propietario = $_GET['propietario'];
 $arrendatario = $_GET['arrendatario'];
-$Notificado = $_GET['Notificado'];
+$Notificado = $_GET['notificado'];
 
-$consultanot='update carros set Economico=\'' . $Economico . '\', PermSCT=\'' . $PermSCT . '\', NumPermisoSCT=\'' . $NumPermisoSCT . '\', NombreAseg=\'' . $NombreAseg . '\', NumPolizaSeguro=\'' . $NumPolizaSeguro . '\', configVehicular=\'' . $configVehicular . '\', PlacaVM=\'' . $PlacaVM . '\', AnioModeloVM=\'' . $AnioModeloVM . '\', modelo=\'' . $modelo . '\', tipo=\'' . $tipo . '\', propietario=\'' . $propietario . '\', Notificado=\'' . $Notificado . '\', arrendatario=\'' . $arrendatario . '\' where idcarros=\'' . $idcarro. '\' ';
+$consultanot='update carros set Economico=\'' . $Economico . '\', PermSCT=\'' . $PermSCT . '\', NumPermisoSCT=\'' . $NumPermisoSCT . '\', NombreAseg=\'' . $NombreAseg . '\', NumPolizaSeguro=\'' . $NumPolizaSeguro . '\', configVehicular=\'' . $configVehicular . '\', PlacaVM=\'' . $PlacaVM . '\', AnioModeloVM=\'' . $AnioModeloVM . '\', marca=\'' . $marca . '\', tipo=\'' . $tipo . '\', propietario=\'' . $propietario . '\', Notificado=\'' . $Notificado . '\', arrendatario=\'' . $arrendatario . '\' where idcarros=\'' . $idcarro. '\' ';
 if($mysqli->query($consultanot)){
     echo 'ok';
 }

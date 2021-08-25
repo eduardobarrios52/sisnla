@@ -120,7 +120,7 @@ if ($_SESSION['access'] == true) {
                                                     <div class="modal-body">
                                                         <div class="form-group">
                                                             <label for="exampleInput">Numero Economico</label>
-                                                            <input type="text" class="form-control" id="economico" name="economico">
+                                                            <input type="text" class="form-control" id="Economico" name="Economico">
                                                         </div>
 
                                                         <div class="form-group">
@@ -196,7 +196,7 @@ if ($_SESSION['access'] == true) {
 
                                                         <div class="form-group">
                                                             <label for="exampleInput">Marca</label>
-                                                            <input type="text" class="form-control" id="modelo" name="modelo">
+                                                            <input type="text" class="form-control" id="marca" name="marca">
                                                         </div>
 
                                                         <div class="form-group">
@@ -294,16 +294,17 @@ if ($_SESSION['access'] == true) {
                                                 <h1><strong>Editar</strong> Area</h1>
                                             </div>
                                             <div class="modal-body">
+                                                    <input type="hidden" id="idcarro" name="idcarro">
                                                     <div class="form-group">
                                                         <label for="exampleInput">Numero Economico</label>
-                                                        <input type="text" class="form-control" id="economicoe">
+                                                        <input type="text" class="form-control" id="Economicoe" name="Economico">
                                                     </div>
                             
                                                     <div class="form-group">
                                                             <label class="col-sm-12 control-label">Permiso de SCT</label>
                                                             <div class="form-group">
                                                                 <label for="exampleInput"></label>
-                                                                <select id="PermSCT" name="PermSCTe" class="form-control">
+                                                                <select id="PermSCTe" name="PermSCT" class="form-control">
                                                                     <?php
                                                                         $consultarem = "SELECT * FROM permisosct ORDER BY idpermisosct";
 
@@ -372,7 +373,7 @@ if ($_SESSION['access'] == true) {
 
                                                         <div class="form-group">
                                                             <label for="exampleInput">Marca</label>
-                                                            <input type="text" class="form-control" id="modeloe" name="modelo">
+                                                            <input type="text" class="form-control" id="marcae" name="marca">
                                                         </div>
 
                                                         <div class="form-group">
@@ -523,6 +524,7 @@ if ($_SESSION['access'] == true) {
                                                     <th>Configuracion Vehicular</th>
                                                     <th>Placa</th>
                                                     <th>Año/Modelo</th>
+                                                    <th>Marca</th>
                                                     <th>Tipo</th>
                                                     <th>Propietario</th>
                                                     <th>Arrendatario</th>
@@ -536,7 +538,7 @@ if ($_SESSION['access'] == true) {
                                                 <?php
                                                 
 
-                                                $consulta = "SELECT * FROM carros ORDER BY idcarros";
+                                                $consulta = "SELECT c.*, p.descripcion as permiso, co.descripcion as confvehi FROM carros c inner join permisosct p on c.PermSCT = p.clave inner join configaf co on co.clave = c.ConfigVehicular ORDER BY idcarros";
 
                                                 //$resultadocolp = $mysqli->query($consulta3);
                                                 $res = $mysqli->query($consulta);
@@ -549,18 +551,18 @@ if ($_SESSION['access'] == true) {
                                                         <tr class="odd gradeX">
                                                             
                                                             <td id="tdnom<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['Economico']; ?></td>
-                                                            <td id="TIPO<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['PermSCT']; ?></td>
+                                                            <td id="TIPO<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['permiso']; ?></td>
                                                             <td id="PLACA<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['NumPermisoSCT']; ?></td>
                                                             <td id="MARCA<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['NombreAseg']; ?></td>
                                                             <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['NumPolizaSeguro']; ?></td>
-                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['configVehicular']; ?></td>
+                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['confvehi']; ?></td>
                                                             <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['PlacaVM']; ?></td>
                                                             <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['AnioModeloVM']; ?></td>
-                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['modelo']; ?></td>
+                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['marca']; ?></td>
                                                             <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['tipo']; ?></td>
                                                             <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['propietario']; ?></td>
                                                             <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['arrendatario']; ?></td>
-                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['Notificado']; ?></td>
+                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['notificado']; ?></td>
                                                             <td><button dataidc="<?php echo utf8_encode($rs['idcarros']); ?>" type="button" class="btn edittitle btn-warning margin-bottom-20">Editar Carro</button></td>
                                                            <?php if ($rs['fecbaja'] == '0000-00-00 00:00:00') {
                                                                 ?>

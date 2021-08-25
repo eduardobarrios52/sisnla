@@ -163,7 +163,7 @@
                                             }));
                                         })
                                         
-                                        $("#idempresa").val(marcaeditnom);
+                                        $("#idpropietario").val(marcaeditnom);
                                         $("#NombrePropietarioe").val(result.NombrePropietario);
                                         $("#NumRegIdTribArrendatarioe").val(result['NumRegIdTribPropietario']).change();
                                         $("#ResidenciaFiscale").val(result['ResidenciaFiscalPropietario']).change();

@@ -117,7 +117,7 @@ if($tipo == 'empresa'){
             $resp['CodigoPostal'] = $rs['CodigoPostal'];
         }
     }
-}else if($tipo == 'carro'){
+}else if($tipo == 'carros'){
     $consulta = "SELECT * FROM carros where idcarros = ".$id;
     $res = $mysqli->query($consulta);
     $num = $res->num_rows;
@@ -128,14 +128,14 @@ if($tipo == 'empresa'){
             $resp['NumPermisoSCT'] = $rs['NumPermisoSCT'];
             $resp['NombreAseg'] = $rs['NombreAseg'];
             $resp['NumPolizaSeguro'] = $rs['NumPolizaSeguro'];
-            $resp['configVehicular'] = $rs['configVehicular'];
+            $resp['configVehicular'] = $rs['ConfigVehicular'];
             $resp['PlacaVM'] = $rs['PlacaVM'];
             $resp['AnioModeloVM'] = $rs['AnioModeloVM'];
-            $resp['modelo'] = $rs['modelo'];
+            $resp['marca'] = $rs['marca'];
             $resp['tipo'] = $rs['tipo'];
             $resp['propietario'] = $rs['propietario'];
             $resp['arrendatario'] = $rs['arrendatario'];
-            $resp['Notificado'] = $rs['Notificado'];
+            $resp['Notificado'] = $rs['notificado'];
             $resp['fecreg'] = $rs['fecreg'];
         }
     }

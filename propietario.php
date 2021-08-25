@@ -288,6 +288,7 @@ if ($_SESSION['access'] == true) {
                                                 <h1><strong>Editar</strong> Propietario</h1>
                                             </div>
                                             <div class="modal-body">
+                                                <input type="hidden" id="idpropierario" name="idpropierario">
                                                 <div class="form-group">
                                                             <label for="exampleInput">Nombre Propietario</label>
                                                             <input type="text" class="form-control" id="NombrePropietarioe" name="NombrePropietario">

@@ -33,8 +33,8 @@
                     data: {'id': marcaeditnom,
                             'tipo': 'carros'},
                         success: function (result) {
-                                $("#idempresa").val(marcaeditnom);
-                                $("#economicoe").val(result.Economico);
+                                $("#idcarro").val(marcaeditnom);
+                                $("#Economicoe").val(result.Economico);
                                 $("#PermSCTe").val(result['PermSCT']);
                                 $("#NumPermisoSCTe").val(result['NumPermisoSCT']);
                                 $("#NombreAsege").val(result['NombreAseg']);
@@ -42,11 +42,11 @@
                                 $("#configVehiculare").val(result['configVehicular']);
                                 $("#PlacaVMe").val(result['PlacaVM']);
                                 $("#AnioModeloVMe").val(result['AnioModeloVM']);
-                                $("#modeloe").val(result['modelo']);
+                                $("#marcae").val(result['marca']);
                                 $("#tipoe").val(result['tipo']);
                                 $("#propietarioe").val(result['propietario']);
                                 $("#arrendatarioe").val(result['arrendatario']);
-                                $("#Notificadoe").val(result['Notificado']);
+                                $("#notificadoe").val(result['Notificado']);
                         }
                     });
     
@@ -55,8 +55,8 @@
     
                 $("#btneditartalla").click(function () {
     
-                    if ($("#Economico").val().trim().length >= 1 ) {
-                        form = $('#agregar');
+                    if ($("#Economicoe").val().trim().length >= 1 ) {
+                        form = $('#editar');
     
                         $.ajax({url: "editarcarro.php",
                             type: 'GET',

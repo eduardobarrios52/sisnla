@@ -9,13 +9,15 @@ $NumPolizaSeguro = $_GET['NumPolizaSeguro'];
 $configVehicular = $_GET['configVehicular'];
 $PlacaVM = $_GET['PlacaVM'];
 $AnioModeloVM = $_GET['AnioModeloVM'];
-$modelo = $_GET['modelo'];
+$marca = $_GET['marca'];
 $tipo = $_GET['tipo'];
 $propietario = $_GET['propietario'];
 $arrendatario = $_GET['arrendatario'];
-$Notificado = $_GET['Notificado'];
+$Notificado = $_GET['notificado'];
 
-$consultanot='insert into carros(Economico,PermSCT,NumPermisoSCT,NombreAseg,NumPolizaSeguro,configVehicular,PlacaVM,AnioModeloVM,modelo,tipo,propietario,arrendatario,Notificado,fecreg)'.
-'values(\'' . $Economico . '\',\'' . $PermSCT . '\',\'' . $NumPermisoSCT . '\',\'' . $NombreAseg . '\',\'' . $NumPolizaSeguro . '\',\'' . $configVehicular . '\',\'' . $PlacaVM . '\',\'' . $AnioModeloVM . '\',\'' . $modelo . '\',\'' . $tipo . '\',\'' . $propietario . '\',\'' . $arrendatario . '\',\'' . $Notificado . '\', CURDATE())';
+$consultanot='insert into carros(Economico,PermSCT,NumPermisoSCT,NombreAseg,NumPolizaSeguro,configVehicular,PlacaVM,AnioModeloVM,marca,tipo,propietario,arrendatario,Notificado,fecreg)'.
+'values(\'' . $Economico . '\',\'' . $PermSCT . '\',\'' . $NumPermisoSCT . '\',\'' . $NombreAseg . '\',\'' . $NumPolizaSeguro . '\',\'' . $configVehicular . '\',\'' . $PlacaVM . '\',\'' . $AnioModeloVM . '\',\'' . $marca . '\',\'' . $tipo . '\',\'' . $propietario . '\',\'' . $arrendatario . '\',\'' . $Notificado . '\', CURDATE())';
                                 
-$mysqli->query($consultanot);
+$res = $mysqli->query($consultanot);
+
+$res;
