@@ -165,7 +165,7 @@
                                         
                                         $("#idpropietario").val(marcaeditnom);
                                         $("#NombrePropietarioe").val(result.NombrePropietario);
-                                        $("#NumRegIdTribArrendatarioe").val(result['NumRegIdTribPropietario']).change();
+                                        $("#NumRegIdTribArrendatarioe").val(result['NumRegIdTribPropietario']);
                                         $("#ResidenciaFiscale").val(result['ResidenciaFiscalPropietario']).change();
                                         $("#Callee").val(result['Calle']);
                                         $("#NumeroExteriore").val(result['NumeroExterior']);

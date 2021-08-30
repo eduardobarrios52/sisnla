@@ -137,6 +137,7 @@ if($tipo == 'empresa'){
             $resp['arrendatario'] = $rs['arrendatario'];
             $resp['Notificado'] = $rs['notificado'];
             $resp['fecreg'] = $rs['fecreg'];
+            $resp['operador'] = $rs['idoperador'];
         }
     }
 }else if($tipo == 'remolque'){

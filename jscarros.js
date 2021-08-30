@@ -47,6 +47,7 @@
                                 $("#propietarioe").val(result['propietario']);
                                 $("#arrendatarioe").val(result['arrendatario']);
                                 $("#notificadoe").val(result['Notificado']);
+                                $("#operadore").val(result['operador']);
                         }
                     });
     

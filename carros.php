@@ -273,6 +273,29 @@ if ($_SESSION['access'] == true) {
                                                             </div>
                                                         </div>
 
+                                                        <div class="form-group">
+                                                            <label class="col-sm-12 control-label">Operador</label>
+                                                            <div class="form-group">
+                                                                <label for="exampleInput"></label>
+                                                                <select id="operador" name="operador" class="form-control">
+                                                                    <?php
+                                                                        $consultarem = "SELECT * FROM operadores ORDER BY idoperadores";
+
+                                                                        $resrem = $mysqli->query($consultarem);
+                                                                        $numrem = $resrem->num_rows;
+                                                                        if ($numrem >= 1) {
+
+                                                                            while ($rs = $resrem->fetch_assoc()) {
+                                                                    ?>
+                                                                    <option value = "<?php echo $rs['idoperadores']?>"><?php echo $rs['NombreOperador']?></option>
+                                                                    <?php
+                                                                            }
+                                                                        }
+                                                                    ?>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
                                                         <div class="modal-footer">
                                                             <button class="btn btn-red" data-dismiss="modal" aria-hidden="true">Cancelar</button>
                                                             <button id="btnagregarc" type="button" class="btn btn-greensea">Agregar</button>
@@ -450,6 +473,29 @@ if ($_SESSION['access'] == true) {
                                                             </div>
                                                         </div>
 
+                                                        <div class="form-group">
+                                                            <label class="col-sm-12 control-label">Operador</label>
+                                                            <div class="form-group">
+                                                                <label for="exampleInput"></label>
+                                                                <select id="operadore" name="operador" class="form-control">
+                                                                    <?php
+                                                                        $consultarem = "SELECT * FROM operadores ORDER BY idoperadores";
+
+                                                                        $resrem = $mysqli->query($consultarem);
+                                                                        $numrem = $resrem->num_rows;
+                                                                        if ($numrem >= 1) {
+
+                                                                            while ($rs = $resrem->fetch_assoc()) {
+                                                                    ?>
+                                                                    <option value = "<?php echo $rs['idoperadores']?>"><?php echo $rs['NombreOperador']?></option>
+                                                                    <?php
+                                                                            }
+                                                                        }
+                                                                    ?>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
                                                 <div class="modal-footer">
                                                     <button class="btn btn-red" data-dismiss="modal" aria-hidden="true">Cancelar</button>
                                                     <button id="btneditartalla" type="button" class="btn btn-greensea">Agregar</button>
@@ -526,6 +572,7 @@ if ($_SESSION['access'] == true) {
                                                     <th>Año/Modelo</th>
                                                     <th>Marca</th>
                                                     <th>Tipo</th>
+                                                    <th>Operador</th>
                                                     <th>Propietario</th>
                                                     <th>Arrendatario</th>
                                                     <th>Notificado</th>
@@ -537,8 +584,7 @@ if ($_SESSION['access'] == true) {
                                             <tbody>
                                                 <?php
                                                 
-
-                                                $consulta = "SELECT c.*, p.descripcion as permiso, co.descripcion as confvehi FROM carros c inner join permisosct p on c.PermSCT = p.clave inner join configaf co on co.clave = c.ConfigVehicular ORDER BY idcarros";
+                                                $consulta = "SELECT c.*, p.descripcion as permiso, co.descripcion as confvehi, o.NombreOperador as operador FROM carros c inner join permisosct p on c.PermSCT = p.clave inner join configaf co on co.clave = c.ConfigVehicular left join operadores o on o.idoperadores = c.idoperador ORDER BY idcarros";
 
                                                 //$resultadocolp = $mysqli->query($consulta3);
                                                 $res = $mysqli->query($consulta);
@@ -560,6 +606,7 @@ if ($_SESSION['access'] == true) {
                                                             <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['AnioModeloVM']; ?></td>
                                                             <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['marca']; ?></td>
                                                             <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['tipo']; ?></td>
+                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['operador']; ?></td>
                                                             <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['propietario']; ?></td>
                                                             <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['arrendatario']; ?></td>
                                                             <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['notificado']; ?></td>

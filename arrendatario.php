@@ -154,22 +154,7 @@ if ($_SESSION['access'] == true) {
 
                                                             <div class="form-group">
                                                                 <label for="exampleInput"></label>
-                                                                <select id="ResidenciaFiscal" name="ResidenciaFiscal" class="form-control">
-                                                                    <?php
-                                                                        $consultareg = "SELECT * FROM pais ORDER BY idpais";
-
-                                                                        $resreg = $mysqli->query($consultareg);
-                                                                        $numrem = $resreg->num_rows;
-                                                                        if ($numrem >= 1) {
-
-                                                                            while ($rs = $resreg->fetch_assoc()) {
-                                                                    ?>
-                                                                    <option <?php if($rs['clave'] == 'MEX') echo 'selected'?> value = "<?php echo $rs['clave']?>"><?php echo $rs['descripcion']?></option>
-                                                                    <?php
-                                                                            }
-                                                                        }
-                                                                    ?>
-                                                                </select>
+                                                                <input type="text" class="form-control" id="NumRegIdTribArrendatario" name="NumRegIdTribArrendatario">
 
                                                             </div>
 
@@ -298,22 +283,7 @@ if ($_SESSION['access'] == true) {
 
                                                             <div class="form-group">
                                                                 <label for="NumRegIdTribArrendatario"></label>
-                                                                <select id="NumRegIdTribArrendatarioe" class="form-control" name="NumRegIdTribArrendatario">
-                                                                    <?php
-                                                                        $consultareg = "SELECT * FROM regimenfiscal ORDER BY idregimenfiscal";
-
-                                                                        $resreg = $mysqli->query($consultareg);
-                                                                        $numrem = $resreg->num_rows;
-                                                                        if ($numrem >= 1) {
-
-                                                                            while ($rs = $resreg->fetch_assoc()) {
-                                                                    ?>
-                                                                    <option value = "<?php echo $rs['c_RegimenFiscal']?>"><?php echo $rs['descripcion']?></option>
-                                                                    <?php
-                                                                            }
-                                                                        }
-                                                                    ?>
-                                                                </select>
+                                                                <input type="text" class="form-control" id="NumRegIdTribArrendatarioe" name="NumRegIdTribArrendatario">
 
                                                             </div>
 
@@ -524,7 +494,7 @@ if ($_SESSION['access'] == true) {
                                                 
 
                                 
-                                                $consulta = "SELECT p.* , r.descripcion as Regimen, pa.descripcion as residencia, pai.descripcion as paiss, e.nombre as Esta, m.descripcion as Mun, c.nombre as col FROM arrendatario p inner join regimenfiscal r on p.NumRegIdTribArrendatario = r.c_REgimenFiscal inner join pais pa on p.ResidenciaFiscalArrendatario = pa.clave inner join pais pai on p.Pais = pai.clave inner join estados e on e.c_Estado = p.Estado inner join municipios m on m.c_municipio = p.Municipio and m.c_Estado = p.Estado inner join colonias c on c.c_Colonia = p.Colonia and c.c_CodigoPostal = p.CodigoPostal ORDER BY idarrendatario";
+                                                $consulta = "SELECT p.* , pa.descripcion as residencia, pai.descripcion as paiss, e.nombre as Esta, m.descripcion as Mun, c.nombre as col FROM arrendatario p inner join pais pa on p.ResidenciaFiscalArrendatario = pa.clave inner join pais pai on p.Pais = pai.clave inner join estados e on e.c_Estado = p.Estado inner join municipios m on m.c_municipio = p.Municipio and m.c_Estado = p.Estado inner join colonias c on c.c_Colonia = p.Colonia and c.c_CodigoPostal = p.CodigoPostal ORDER BY idarrendatario";
 
                                                 //$resultadocolp = $mysqli->query($consulta3);
                                                 $res = $mysqli->query($consulta);
@@ -538,7 +508,7 @@ if ($_SESSION['access'] == true) {
                                                             
                                                              
                                                             <td id="tdnom<?php echo utf8_encode($rs['idarrendatario']); ?>"><?php echo $rs['NombreArrendatario']; ?></td>
-                                                            <td id="TIPO<?php echo utf8_encode($rs['idarrendatario']); ?>"><?php echo $rs['Regimen']; ?></td>
+                                                            <td id="TIPO<?php echo utf8_encode($rs['idarrendatario']); ?>"><?php echo $rs['NumRegIdTribArrendatario']; ?></td>
                                                             <td id="PLACA<?php echo utf8_encode($rs['idarrendatario']); ?>"><?php echo $rs['residencia']; ?></td>
                                                             <td id="MARCA<?php echo utf8_encode($rs['idarrendatario']); ?>"><?php echo $rs['Calle']; ?></td>
                                                             <td id="MONDELO<?php echo utf8_encode($rs['idarrendatario']); ?>"><?php echo $rs['NumeroExterior']; ?></td>
