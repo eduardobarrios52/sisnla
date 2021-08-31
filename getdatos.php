@@ -154,6 +154,21 @@ if($tipo == 'empresa'){
             $resp['fecbaja'] = $rs['fecbaja'];
         }
     }
+}else if($tipo == 'producto'){
+    $consulta = "SELECT p.*, u.nombre unidadn, s.Descripcion servicio FROM productos p inner join unidad u on u.clave = p.unidad inner join claveprodserv s on s.c_ClaveProdServ = p.claveprodserv where idproducto = ".$id;
+    $res = $mysqli->query($consulta);
+    $num = $res->num_rows;
+    if ($num >= 1) {
+        while ($rs = $res->fetch_assoc()) {
+            $resp['idproducto'] =$rs['idproducto'];
+            $resp['nombre'] = $rs['nombre'];
+            $resp['claveprodserv'] = $rs['claveprodserv'];
+            $resp['unidad'] = $rs['unidad'];
+            $resp['servicio'] = $rs['servicio'];
+            $resp['unidadn'] = $rs['unidadn'];
+        }
+    }
+
 }
 
 echo json_encode($resp);
