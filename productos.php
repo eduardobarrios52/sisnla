@@ -192,7 +192,6 @@ if ($_SESSION['access'] == true) {
                                                     </div>
                                                 </div>
 
-
                                                 <div class="modal-footer">
                                                     <button class="btn btn-red" data-dismiss="modal" aria-hidden="true">Cancelar</button>
                                                     <button id="btneditartalla" type="button" class="btn btn-greensea">Agregar</button>
@@ -209,7 +208,7 @@ if ($_SESSION['access'] == true) {
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-                                            <h3 class="modal-title" id="modalConfirmLabel"><strong>Activar</strong> Area</h3>
+                                            <h3 class="modal-title" id="modalConfirmLabel"><strong>Activar</strong> Producto</h3>
                                         </div>
                                         <div class="modal-body">
                                             <section class="tile transparent">
@@ -231,7 +230,7 @@ if ($_SESSION['access'] == true) {
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-                                            <h3 class="modal-title" id="modalConfirmLabel"><strong>Desactivar</strong> Area</h3>
+                                            <h3 class="modal-title" id="modalConfirmLabel"><strong>Desactivar</strong> Producto</h3>
                                         </div>
                                         <div class="modal-body">
                                             <section class="tile transparent">
@@ -263,6 +262,7 @@ if ($_SESSION['access'] == true) {
                                                     <th>Clave Producto/Servicio</th>
                                                     <th>Clave Unidad</th>
                                                     <th>Editar</th>
+                                                    <th>Activar</th>
                                                     
                                                 </tr>
                                             </thead>
@@ -282,6 +282,18 @@ if ($_SESSION['access'] == true) {
                                                             <td id="TIPO<?php echo utf8_encode($rs['idproducto']); ?>"><?php echo $rs['servicio']; ?></td>
                                                             <td id="PLACA<?php echo utf8_encode($rs['idproducto']); ?>"><?php echo $rs['unidadn']; ?></td>
                                                             <td><button dataidc="<?php echo utf8_encode($rs['idproducto']); ?>" type="button" class="btn edittitle btn-warning margin-bottom-20">Editar Producto</button></td>
+                                                            <?php if ($rs['estatus'] == '1') {
+                                                                ?>
+                                                               <td><button dataidc="<?php echo utf8_encode($rs['idproducto']); ?>" type="button" class="btn elimmarca btn-danger margin-bottom-20">Desactivar Producto</button></td>
+                                                              
+                                                            <?php 
+                                                           }else{
+                                                                ?>
+                                                               <td><button dataidc="<?php echo utf8_encode($rs['idproducto']); ?>" type="button" class="btn acivarmarca btn-green margin-bottom-20">Activar Producto</button></td>
+                                                              
+                                                            <?php
+                                                           }
+                                                             ?>
                                                         </tr> 
                                                         <?php
                                                     }
