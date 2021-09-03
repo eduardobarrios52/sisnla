@@ -197,7 +197,7 @@ if ($_SESSION['access'] == true) {
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-                                                <h1><strong>Editar</strong> Area</h1>
+                                                <h1><strong>Editar</strong> Empresa</h1>
                                             </div>
                                             <div class="modal-body">
                                                 <input type="hidden" class="form-control" id="idempresa" name="idempresa">
@@ -278,7 +278,7 @@ if ($_SESSION['access'] == true) {
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-                                            <h3 class="modal-title" id="modalConfirmLabel"><strong>Activar</strong> Area</h3>
+                                            <h3 class="modal-title" id="modalConfirmLabel"><strong>Activar</strong> Empresa</h3>
                                         </div>
                                         <div class="modal-body">
                                             <section class="tile transparent">
@@ -300,7 +300,7 @@ if ($_SESSION['access'] == true) {
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-                                            <h3 class="modal-title" id="modalConfirmLabel"><strong>Desactivar</strong> Area</h3>
+                                            <h3 class="modal-title" id="modalConfirmLabel"><strong>Desactivar</strong> Empresa</h3>
                                         </div>
                                         <div class="modal-body">
                                             <section class="tile transparent">
@@ -337,6 +337,7 @@ if ($_SESSION['access'] == true) {
                                                     <th>Usuario Pac</th>
                                                     <th>Contraseña Pac</th>
                                                     <th>Editar</th>
+                                                    <th>Activar</th>
                                                     
                                                 </tr>
                                             </thead>
@@ -364,8 +365,19 @@ if ($_SESSION['access'] == true) {
                                                             <td id="MONDELO<?php echo utf8_encode($rs['idempresa']); ?>"><?php echo $rs['nombrepac']; ?></td>
                                                             <td id="MONDELO<?php echo utf8_encode($rs['idempresa']); ?>"><?php echo $rs['usuariopac']; ?></td>
                                                             <td id="MONDELO<?php echo utf8_encode($rs['idempresa']); ?>"><?php echo $rs['contrapac']; ?></td>
-                                                            <td><button dataidc="<?php echo utf8_encode($rs['idempresa']); ?>" type="button" class="btn edittitle btn-warning margin-bottom-20">Editar Sucursal</button></td>
-
+                                                            <td><button dataidc="<?php echo utf8_encode($rs['idempresa']); ?>" type="button" class="btn edittitle btn-warning margin-bottom-20">Editar Empresa</button></td>
+                                                            <?php if ($rs['fecbaja'] == '0000-00-00 00:00:00') {
+                                                                ?>
+                                                               <td><button dataidc="<?php echo utf8_encode($rs['idempresa']); ?>" type="button" class="btn elimmarca btn-danger margin-bottom-20">Desactivar Empresa</button></td>
+                                                              
+                                                            <?php 
+                                                           }else{
+                                                                ?>
+                                                               <td><button dataidc="<?php echo utf8_encode($rs['idempresa']); ?>" type="button" class="btn acivarmarca btn-green margin-bottom-20">Activar Empresa</button></td>
+                                                              
+                                                            <?php
+                                                           }
+                                                             ?>
                                                         </tr> 
                                                         <?php
                                                     }

@@ -13,11 +13,10 @@ $marca = $_GET['marca'];
 $tipo = $_GET['tipo'];
 $propietario = $_GET['propietario'];
 $arrendatario = $_GET['arrendatario'];
-$Notificado = $_GET['notificado'];
 $Operador = $_GET['operador'];
 
-$consultanot='insert into carros(Economico,PermSCT,NumPermisoSCT,NombreAseg,NumPolizaSeguro,configVehicular,PlacaVM,AnioModeloVM,marca,tipo,propietario,arrendatario,Notificado,idoperador,fecreg)'.
-'values(\'' . $Economico . '\',\'' . $PermSCT . '\',\'' . $NumPermisoSCT . '\',\'' . $NombreAseg . '\',\'' . $NumPolizaSeguro . '\',\'' . $configVehicular . '\',\'' . $PlacaVM . '\',\'' . $AnioModeloVM . '\',\'' . $marca . '\',\'' . $tipo . '\',\'' . $propietario . '\',\'' . $arrendatario . '\',\'' . $Notificado . '\',\'' . $Operador . '\', CURDATE())';
+$consultanot='insert into carros(Economico,PermSCT,NumPermisoSCT,NombreAseg,NumPolizaSeguro,configVehicular,PlacaVM,AnioModeloVM,marca,tipo,propietario,arrendatario,idoperador,fecreg)'.
+'values(\'' . $Economico . '\',\'' . $PermSCT . '\',\'' . $NumPermisoSCT . '\',\'' . $NombreAseg . '\',\'' . $NumPolizaSeguro . '\',\'' . $configVehicular . '\',\'' . $PlacaVM . '\',\'' . $AnioModeloVM . '\',\'' . $marca . '\',\'' . $tipo . '\',\'' . $propietario . '\',\'' . $arrendatario . '\',\'' . $Operador . '\', CURDATE())';
                                 
 $res = $mysqli->query($consultanot);
 

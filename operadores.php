@@ -488,6 +488,8 @@ if ($_SESSION['access'] == true) {
                                                     <th>ESTADO</th>
                                                     <th>PAIS</th>
                                                     <th>CODIGO POSTAL</th>
+                                                    <th>EDITAR</th>
+                                                    <th>ACTIVAR</th>
 
                                                 </tr>
                                             </thead>
@@ -522,7 +524,18 @@ if ($_SESSION['access'] == true) {
                                                             
                                                             <td id="tddomi<?php echo utf8_encode($rs['idoperadores']); ?>"><?php echo $rs['CodigoPostal']; ?></td>
                                                             <td><button dataidc="<?php echo utf8_encode($rs['idoperadores']); ?>" type="button" class="btn edittitle btn-warning margin-bottom-20">Editar Operador</button></td>
-                                                            
+                                                            <?php if ($rs['fecbaja'] == '0000-00-00 00:00:00') {
+                                                                ?>
+                                                               <td><button dataidc="<?php echo utf8_encode($rs['idoperadores']); ?>" type="button" class="btn elimmarca btn-danger margin-bottom-20">Desactivar Operador</button></td>
+                                                              
+                                                            <?php 
+                                                           }else{
+                                                                ?>
+                                                               <td><button dataidc="<?php echo utf8_encode($rs['idoperadores']); ?>" type="button" class="btn acivarmarca btn-green margin-bottom-20">Activar Operador</button></td>
+                                                              
+                                                            <?php
+                                                           }
+                                                             ?>
                                                         </tr> 
                                                         <?php
                                                     }

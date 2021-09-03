@@ -250,7 +250,7 @@ if ($_SESSION['access'] == true) {
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-                                            <h3 class="modal-title" id="modalConfirmLabel"><strong>Activar</strong> Area</h3>
+                                            <h3 class="modal-title" id="modalConfirmLabel"><strong>Activar</strong> Sucursal</h3>
                                         </div>
                                         <div class="modal-body">
                                             <section class="tile transparent">
@@ -272,7 +272,7 @@ if ($_SESSION['access'] == true) {
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-                                            <h3 class="modal-title" id="modalConfirmLabel"><strong>Desactivar</strong> Area</h3>
+                                            <h3 class="modal-title" id="modalConfirmLabel"><strong>Desactivar</strong> Sucursal</h3>
                                         </div>
                                         <div class="modal-body">
                                             <section class="tile transparent">
@@ -306,6 +306,7 @@ if ($_SESSION['access'] == true) {
                                                     <th>Folio</th>
                                                     <th>Codigo Postal</th>
                                                     <th>Editar</th>
+                                                    <th>Activar</th>
                                                     
                                                 </tr>
                                             </thead>
@@ -332,7 +333,18 @@ if ($_SESSION['access'] == true) {
                                                             <td id="MARCA<?php echo utf8_encode($rs['idsucursal']); ?>"><?php echo $rs['folio']; ?></td>
                                                             <td id="MONDELO<?php echo utf8_encode($rs['idsucursal']); ?>"><?php echo $rs['cp']; ?></td>
                                                             <td><button dataidc="<?php echo utf8_encode($rs['idsucursal']); ?>" type="button" class="btn edittitle btn-warning margin-bottom-20">Editar Sucursal</button></td>
-
+                                                            <?php if ($rs['fecbaja'] == '0000-00-00 00:00:00') {
+                                                                ?>
+                                                               <td><button dataidc="<?php echo utf8_encode($rs['idsucursal']); ?>" type="button" class="btn elimmarca btn-danger margin-bottom-20">Desactivar Sucursal</button></td>
+                                                              
+                                                            <?php 
+                                                           }else{
+                                                                ?>
+                                                               <td><button dataidc="<?php echo utf8_encode($rs['idsucursal']); ?>" type="button" class="btn acivarmarca btn-green margin-bottom-20">Activar Sucursal</button></td>
+                                                              
+                                                            <?php
+                                                           }
+                                                             ?>
                                                         </tr> 
                                                         <?php
                                                     }

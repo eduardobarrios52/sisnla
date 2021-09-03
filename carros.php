@@ -232,6 +232,7 @@ if ($_SESSION['access'] == true) {
                                                             <div class="form-group">
                                                                 <label for="exampleInput"></label>
                                                                 <select id="arrendatario" name="arrendatario" class="form-control">
+                                                                    <option value = "0">No Aplica</option>
                                                                     <?php
                                                                         $consultarem = "SELECT * FROM arrendatario ORDER BY idarrendatario";
 
@@ -242,29 +243,6 @@ if ($_SESSION['access'] == true) {
                                                                             while ($rs = $resrem->fetch_assoc()) {
                                                                     ?>
                                                                     <option value = "<?php echo $rs['idarrendatario']?>"><?php echo $rs['NombreArrendatario']?></option>
-                                                                    <?php
-                                                                            }
-                                                                        }
-                                                                    ?>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label class="col-sm-12 control-label">Notificado</label>
-                                                            <div class="form-group">
-                                                                <label for="exampleInput"></label>
-                                                                <select id="notificado" name="notificado" class="form-control">
-                                                                    <?php
-                                                                        $consultarem = "SELECT * FROM notificado ORDER BY idnotificado";
-
-                                                                        $resrem = $mysqli->query($consultarem);
-                                                                        $numrem = $resrem->num_rows;
-                                                                        if ($numrem >= 1) {
-
-                                                                            while ($rs = $resrem->fetch_assoc()) {
-                                                                    ?>
-                                                                    <option value = "<?php echo $rs['idnotificado']?>"><?php echo $rs['NombreNotificado']?></option>
                                                                     <?php
                                                                             }
                                                                         }
@@ -432,6 +410,7 @@ if ($_SESSION['access'] == true) {
                                                             <div class="form-group">
                                                                 <label for="exampleInput"></label>
                                                                 <select id="arrendatarioe" name="arrendatario" class="form-control">
+                                                                    <option value = "0">No Aplica</option>
                                                                     <?php
                                                                         $consultarem = "SELECT * FROM arrendatario ORDER BY idarrendatario";
 
@@ -442,29 +421,6 @@ if ($_SESSION['access'] == true) {
                                                                             while ($rs = $resrem->fetch_assoc()) {
                                                                     ?>
                                                                     <option value = "<?php echo $rs['idarrendatario']?>"><?php echo $rs['NombreArrendatario']?></option>
-                                                                    <?php
-                                                                            }
-                                                                        }
-                                                                    ?>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label class="col-sm-12 control-label">Notificado</label>
-                                                            <div class="form-group">
-                                                                <label for="exampleInput"></label>
-                                                                <select id="notificadoe" name="notificado" class="form-control">
-                                                                    <?php
-                                                                        $consultarem = "SELECT * FROM notificado ORDER BY idnotificado";
-
-                                                                        $resrem = $mysqli->query($consultarem);
-                                                                        $numrem = $resrem->num_rows;
-                                                                        if ($numrem >= 1) {
-
-                                                                            while ($rs = $resrem->fetch_assoc()) {
-                                                                    ?>
-                                                                    <option value = "<?php echo $rs['idnotificado']?>"><?php echo $rs['NombreNotificado']?></option>
                                                                     <?php
                                                                             }
                                                                         }
@@ -575,7 +531,6 @@ if ($_SESSION['access'] == true) {
                                                     <th>Operador</th>
                                                     <th>Propietario</th>
                                                     <th>Arrendatario</th>
-                                                    <th>Notificado</th>
                                                     <th>EDITAR</th>
                                                     <th>ACTIVAR</th>
                                                     
@@ -609,7 +564,6 @@ if ($_SESSION['access'] == true) {
                                                             <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['operador']; ?></td>
                                                             <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['propietario']; ?></td>
                                                             <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['arrendatario']; ?></td>
-                                                            <td id="MONDE<?php echo utf8_encode($rs['idcarros']); ?>"><?php echo $rs['notificado']; ?></td>
                                                             <td><button dataidc="<?php echo utf8_encode($rs['idcarros']); ?>" type="button" class="btn edittitle btn-warning margin-bottom-20">Editar Carro</button></td>
                                                            <?php if ($rs['fecbaja'] == '0000-00-00 00:00:00') {
                                                                 ?>
