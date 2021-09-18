@@ -135,7 +135,22 @@ if ($_SESSION['access'] == true) {
 
                                                         <div class="form-group">
                                                             <label for="exampleInput">Certificado</label>
-                                                            <input type="text" class="form-control" id="certificado" name="certificado">
+                                                            <textarea type="text" class="form-control" id="certificado" name="certificado"></textarea>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Llave Privada</label>
+                                                            <textarea type="text" class="form-control" id="keyp" name="keyp"></textarea>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">PFX</label>
+                                                            <textarea type="text" class="form-control" id="pfx" name="pfx"></textarea>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Contraseña de PFX</label>
+                                                            <input type="text" class="form-control" id="passpfx" name="passpfx">
                                                         </div>
 
                                                         <div class="form-group">
@@ -218,7 +233,22 @@ if ($_SESSION['access'] == true) {
 
                                                 <div class="form-group">
                                                     <label for="exampleInput">Certificado</label>
-                                                    <input type="text" class="form-control" id="certificadoe" name="certificado">
+                                                    <textarea type="text" class="form-control" id="certificadoe" name="certificado"></textarea>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="exampleInput">Llave Privada</label>
+                                                    <textarea type="text" class="form-control" id="keype" name="keyp"></textarea>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="exampleInput">PFX</label>
+                                                    <textarea type="text" class="form-control" id="pfxe" name="pfx"></textarea>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="exampleInput">Contraseña de PFX</label>
+                                                    <input type="text" class="form-control" id="passpfxe" name="passpfx">
                                                 </div>
 
                                                 <div class="form-group">
@@ -332,6 +362,9 @@ if ($_SESSION['access'] == true) {
                                                     <th>RFC</th>
                                                     <th>Num. Certificado</th>
                                                     <th>Certificado</th>
+                                                    <th>Llave Privada</th>
+                                                    <th>PFX</th>
+                                                    <th>Contraseña PFX</th>
                                                     <th>Regimen Fiscal</th>
                                                     <th>Nombre Pac</th>
                                                     <th>Usuario Pac</th>
@@ -361,6 +394,9 @@ if ($_SESSION['access'] == true) {
                                                             <td id="TIPO<?php echo utf8_encode($rs['idempresa']); ?>"><?php echo $rs['rfc']; ?></td>
                                                             <td id="PLACA<?php echo utf8_encode($rs['idempresa']); ?>"><?php echo $rs['nocertificado']; ?></td>
                                                             <td id="MARCA<?php echo utf8_encode($rs['idempresa']); ?>"><?php echo $rs['certificado']; ?></td>
+                                                            <td id="MARCA<?php echo utf8_encode($rs['idempresa']); ?>"><?php echo $rs['keyp']; ?></td>
+                                                            <td id="MARCA<?php echo utf8_encode($rs['idempresa']); ?>"><?php echo $rs['pfx']; ?></td>
+                                                            <td id="MARCA<?php echo utf8_encode($rs['idempresa']); ?>"><?php echo $rs['passpfx']; ?></td>
                                                             <td id="MARCA<?php echo utf8_encode($rs['idempresa']); ?>"><?php echo $rs['regimen']; ?></td>
                                                             <td id="MONDELO<?php echo utf8_encode($rs['idempresa']); ?>"><?php echo $rs['nombrepac']; ?></td>
                                                             <td id="MONDELO<?php echo utf8_encode($rs['idempresa']); ?>"><?php echo $rs['usuariopac']; ?></td>

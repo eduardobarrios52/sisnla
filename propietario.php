@@ -350,7 +350,7 @@ if ($_SESSION['access'] == true) {
 
                                                             <div class="form-group">
                                                                 <label for="exampleInput"></label>
-                                                                <select id="Localidad" name="Localidade" class="form-control">
+                                                                <select id="Localidade" name="Localidad" class="form-control">
                                                                 </select>
                                                             </div>
                                                         </div>

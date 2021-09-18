@@ -128,22 +128,7 @@ if ($_SESSION['access'] == true) {
 
                                                             <div class="form-group">
                                                                 <label for="NumRegIdTribArrendatario"></label>
-                                                                <select id="NumRegIdTribArrendatario"  class="form-control" name="NumRegIdTribArrendatario">
-                                                                    <?php
-                                                                        $consultareg = "SELECT * FROM regimenfiscal ORDER BY idregimenfiscal";
-
-                                                                        $resreg = $mysqli->query($consultareg);
-                                                                        $numrem = $resreg->num_rows;
-                                                                        if ($numrem >= 1) {
-
-                                                                            while ($rs = $resreg->fetch_assoc()) {
-                                                                    ?>
-                                                                    <option value = "<?php echo $rs['c_RegimenFiscal']?>"><?php echo $rs['descripcion']?></option>
-                                                                    <?php
-                                                                            }
-                                                                        }
-                                                                    ?>
-                                                                </select>
+                                                                <input type="text" id="NumRegIdTribArrendatario"  class="form-control" name="NumRegIdTribArrendatario">
 
                                                             </div>
 
@@ -294,23 +279,7 @@ if ($_SESSION['access'] == true) {
 
                                                             <div class="form-group">
                                                                 <label for="exampleInput"></label>
-                                                                <select id="ResidenciaFiscale" name="ResidenciaFiscal" class="form-control">
-                                                                    <?php
-                                                                        $consultareg = "SELECT * FROM pais ORDER BY idpais";
-
-                                                                        $resreg = $mysqli->query($consultareg);
-                                                                        $numrem = $resreg->num_rows;
-                                                                        if ($numrem >= 1) {
-
-                                                                            while ($rs = $resreg->fetch_assoc()) {
-                                                                    ?>
-                                                                    <option <?php if($rs['clave'] == 'MEX') echo 'selected'?> value = "<?php echo $rs['clave']?>"><?php echo $rs['descripcion']?></option>
-                                                                    <?php
-                                                                            }
-                                                                        }
-                                                                    ?>
-                                                                </select>
-
+                                                                <input type="text" id="ResidenciaFiscale" name="ResidenciaFiscal" class="form-control">
                                                             </div>
 
                                                         </div>
@@ -350,7 +319,7 @@ if ($_SESSION['access'] == true) {
 
                                                             <div class="form-group">
                                                                 <label for="exampleInput"></label>
-                                                                <select id="Localidad" name="Localidade" class="form-control">
+                                                                <select id="LocalidadE" name="Localidad" class="form-control">
                                                                 </select>
                                                             </div>
                                                         </div>

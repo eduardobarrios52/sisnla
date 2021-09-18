@@ -18,6 +18,9 @@ if($tipo == 'empresa'){
             $resp['usuariopac'] = $rs['usuariopac'];
             $resp['contrapac'] = $rs['contrapac'];
             $resp['nombrepac'] = $rs['nombrepac'];
+            $resp['keyp'] = $rs['keyp'];
+            $resp['pfx'] = $rs['pfx'];
+            $resp['passpfx'] = $rs['passpfx'];
         }
     }
 }else if($tipo == 'sucursal'){
@@ -27,7 +30,7 @@ if($tipo == 'empresa'){
     if ($num >= 1) {
         while ($rs = $res->fetch_assoc()) {
             $resp['nombre'] =$rs['nombre'];
-            $resp['rfc'] = $rs['idempresa'];
+            $resp['idempresa'] = $rs['idempresa'];
             $resp['serie'] = $rs['serie'];
             $resp['folio'] = $rs['folio'];
             $resp['cp'] = $rs['cp'];
@@ -169,6 +172,22 @@ if($tipo == 'empresa'){
         }
     }
 
+}else if($tipo == 'punto'){
+    $consulta = "SELECT * FROM puntos where idpuntos = ".$id;
+    $res = $mysqli->query($consulta);
+    $num = $res->num_rows;
+    if ($num >= 1) {
+        while ($rs = $res->fetch_assoc()) {
+            $resp['nombre'] =$rs['nombre'];
+            $resp['rfc'] =$rs['rfc'];
+            $resp['residenciaf'] = $rs['residenciaf'];
+            $resp['numregidtrib'] = $rs['numregidtrib'];
+            $resp['calle'] = $rs['calle'];
+            $resp['estado'] = $rs['estado'];
+            $resp['pais'] = $rs['pais'];
+            $resp['cp'] = $rs['cp'];
+        }
+    }
 }
 
 echo json_encode($resp);

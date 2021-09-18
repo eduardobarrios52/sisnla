@@ -24,12 +24,12 @@ $res = array();
                 }
             
             $res['loc'] = '';
-            $consultal = 'select * from Localidad where c_Localidad =\''.$rs['c_Localidad'].'\'';
+            $consultal = 'select * from localidad where c_Localidad =\''.$rs['c_Localidad'].'\' and c_Estado = \''.$rs['c_Estado'].'\'';
             if($resl = $mysqli->query($consultal)){
                 $numl = $resl->num_rows;
                 if ($numl>= 1) {
                     while ($rsl = $resl->fetch_assoc()) {
-                        $res['loc'][$rsc['c_Localidad']] = $rsl['nombre'];
+                        $res['loc'][$rsl['c_Localidad']] = $rsl['descripcion'];
                     }
                 }
             }

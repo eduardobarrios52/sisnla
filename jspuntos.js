@@ -1,17 +1,105 @@
 $(function () {
 
-               
+    $('#CodigoPostal').focusout(function() {
+        if($(this).val() ){
+            $.ajax({
+                url: 'codigopostal.php',
+                type: 'GET',
+                data: {	'CodigoPostal' : $(this).val(),
+                        },
+                success: function (result) {
+                    if(result){
+                        $('#Estado').html('');
+                        $('#Municipio').html('');
+                        $('#Colonia').html('');
+                        $.each(result.edo, function(index, element){
+                            $('#Estado').append($('<option>', {
+                                value: index,
+                                text: element
+                            }));
+                        })
+
+                        $.each(result.mun, function(index, element){
+                            $('#Municipio').append($('<option>', {
+                                value: index,
+                                text: element
+                            }));
+                        })
+
+                        $.each(result.cod, function(index, element){
+                            $('#Colonia').append($('<option>', {
+                                value: index,
+                                text: element
+                            }));
+                        })
+
+                        $.each(result.loc, function(index, element){
+                            $('#Localidad').append($('<option>', {
+                                value: index,
+                                text: element
+                            }));
+                        })
+                    }
+                }
+            })
+        }
+    })
+
+    $('#CodigoPostale').focusout(function() {
+        if($(this).val() ){
+            $.ajax({
+                url: 'codigopostal.php',
+                type: 'GET',
+                data: {	'CodigoPostal' : $(this).val(),
+                        },
+                success: function (result) {
+                    if(result){
+                        $('#Estadoe').html('');
+                            $('#Municipioe').html('');
+                            $('#Coloniae').html('');
+                        $.each(result.edo, function(index, element){
+                            $('#Estadoe').append($('<option>', {
+                                value: index,
+                                text: element
+                            }));
+                        })
+
+                        $.each(result.mun, function(index, element){
+                            $('#Municipioe').append($('<option>', {
+                                value: index,
+                                text: element
+                            }));
+                        })
+
+                        $.each(result.cod, function(index, element){
+                            $('#Coloniae').append($('<option>', {
+                                value: index,
+                                text: element
+                            }));
+                        })
+
+                        $.each(result.loc, function(index, element){
+                            $('#Localidade').append($('<option>', {
+                                value: index,
+                                text: element
+                            }));
+                        })
+                    }
+                }
+            })
+        }
+    })
            
 $('#fileuploader').hide();
-var idempresaedit = 0;
-var idempresaelim = 0;
+var idpuntoedit = 0;
+var idpuntoelim = 0;
 var imgmarcaed = 0;
 $("#btnagregarc").on('click', function () {
     if ($("#Nombre").val().trim().length >= 1 ) {
         form = $('#agregar');
         
-        $.ajax({url: "agregarempresa.php",
-            type: 'POST',
+        $.ajax({url: "agregarpunto.php",
+            type: 'GET',
             data: form.serialize(),
             success: function (result) {
                 location.reload();
@@ -19,6 +107,25 @@ $("#btnagregarc").on('click', function () {
         });
     }
 });
+
+$("#NumRegIdTrib").prop( "disabled", true );
+$('#ResidenciaFiscal').change(function(){
+    if($(this).val() == 'MEX'){
+        $("#NumRegIdTrib").prop( "disabled", true );
+    }else{
+        $("#NumRegIdTrib").prop( "disabled", false );
+    }
+    
+})
+
+$('#ResidenciaFiscale').change(function(){
+    if($(this).val() == 'MEX'){
+        $("#NumRegIdTribe").prop( "disabled", true );
+    }else{
+        $("#NumRegIdTribe").prop( "disabled", false );
+    }
+    
+})
 
 
 $("#btnmagr").on('click', function () {
@@ -31,20 +138,20 @@ $(".edittitle").click(function () {
     $.ajax({url: "getdatos.php",
         type: 'GET',
         data: {'id': marcaeditnom,
-                'tipo': 'empresa'},
+                'tipo': 'punto'},
         success: function (result) {
-                $("#idempresa").val(marcaeditnom);
+                $("#idpunto").val(marcaeditnom);
                 $("#Nombree").val(result.nombre);
-                $("#RFCe").val(result['rfc']);
-                $("#nocertificadoe").val(result['nocertificado']);
-                $("#certificadoe").val(result['certificado']);
-                $("#regimenfiscale").val(result['regimenfiscal']);
-                $("#nombrepace").val(result['nombrepac']);
-                $("#usuariopace").val(result['usuariopac']);
-                $("#contrapace").val(result['contrapac']);
-                $("#keype").val(result['keyp']);
-                $("#pfxe").val(result['pfx']);
-                $("#passpfxe").val(result['passpfx']);
+                $("#rfce").val(result['rfc']);
+                $("#ResidenciaFiscale").val(result['residenciaf']);
+                if(result['residenciaf'] == 'MEX'){
+                    $("#NumRegIdTribe").prop( "disabled", true );
+                }
+                $("#NumRegIdTribe").val(result['numregidtrib']);
+                $("#CodigoPostale").val(result['cp']);
+                $("#Callee").val(result['calle']);
+                $("#Estadoe").val(result['estado']);
+                $("#Paise").val(result['pais']);
             
         }
     });
@@ -57,8 +164,8 @@ $("#btneditartalla").click(function () {
     if ($("#Nombree").val().trim().length >= 1 ) {
         form = $('#editar');
 
-        $.ajax({url: "editarempresa.php",
-            type: 'POST',
+        $.ajax({url: "editarpunto.php",
+            type: 'GET',
             data: form.serialize(),
             success: function (result) {
                 //alert(result);
@@ -78,17 +185,17 @@ $("#btneditartalla").click(function () {
 
 
 $(".acivarmarca").click(function () {
-    idempresaedit = $(this).attr("dataidc");
+    idpuntoedit = $(this).attr("dataidc");
     $('#modalactivar').modal('show');
 });
 
     $("#btnactivar").click(function () {
 
     var parametros = {
-        "idempresa": idempresaedit
+        "idpunto": idpuntoedit
 
     };
-    $.ajax({url: "activarempresa.php",
+    $.ajax({url: "activarpunto.php",
         type: 'GET',
         data: parametros,
         success: function (result) {
@@ -104,15 +211,15 @@ $(".acivarmarca").click(function () {
 
 
 $(".elimmarca").click(function () {
-    idempresaelim = $(this).attr("dataidc");
+    idpuntoelim = $(this).attr("dataidc");
     $('#modaleliminar').modal('show');
 });
 
 $("#btnmelimtalla").click(function () {
     var parametros = {
-        "idempresa": idempresaelim
+        "idpunto": idpuntoelim
     };
-    $.ajax({url: "eliminarempresa.php",
+    $.ajax({url: "eliminarpunto.php",
         type: 'GET',
         data: parametros,
         success: function (result) {

@@ -314,7 +314,7 @@ if ($_SESSION['access'] == true) {
                                                 <?php
                                                 
 
-                                                $consulta = "SELECT * FROM sucursal ORDER BY idsucursal";
+                                                $consulta = "SELECT s.*, e.nombre empresa FROM sucursal s inner join empresa e on s.idempresa = e.idempresa ORDER BY idsucursal";
 
                                                 //$resultadocolp = $mysqli->query($consulta3);
                                                 $res = $mysqli->query($consulta);
@@ -328,7 +328,7 @@ if ($_SESSION['access'] == true) {
                                                             
                                                              
                                                             <td id="tdnom<?php echo utf8_encode($rs['idsucursal']); ?>"><?php echo $rs['nombre']; ?></td>
-                                                            <td id="TIPO<?php echo utf8_encode($rs['idsucursal']); ?>"><?php echo $rs['idempresa']; ?></td>
+                                                            <td id="TIPO<?php echo utf8_encode($rs['idsucursal']); ?>"><?php echo $rs['empresa']; ?></td>
                                                             <td id="PLACA<?php echo utf8_encode($rs['idsucursal']); ?>"><?php echo $rs['serie']; ?></td>
                                                             <td id="MARCA<?php echo utf8_encode($rs['idsucursal']); ?>"><?php echo $rs['folio']; ?></td>
                                                             <td id="MONDELO<?php echo utf8_encode($rs['idsucursal']); ?>"><?php echo $rs['cp']; ?></td>

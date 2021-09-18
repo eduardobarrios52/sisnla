@@ -310,12 +310,6 @@ if ($_SESSION[access] == true) {
 
                                                     </div>
 
-
-
-
-
-
-
                                                     <div class="modal-footer">
                                                         <button class="btn btn-red" data-dismiss="modal" aria-hidden="true">Cancelar</button>
                                                         <button id="btnagregarc" type="button" class="btn btn-greensea">Agregar</button>

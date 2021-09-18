@@ -1,16 +1,19 @@
 <?php
 include 'conexion.php';
 
-$nombre= $_GET['Nombre'];
-$rfc = $_GET['RFC'];
-$nocertificado = $_GET['nocertificado'];
-$certificado = $_GET['certificado'];
-$regimenfiscal = $_GET['NumRegIdTribNotificado'];
-$usuariopac = $_GET['usuariopac'];
-$contrapac = $_GET['contrapac'];
-$nombrepac = $_GET['nombrepac'];
+$nombre= $_POST['Nombre'];
+$rfc = $_POST['RFC'];
+$nocertificado = $_POST['nocertificado'];
+$certificado = $_POST['certificado'];
+$regimenfiscal = $_POST['NumRegIdTribNotificado'];
+$usuariopac = $_POST['usuariopac'];
+$contrapac = $_POST['contrapac'];
+$nombrepac = $_POST['nombrepac'];
+$keyp = $_POST['keyp'];
+$pfx = $_POST['pfx'];
+$passpfx = $_POST['passpfx'];
 
-$consultanot='insert into empresa(nombre,rfc,nocertificado,certificado,regimenfiscal,usuariopac,contrapac,nombrepac)'.
-'values(\'' . $nombre . '\',\'' . $rfc . '\',\'' . $nocertificado . '\',\'' . $certificado . '\',\'' . $regimenfiscal . '\',\'' . $usuariopac . '\',\'' . $contrapac . '\',\'' . $nombrepac . '\')';
+$consultanot='insert into empresa(nombre,rfc,nocertificado,certificado,regimenfiscal,usuariopac,contrapac,nombrepac,keyp,pfx,passpfx)'.
+'values(\'' . $nombre . '\',\'' . $rfc . '\',\'' . $nocertificado . '\',\'' . $certificado . '\',\'' . $regimenfiscal . '\',\'' . $usuariopac . '\',\'' . $contrapac . '\',\'' . $nombrepac . '\',\'' . $keyp . '\',\'' . $pfx . '\',\'' . $passpfx . '\')';
                                 
 $mysqli->query($consultanot);
