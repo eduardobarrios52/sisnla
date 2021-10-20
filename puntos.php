@@ -517,15 +517,15 @@ if ($_SESSION['access'] == true) {
                                                             <td id="tdcurp<?php echo utf8_encode($rs['idpuntos']); ?>"><?php echo $rs['Esta']; ?></td>
                                                             <td id="tdrfc<?php echo utf8_encode($rs['idpuntos']); ?>"><?php echo $rs['paiss']; ?></td>
                                                             <td id="tddomi<?php echo utf8_encode($rs['idpuntos']); ?>"><?php echo $rs['cp']; ?></td>
-                                                            <td><button dataidc="<?php echo utf8_encode($rs['idpuntos']); ?>" type="button" class="btn edittitle btn-warning margin-bottom-20">Editar Operador</button></td>
+                                                            <td><button dataidc="<?php echo utf8_encode($rs['idpuntos']); ?>" type="button" class="btn edittitle btn-warning margin-bottom-20">Editar Punto</button></td>
                                                             <?php if ($rs['fecbaja'] == '0000-00-00 00:00:00') {
                                                                 ?>
-                                                               <td><button dataidc="<?php echo utf8_encode($rs['idpuntos']); ?>" type="button" class="btn elimmarca btn-danger margin-bottom-20">Desactivar Operador</button></td>
+                                                               <td><button dataidc="<?php echo utf8_encode($rs['idpuntos']); ?>" type="button" class="btn elimmarca btn-danger margin-bottom-20">Desactivar Punto</button></td>
                                                               
                                                             <?php 
                                                            }else{
                                                                 ?>
-                                                               <td><button dataidc="<?php echo utf8_encode($rs['idpuntos']); ?>" type="button" class="btn acivarmarca btn-green margin-bottom-20">Activar Operador</button></td>
+                                                               <td><button dataidc="<?php echo utf8_encode($rs['idpuntos']); ?>" type="button" class="btn acivarmarca btn-green margin-bottom-20">Activar Punto</button></td>
                                                               
                                                             <?php
                                                            }

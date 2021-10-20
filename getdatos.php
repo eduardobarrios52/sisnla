@@ -186,6 +186,8 @@ if($tipo == 'empresa'){
             $resp['estado'] = $rs['estado'];
             $resp['pais'] = $rs['pais'];
             $resp['cp'] = $rs['cp'];
+            $resp['Colonia'] = $rs['c_Colonia'];
+            $resp['Localidad'] = $rs['c_Localidad'];
         }
     }
 }

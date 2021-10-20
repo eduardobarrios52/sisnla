@@ -140,19 +140,61 @@ $(".edittitle").click(function () {
         data: {'id': marcaeditnom,
                 'tipo': 'punto'},
         success: function (result) {
-                $("#idpunto").val(marcaeditnom);
-                $("#Nombree").val(result.nombre);
-                $("#rfce").val(result['rfc']);
-                $("#ResidenciaFiscale").val(result['residenciaf']);
-                if(result['residenciaf'] == 'MEX'){
-                    $("#NumRegIdTribe").prop( "disabled", true );
+            $.ajax({
+                url: 'codigopostal.php',
+                type: 'GET',
+                data: {	'CodigoPostal' : result['cp'],
+                        },
+                success: function (result2) {
+                    if(result2){
+                        $('#Estadoe').html('');
+                        $('#Municipioe').html('');
+                        $('#Coloniae').html('');
+                        $('#Localidade').html('');
+                        $.each(result2.edo, function(index, element){
+                            $('#Estadoe').append($('<option>', {
+                                value: index,
+                                text: element
+                            }));
+                        })
+
+                        $.each(result2.mun, function(index, element){
+                            $('#Municipioe').append($('<option>', {
+                                value: index,
+                                text: element
+                            }));
+                        })
+
+                        $.each(result2.cod, function(index, element){
+                            $('#Coloniae').append($('<option>', {
+                                value: index,
+                                text: element
+                            }));
+                        })
+
+                        $.each(result2.loc, function(index, element){
+                            $('#Localidade').append($('<option>', {
+                                value: index,
+                                text: element
+                            }));
+                        })
+                        $("#idpunto").val(marcaeditnom);
+                        $("#Nombree").val(result.nombre);
+                        $("#rfce").val(result['rfc']);
+                        $("#ResidenciaFiscale").val(result['residenciaf']);
+                        if(result['residenciaf'] == 'MEX'){
+                            $("#NumRegIdTribe").prop( "disabled", true );
+                        }
+                        $("#NumRegIdTribe").val(result['numregidtrib']);
+                        $("#CodigoPostale").val(result['cp']);
+                        $("#Coloniae").val(result['Colonia']);
+                        $("#Localidade").val(result['Localidad']);
+                        $("#Callee").val(result['calle']);
+                        $("#Estadoe").val(result['estado']);
+                        $("#Paise").val(result['pais']);
+                    }
                 }
-                $("#NumRegIdTribe").val(result['numregidtrib']);
-                $("#CodigoPostale").val(result['cp']);
-                $("#Callee").val(result['calle']);
-                $("#Estadoe").val(result['estado']);
-                $("#Paise").val(result['pais']);
-            
+            })
         }
     });
 
