@@ -190,6 +190,8 @@ $(".edittitle").click(function () {
                         $("#Coloniae").val(result['Colonia']);
                         $("#Localidade").val(result['Localidad']);
                         $("#Callee").val(result['calle']);
+                        $("#NumeroExteriore").val(result['NumeroExterior']);
+                                        $("#NumeroInteriore").val(result['NumeroInterior']);
                         $("#Estadoe").val(result['estado']);
                         $("#Paise").val(result['pais']);
                     }

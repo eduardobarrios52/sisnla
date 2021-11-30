@@ -225,6 +225,16 @@ if ($_SESSION['access'] == true) {
                                                         <input type="text" class="form-control" id="Calle" name="Calle">
                                                     </div>
 
+                                                    <div class="form-group">
+                                                            <label for="exampleInput">Numero Exterior</label>
+                                                            <input type="text" class="form-control" id="NumeroExterior" name="NumeroExterior">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Numero Interior</label>
+                                                            <input type="text" class="form-control" id="NumeroInterior" name="NumeroInterior">
+                                                        </div>
+
                                                         <div class="form-group">
                                                             <label class="col-sm-12 control-label">Estado</label>
 
@@ -381,6 +391,15 @@ if ($_SESSION['access'] == true) {
                                                         <input type="text" class="form-control" id="Callee" name="Calle">
                                                     </div>
                                                     <div class="form-group">
+                                                            <label for="exampleInput">Numero Exterior</label>
+                                                            <input type="text" class="form-control" id="NumeroExteriore" name="NumeroExterior">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="exampleInput">Numero Interior</label>
+                                                            <input type="text" class="form-control" id="NumeroInteriore" name="NumeroInterior">
+                                                        </div>
+                                                    <div class="form-group">
                                                             <label class="col-sm-12 control-label">Localidad</label>
 
                                                             <div class="form-group">
@@ -487,6 +506,8 @@ if ($_SESSION['access'] == true) {
                                                     <th>RESIDENCIA FISCAL</th>
                                                     <th>RESGISTRO TRIBUTARIO</th>
                                                     <th>CALLE</th>
+                                                    <th>NUMERO EXTERIOR</th>
+                                                    <th>NUMERO INTERIOR</th>
                                                     <th>ESTADO</th>
                                                     <th>PAIS</th>
                                                     <th>CODIGO POSTAL</th>
@@ -514,6 +535,8 @@ if ($_SESSION['access'] == true) {
                                                             <td id="tdnome<?php echo utf8_encode($rs['idpuntos']); ?>"><?php echo $rs['residenciaf']; ?></td>
                                                             <td id="tddesc<?php echo utf8_encode($rs['idpuntos']); ?>"><?php echo $rs['numregidtrib']; ?></td>
                                                             <td id="tdcurp<?php echo utf8_encode($rs['idpuntos']); ?>"><?php echo $rs['calle']; ?></td>
+                                                            <td id="tdext<?php echo utf8_encode($rs['idpuntos']); ?>"><?php echo $rs['NumeroExterior']; ?></td>
+                                                            <td id="tdint<?php echo utf8_encode($rs['idpuntos']); ?>"><?php echo $rs['NumeroInterior']; ?></td>
                                                             <td id="tdcurp<?php echo utf8_encode($rs['idpuntos']); ?>"><?php echo $rs['Esta']; ?></td>
                                                             <td id="tdrfc<?php echo utf8_encode($rs['idpuntos']); ?>"><?php echo $rs['paiss']; ?></td>
                                                             <td id="tddomi<?php echo utf8_encode($rs['idpuntos']); ?>"><?php echo $rs['cp']; ?></td>
