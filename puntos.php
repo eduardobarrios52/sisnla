@@ -246,6 +246,16 @@ if ($_SESSION['access'] == true) {
                                                         </div>
 
                                                         <div class="form-group">
+                                                            <label class="col-sm-12 control-label">Municipio</label>
+
+                                                            <div class="form-group">
+                                                                <label for="exampleInput"></label>
+                                                                <select id="Municipio" name="Municipio" class="form-control">
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
                                                             <label class="col-sm-12 control-label">País</label>
 
                                                             <div class="form-group">
@@ -419,6 +429,16 @@ if ($_SESSION['access'] == true) {
                                                     </div>
 
                                                     <div class="form-group">
+                                                            <label class="col-sm-12 control-label">Municipio</label>
+
+                                                            <div class="form-group">
+                                                                <label for="exampleInput"></label>
+                                                                <select id="Municipioe" name="Municipio" class="form-control">
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                    <div class="form-group">
                                                         <label class="col-sm-12 control-label">País</label>
 
                                                         <div class="form-group">
@@ -509,7 +529,9 @@ if ($_SESSION['access'] == true) {
                                                     <th>NUMERO EXTERIOR</th>
                                                     <th>NUMERO INTERIOR</th>
                                                     <th>ESTADO</th>
+                                                    <th>MUNICIPIO</th>
                                                     <th>PAIS</th>
+                                                    <th>LOCALIDAD</th>
                                                     <th>CODIGO POSTAL</th>
                                                     <th>EDITAR</th>
                                                     <th>ACTIVAR</th>
@@ -520,7 +542,7 @@ if ($_SESSION['access'] == true) {
                                                 <?php
                                                 include 'conexion.php';
 
-                                                $consulta = "SELECT p.* , pai.descripcion as paiss, e.nombre as Esta FROM puntos p inner join pais pai on p.Pais = pai.clave inner join estados e on e.c_Estado = p.Estado ORDER BY idpuntos";
+                                                $consulta = "SELECT p.* , pai.descripcion as paiss, e.nombre as Esta, m.descripcion as Mun FROM puntos p inner join pais pai on p.Pais = pai.clave inner join estados e on e.c_Estado = p.Estado inner join municipios m on m.c_municipio = p.Municipio and m.c_Estado = p.Estado ORDER BY idpuntos";
 
                                                 //$resultadocolp = $mysqli->query($consulta3);
                                                 $res = $mysqli->query($consulta);
@@ -538,7 +560,9 @@ if ($_SESSION['access'] == true) {
                                                             <td id="tdext<?php echo utf8_encode($rs['idpuntos']); ?>"><?php echo $rs['NumeroExterior']; ?></td>
                                                             <td id="tdint<?php echo utf8_encode($rs['idpuntos']); ?>"><?php echo $rs['NumeroInterior']; ?></td>
                                                             <td id="tdcurp<?php echo utf8_encode($rs['idpuntos']); ?>"><?php echo $rs['Esta']; ?></td>
+                                                            <td id="tdmun<?php echo utf8_encode($rs['idpuntos']); ?>"><?php echo $rs['Mun']; ?></td>
                                                             <td id="tdrfc<?php echo utf8_encode($rs['idpuntos']); ?>"><?php echo $rs['paiss']; ?></td>
+                                                            <td id="tdloc<?php echo utf8_encode($rs['idpuntos']); ?>"><?php echo $rs['c_Localidad']; ?></td>
                                                             <td id="tddomi<?php echo utf8_encode($rs['idpuntos']); ?>"><?php echo $rs['cp']; ?></td>
                                                             <td><button dataidc="<?php echo utf8_encode($rs['idpuntos']); ?>" type="button" class="btn edittitle btn-warning margin-bottom-20">Editar Punto</button></td>
                                                             <?php if ($rs['fecbaja'] == '0000-00-00 00:00:00') {

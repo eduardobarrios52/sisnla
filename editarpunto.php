@@ -12,10 +12,11 @@ $NumeroInterior = isset($_GET['NumeroInterior']) ? $_GET['NumeroInterior'] : nul
 $estado = $_GET['Estado'];
 $pais = $_GET['Pais'];
 $colonia = $_GET['Colonia'];
+$Municipio = $_GET['Municipio'];
 $localidad = $_GET['Localidad'];
 $cp = $_GET['CodigoPostal'];
 
-$consultanot='update puntos set nombre=\'' . $nombre . '\',rfc=\'' . $rfc . '\', residenciaf=\'' . $residenciaf . '\', numregidtrib=\'' . $numregidtrib . '\', calle=\'' . $calle . '\', NumeroExterior=\'' . $NumeroExterior . '\', NumeroInterior=\'' . $NumeroInterior . '\', estado=\'' . $estado . '\', pais=\'' . $pais . '\', cp=\'' . $cp . '\', c_Colonia=\'' . $colonia . '\', c_Localidad=\'' . $localidad . '\' where idpuntos=\'' . $idpuntos . '\' ';
+$consultanot='update puntos set nombre=\'' . $nombre . '\',rfc=\'' . $rfc . '\', residenciaf=\'' . $residenciaf . '\', numregidtrib=\'' . $numregidtrib . '\', calle=\'' . $calle . '\', NumeroExterior=\'' . $NumeroExterior . '\', NumeroInterior=\'' . $NumeroInterior . '\', estado=\'' . $estado . '\', pais=\'' . $pais . '\', cp=\'' . $cp . '\', c_Colonia=\'' . $colonia . '\', c_Localidad=\'' . $localidad . '\', Municipio=\'' . $municipio . '\' where idpuntos=\'' . $idpuntos . '\' ';
 if($mysqli->query($consultanot)){
     echo 'ok';
 }
